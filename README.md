@@ -1,9 +1,9 @@
 
 
 
-# Convetion
+# Convention
 
-## **1. Git Convention**
+## 1. Git Convention
 
 ### 1) Git Branch Convention
 
@@ -18,7 +18,7 @@ master
 	    - feature/Unity_Map#지라이슈번호
 ```
 
-### 2**) Git Commit Message Prefix**
+### 2) Git Commit Message Prefix
 
 ```shell
 types = {      
@@ -34,7 +34,7 @@ types = {
 }
 ```
 
-### 3**) Git Commit Message Convetion**
+### 3) Git Commit Message Convention
 
 1. Commit Message 구조
 
@@ -67,7 +67,7 @@ types = {
    UPDATE -> 개정이나 버전 업데이트가 있을 때 사용합니다. 주로 코드보다는 주로 문서나 리소스, 라이브러리등에 사용합니다.
    ```
 
-## 2**. Jira Convention**
+## 2. Jira Convention
 
 - Sprint 단위 : 매주 월 AM 9:00 ~ 금 PM 6:00
 
@@ -75,13 +75,13 @@ types = {
 
 - 🔮epic
 
-  : 큰 단위의 업무
+  >  큰 단위의 업무
 
   - 기준: 개발 프로세스 단위 - 기획 / 설계 / 구현 / 테스트 or 개발 기능 단위
 
 - 📗user story
 
-  : 최종 고객에게 가치를 제공하는 기능
+  > 최종 고객에게 가치를 제공하는 기능
 
   - sprint 내에 완료 가능한 단위로 분할 필요
   - story point 설정 - 1 = 1 HR (소요시간 예측)
@@ -89,14 +89,16 @@ types = {
 
 - 🛠 task
 
-  : story 외에 기술적, 관리적 업무
+  > story 외에 기술적, 관리적 업무
 
   - 설계, 서버설치, 문서작업, 발표준비 등
 
 - ☑ sub-task
 
-  : user story와 task 내에 속하는 작은 단위의 업무
+  > user story와 task 내에 속하는 작은 단위의 업무
 
   - 부작업은 story point 입력 불가능하므로 1시간이 걸리지 않는 업무 단위로 쪼개면 좋을듯
 
-- 🐝 **bug**: 개발 과정 중 보고된 버그
+- 🐝 bug
+
+  > 개발 과정 중 보고된 버그
