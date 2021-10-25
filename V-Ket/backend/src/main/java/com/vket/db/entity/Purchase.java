@@ -21,5 +21,5 @@ public class Purchase {
     private String purchaseStatus;
 
     @OneToMany(mappedBy = "purchase")
-    private List<Order> orders = new ArrayList<>();
+    private List<Deal> deals = new ArrayList<>();
 }
