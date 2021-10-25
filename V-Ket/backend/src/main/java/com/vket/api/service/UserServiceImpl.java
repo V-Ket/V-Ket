@@ -87,7 +87,7 @@ public class UserServiceImpl implements UserService{
 
         User user = userRepository.findByUserId(userNicknameEditReq.getUserId()).get();
 
-
+        user.updateUserNickname(userNicknameEditReq.getUserNickname());
 
         userRepository.save(user);
 

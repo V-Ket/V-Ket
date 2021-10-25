@@ -48,7 +48,7 @@ public class UserController {
 
         // 중복입니다.
         if(userService.userIdDuplicate(userId)){
-            return ResponseEntity.status(201).body(BaseResponseBody.of(400, "아이디 중복입니다."));
+            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "아이디 중복입니다."));
         }else{
             return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
         }
@@ -59,7 +59,7 @@ public class UserController {
     public ResponseEntity<? extends BaseResponseBody> userNicknameDuplicate(@PathVariable("userId") String userNickname){
         // 중복입니다.
         if(userService.userNicknameDuplicate(userNickname)){
-            return ResponseEntity.status(201).body(BaseResponseBody.of(400, "아이디 중복입니다."));
+            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "아이디 중복입니다."));
         }else{
             return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
         }
@@ -86,6 +86,7 @@ public class UserController {
 
         userService.editUserNickname(userNicknameEditReq);
 
+        return ResponseEntity.status(201).body(BaseResponseBody.of(201, "닉네임 변경완료"));
     }
 
 }
