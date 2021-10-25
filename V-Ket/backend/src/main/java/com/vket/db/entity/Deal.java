@@ -9,26 +9,26 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Order {
+public class Deal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "order_id")
-    private Long orderId;
+    @Column(name = "deal_id")
+    private Long dealId;
 
-    @Column(name = "order_seller")
-    private String orderSeller;
+    @Column(name = "deal_seller")
+    private String dealSeller;
 
-    @Column(name = "order_goods_name")
-    private String orderGoodsName;
+    @Column(name = "deal_goods_name")
+    private String dealGoodsName;
 
-    @Column(name = "order_price")
-    private Long orderPrice;
+    @Column(name = "deal_price")
+    private Long dealPrice;
 
-    @Column(name = "order_quantity")
-    private Long orderQuantity;
+    @Column(name = "deal_quantity")
+    private Long dealQuantity;
 
-    @Column(name = "order_img")
-    private String orderImg;
+    @Column(name = "deal_img")
+    private String dealImg;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_seq")

@@ -43,5 +43,5 @@ public class User {
     private Store store;
 
     @OneToMany(mappedBy = "user")
-    private List<Order> orders = new ArrayList<>();
+    private List<Deal> deals = new ArrayList<>();
 }
