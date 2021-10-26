@@ -66,16 +66,25 @@ public class GoodsController {
         }
     }
 
-//    // 상품 등록하기
-//    @PutMapping("")
-//    @ApiOperation(value = "새 상품 등록", notes = "")
-//    public ResponseEntity<? extends BaseResponseBody> addGoods(@RequestBody @ApiParam(value = "새 상품 정보", required = true) GoodsAddReq goodsAddReq){
-////        if (goodsService.updateGoodsInfo(goodsUpdateReq)) {
-////            return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
-////        } else {
-////            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
-////        }
-//    }
+    // 상품 등록하기
+    @PostMapping("")
+    @ApiOperation(value = "새 상품 등록", notes = "")
+    public ResponseEntity<? extends BaseResponseBody> addGoods(@RequestBody @ApiParam(value = "새 상품 정보", required = true) GoodsAddReq goodsAddReq){
+        if (goodsService.addGoods(goodsAddReq)) {
+            return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
+        } else {
+            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
+        }
+    }
 
     // 상품 삭제하기
+    @DeleteMapping("/{goodsId}")
+    @ApiOperation(value = "특정 ID 상품 삭제하기", notes = "")
+    public ResponseEntity<? extends BaseResponseBody> delteGoodsById(@PathVariable("goodsId") Long goodsId){
+        if (goodsService.deleteByGoodsId(goodsId)) {
+            return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
+        } else {
+            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
+        }
+    }
 }

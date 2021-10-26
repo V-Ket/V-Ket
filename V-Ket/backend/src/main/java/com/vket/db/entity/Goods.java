@@ -35,16 +35,6 @@ public class Goods {
     @JoinColumn(name = "store_id")
     private Store store;
 
-//    @Builder
-//    public Goods(String goodsName, Long goodsPrice, String goodsImg, Long goodsQuantity, String goodsContent) {
-//        this.goodsName = goodsName;
-//        this.goodsPrice = goodsPrice;
-//        this.goodsImg = goodsImg;
-//        this.goodsQuantity = goodsQuantity;
-//        this.goodsContent = goodsContent;
-//        // storeId로 찾아서 store 저장하기?
-//    }
-
     @Builder
     public Goods(String goodsName, Long goodsPrice, String goodsImg, Long goodsQuantity, String goodsContent, Store store) {
         this.goodsName = goodsName;

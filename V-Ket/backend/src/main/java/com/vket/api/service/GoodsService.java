@@ -22,7 +22,8 @@ public interface GoodsService {
     boolean updateGoodsInfo(GoodsUpdateReq goodsUpdateReq);
 
     // 상품 등록하기
-//    boolean addGoods(GoodsAddReq goodsAddReq);
+    boolean addGoods(GoodsAddReq goodsAddReq);
     
     // 상품 삭제하기
+    boolean deleteByGoodsId(Long goodsId);
 }
