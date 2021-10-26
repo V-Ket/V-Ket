@@ -3,7 +3,8 @@ package com.vket.db.repository;
 import com.vket.db.entity.Island;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface IslandRepository extends JpaRepository<Island, Long> {
+import java.util.Optional;
 
-    Island findByIslandId(Long islandId);
+public interface IslandRepository extends JpaRepository<Island, Long> {
+    Optional<Island> findByIslandId(Long islandId);
 }

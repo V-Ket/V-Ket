@@ -17,7 +17,7 @@ public class Island {
     @Column(name = "island_id")
     private Long islandId;
 
-    @Column(name = "islane_name")
+    @Column(name = "island_name")
     private String islandName;
 
     @OneToMany(mappedBy = "island")
