@@ -38,11 +38,26 @@ public class Store {
     @Column(name = "store_url")
     private String storeUrl;
 
-    @Column(name = "store_status", columnDefinition = "boolean default false")
-    private boolean storeStatus;
+    @Column(name = "store_status")
+    private Long storeStatus;
 
     @Column(name = "store_island_num")
     private Long storeIslandNum;
 
 
+    public void updateStoreName(String storeName) {
+        this.storeName = storeName;
+    }
+
+    public void updateStoreContent(String storeContent) {
+        this.storeContent = storeContent;
+    }
+
+    public void updateStoreUrl(String storeUrl) {
+        this.storeUrl = storeUrl;
+    }
+
+    public void updateStoreStatus(Long storeStatus) {
+        this.storeStatus = storeStatus;
+    }
 }
