@@ -1,9 +1,6 @@
 package com.vket.api.service;
 
-import com.vket.api.request.UserCharactorEditReq;
-import com.vket.api.request.UserLoginPostReq;
-import com.vket.api.request.UserNicknameEditReq;
-import com.vket.api.request.UserPostReq;
+import com.vket.api.request.*;
 import com.vket.api.response.UserFavortieGetRes;
 import com.vket.api.response.UserLoginPostRes;
 import com.vket.config.JwtTokenProvider;
@@ -142,6 +139,20 @@ public class UserServiceImpl implements UserService{
         user.updateUserCharactor(userCharactorEditReq.getUserCharactor());
 
         userRepository.save(user);
+
+    }
+
+    @Override
+    public void addFavorite(UserFavoratePostReq userFavoratePostReq) {
+
+        User user = userRepository.findByUserSeq(userFavoratePostReq.getUserSeq()).get();
+
+        Favorite favorite = Favorite.builder()
+                .user(user)
+                .storeId(userFavoratePostReq.getStoreId())
+                .build();
+
+        favoriteRepository.save(favorite);
 
     }
 

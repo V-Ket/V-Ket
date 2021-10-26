@@ -1,10 +1,7 @@
 package com.vket.api.controller;
 
 
-import com.vket.api.request.UserCharactorEditReq;
-import com.vket.api.request.UserLoginPostReq;
-import com.vket.api.request.UserNicknameEditReq;
-import com.vket.api.request.UserPostReq;
+import com.vket.api.request.*;
 import com.vket.api.response.UserFavortieGetRes;
 import com.vket.api.response.UserLoginPostRes;
 import com.vket.api.service.UserService;
@@ -103,9 +100,17 @@ public class UserController {
     }
 
     // 즐겨찾기 추가
+    @PostMapping("/favorite")
+    @ApiOperation(value = "즐겨찾기 추가", notes ="")
+    public ResponseEntity<? extends BaseResponseBody> addFavorite(@RequestBody UserFavoratePostReq userFavoratePostReq){
+
+        userService.addFavorite(userFavoratePostReq);
+
+        return ResponseEntity.status(201).body(BaseResponseBody.of(201, "즐겨찾기 추가 완료"));
+
+    }
 
     // 즐겨찾기 삭제
-
     @PutMapping("/character")
     @ApiOperation(value = "캐릭터 등록/수정", notes = "<strong>캐릭터</strong>를 등록/수정 한다.")
     public ResponseEntity<? extends BaseResponseBody> editUserCharacter(@RequestBody UserCharactorEditReq userCharactorEditReq){
