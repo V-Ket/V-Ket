@@ -1,10 +1,7 @@
 package com.vket.api.controller;
 
 
-import com.vket.api.request.UserCharactorEditReq;
-import com.vket.api.request.UserLoginPostReq;
-import com.vket.api.request.UserNicknameEditReq;
-import com.vket.api.request.UserPostReq;
+import com.vket.api.request.*;
 import com.vket.api.response.UserFavortieGetRes;
 import com.vket.api.response.UserLoginPostRes;
 import com.vket.api.service.UserService;
@@ -102,9 +99,25 @@ public class UserController {
         return new ResponseEntity<List<UserFavortieGetRes>>(favortieGetResList, HttpStatus.OK);
     }
 
-    // 즐겨찾기 추가
+    @PostMapping("/favorite")
+    @ApiOperation(value = "즐겨찾기 추가", notes ="")
+    public ResponseEntity<? extends BaseResponseBody> addFavorite(@RequestBody UserFavorateReq userFavorateReq){
 
-    // 즐겨찾기 삭제
+        userService.addFavorite(userFavorateReq);
+
+        return ResponseEntity.status(201).body(BaseResponseBody.of(201, "즐겨찾기 추가 완료"));
+
+    }
+
+    @DeleteMapping("/favorite")
+    @ApiOperation(value = "즐겨찾기 삭제", notes ="")
+    public ResponseEntity<? extends BaseResponseBody> deleteFavorite(@RequestBody UserFavorateReq userFavorateReq){
+
+        userService.deleteFavorite(userFavorateReq);
+
+        return ResponseEntity.status(201).body(BaseResponseBody.of(201, "즐겨찾기 삭제 완료"));
+
+    }
 
     @PutMapping("/character")
     @ApiOperation(value = "캐릭터 등록/수정", notes = "<strong>캐릭터</strong>를 등록/수정 한다.")
@@ -112,9 +125,16 @@ public class UserController {
 
         userService.editUserCharacter(userCharactorEditReq);
 
-        return ResponseEntity.status(201).body(BaseResponseBody.of(201, "닉네임 변경완료"));
+        return ResponseEntity.status(201).body(BaseResponseBody.of(201, "캐릭터 변경완료"));
 
     }
 
+    // 크래딧 충전
+    
+    // 크래딧 화전
+    
+    // 구매 내역 조회
+    
+    // 판매 내역 조회
 
 }

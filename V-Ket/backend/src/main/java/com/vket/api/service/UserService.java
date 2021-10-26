@@ -1,9 +1,6 @@
 package com.vket.api.service;
 
-import com.vket.api.request.UserCharactorEditReq;
-import com.vket.api.request.UserNicknameEditReq;
-import com.vket.api.request.UserLoginPostReq;
-import com.vket.api.request.UserPostReq;
+import com.vket.api.request.*;
 import com.vket.api.response.UserFavortieGetRes;
 import com.vket.api.response.UserLoginPostRes;
 
@@ -23,4 +20,8 @@ public interface UserService {
     List<UserFavortieGetRes> getFavoriteList(Long userSeq);
 
     void editUserCharacter(UserCharactorEditReq userCharactorEditReq);
+
+    void addFavorite(UserFavorateReq userFavoratePostReq);
+
+    void deleteFavorite(UserFavorateReq userFavorateReq);
 }
