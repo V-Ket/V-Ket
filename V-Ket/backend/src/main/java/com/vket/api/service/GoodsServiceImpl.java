@@ -4,7 +4,7 @@ import com.vket.api.request.GoodsAddReq;
 import com.vket.api.request.GoodsUpdateReq;
 import com.vket.api.response.GoodsRes;
 import com.vket.db.entity.Goods;
-import com.vket.db.repository.GoodsRepository;
+import com.vket.db.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +16,9 @@ import java.util.Optional;
 public class GoodsServiceImpl implements GoodsService {
     @Autowired
     GoodsRepository goodsRepository;
+
+    @Autowired
+    StoreRepository storeRepository;
 
 //    @Override
 //    public List<Goods> findAll() {
@@ -99,18 +102,32 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     // 상품 등록하기
-//    @Override
-//    public boolean addGoods(GoodsAddReq goodsAddReq) {
-//        goodsRepository.save(Goods.builder()
-//                .goodsId(goodsAddReq.getGoodsId())
-//                .goodsName(goodsAddReq.getGoodsName())
-//                .goodsPrice(goodsAddReq.getGoodsPrice())
-//                .goodsImg(goodsAddReq.getGoodsImg())
-//                .goodsQuantity(goodsAddReq.getGoodsQuantity())
-//                .goodsContent(goodsAddReq.getGoodsContent())
-//                .build());
-//        return true;
-//    }
+    @Override
+    public boolean addGoods(GoodsAddReq goodsAddReq) {
+        if(storeRepository.findByStoreId(goodsAddReq.getStoreId()).isPresent()) {
+            goodsRepository.save(Goods.builder()
+                    .goodsId(goodsAddReq.getGoodsId())
+                    .goodsName(goodsAddReq.getGoodsName())
+                    .goodsPrice(goodsAddReq.getGoodsPrice())
+                    .goodsImg(goodsAddReq.getGoodsImg())
+                    .goodsQuantity(goodsAddReq.getGoodsQuantity())
+                    .goodsContent(goodsAddReq.getGoodsContent())
+                    .store((storeRepository.findByStoreId(goodsAddReq.getStoreId()).get()))
+                    .build());
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     // 상품 삭제하기
+    @Override
+    public boolean deleteByGoodsId(Long goodsId) {
+        if (goodsRepository.findByGoodsId(goodsId).isPresent()) {
+            goodsRepository.deleteByGoodsId(goodsId);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

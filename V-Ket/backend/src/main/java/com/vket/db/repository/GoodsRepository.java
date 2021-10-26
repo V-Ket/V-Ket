@@ -3,6 +3,7 @@ package com.vket.db.repository;
 import com.vket.db.entity.Goods;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,4 +23,6 @@ public interface GoodsRepository extends JpaRepository<Goods, Long> {
     // 상품 등록하기
 
     // 상품 삭제하기
+    @Transactional
+    void deleteByGoodsId(Long goodsId);
 }
