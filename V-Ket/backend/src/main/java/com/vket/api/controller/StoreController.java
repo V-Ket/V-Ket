@@ -32,7 +32,7 @@ public class StoreController {
         if (storeService.addStore(storePostReq)){
             return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
         }else{
-            return ResponseEntity.status(201).body(BaseResponseBody.of(400, "Fail"));
+            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
         }
 
     }
@@ -45,7 +45,7 @@ public class StoreController {
         if (storeService.updateStoreAll(storeUpdateAllReq)){
             return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
         }else{
-            return ResponseEntity.status(201).body(BaseResponseBody.of(400, "Fail"));
+            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
         }
 
     }
@@ -57,7 +57,7 @@ public class StoreController {
         if (storeService.updateStoreName(storeUpdateNameReq)){
             return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
         }else{
-            return ResponseEntity.status(201).body(BaseResponseBody.of(400, "Fail"));
+            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
         }
 
     }
@@ -69,7 +69,7 @@ public class StoreController {
         if (storeService.updateStoreContent(storeUpdateContentReq)){
             return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
         }else{
-            return ResponseEntity.status(201).body(BaseResponseBody.of(400, "Fail"));
+            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
         }
 
     }
@@ -81,7 +81,7 @@ public class StoreController {
         if (storeService.updateStoreUrl(storeUpdateUrlReq)){
             return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
         }else{
-            return ResponseEntity.status(201).body(BaseResponseBody.of(400, "Fail"));
+            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
         }
 
     }
@@ -107,7 +107,7 @@ public class StoreController {
         //아마 굿즈 삭제가 되야하지 않나? cascade?
         storeService.deleteStore(storeId);
 
-        return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
+        return ResponseEntity.status(400).body(BaseResponseBody.of(201, "Success"));
 
     }
 }
