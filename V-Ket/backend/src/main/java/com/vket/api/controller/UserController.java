@@ -99,18 +99,26 @@ public class UserController {
         return new ResponseEntity<List<UserFavortieGetRes>>(favortieGetResList, HttpStatus.OK);
     }
 
-    // 즐겨찾기 추가
     @PostMapping("/favorite")
     @ApiOperation(value = "즐겨찾기 추가", notes ="")
-    public ResponseEntity<? extends BaseResponseBody> addFavorite(@RequestBody UserFavoratePostReq userFavoratePostReq){
+    public ResponseEntity<? extends BaseResponseBody> addFavorite(@RequestBody UserFavorateReq userFavorateReq){
 
-        userService.addFavorite(userFavoratePostReq);
+        userService.addFavorite(userFavorateReq);
 
         return ResponseEntity.status(201).body(BaseResponseBody.of(201, "즐겨찾기 추가 완료"));
 
     }
 
-    // 즐겨찾기 삭제
+    @DeleteMapping("/favorite")
+    @ApiOperation(value = "즐겨찾기 삭제", notes ="")
+    public ResponseEntity<? extends BaseResponseBody> deleteFavorite(@RequestBody UserFavorateReq userFavorateReq){
+
+        userService.deleteFavorite(userFavorateReq);
+
+        return ResponseEntity.status(201).body(BaseResponseBody.of(201, "즐겨찾기 삭제 완료"));
+
+    }
+
     @PutMapping("/character")
     @ApiOperation(value = "캐릭터 등록/수정", notes = "<strong>캐릭터</strong>를 등록/수정 한다.")
     public ResponseEntity<? extends BaseResponseBody> editUserCharacter(@RequestBody UserCharactorEditReq userCharactorEditReq){

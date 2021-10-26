@@ -7,11 +7,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@ApiModel("UserFavoratePostReq")
-public class UserFavoratePostReq {
+@ApiModel("UserFavorateReq")
+public class UserFavorateReq {
 
-    @ApiModelProperty(name = "유저 Seq", example = "user_Seq")
-    Long userSeq;
+    @ApiModelProperty(name = "유저 Id", example = "user_Seq")
+    String userId;
     @ApiModelProperty(name = "상점 ID", example = "store_id")
     Long storeId;
 }

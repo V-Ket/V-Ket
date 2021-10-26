@@ -143,16 +143,25 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void addFavorite(UserFavoratePostReq userFavoratePostReq) {
+    public void addFavorite(UserFavorateReq userFavorateReq) {
 
-        User user = userRepository.findByUserSeq(userFavoratePostReq.getUserSeq()).get();
+        User user = userRepository.findByUserId(userFavorateReq.getUserId()).get();
 
         Favorite favorite = Favorite.builder()
                 .user(user)
-                .storeId(userFavoratePostReq.getStoreId())
+                .storeId(userFavorateReq.getStoreId())
                 .build();
 
         favoriteRepository.save(favorite);
+
+    }
+
+    @Override
+    public void deleteFavorite(UserFavorateReq userFavorateReq) {
+
+        User user = userRepository.findByUserId(userFavorateReq.getUserId()).get();
+
+        favoriteRepository.deleteByStoreIdAndUser_UserSeq(userFavorateReq.getStoreId(), user.getUserSeq());
 
     }
 

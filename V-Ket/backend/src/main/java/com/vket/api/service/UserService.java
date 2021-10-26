@@ -21,5 +21,7 @@ public interface UserService {
 
     void editUserCharacter(UserCharactorEditReq userCharactorEditReq);
 
-    void addFavorite(UserFavoratePostReq userFavoratePostReq);
+    void addFavorite(UserFavorateReq userFavoratePostReq);
+
+    void deleteFavorite(UserFavorateReq userFavorateReq);
 }
