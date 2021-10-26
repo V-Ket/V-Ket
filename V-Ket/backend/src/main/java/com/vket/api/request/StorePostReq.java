@@ -3,13 +3,14 @@ package com.vket.api.request;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @ApiModel("StorePostReq")
-@Builder
+@Data
 public class StorePostReq {
 
     @ApiModelProperty(name="섬 카테고리 번호")

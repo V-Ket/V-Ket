@@ -3,13 +3,14 @@ package com.vket.api.request;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @ApiModel("StoreUpdateAllReq")
-@Builder
+@Data
 public class StoreUpdateAllReq {
 
     @ApiModelProperty(name="상점 id")

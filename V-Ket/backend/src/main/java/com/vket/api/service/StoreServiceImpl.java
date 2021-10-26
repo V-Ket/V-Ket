@@ -43,11 +43,11 @@ public class StoreServiceImpl implements StoreService{
     public boolean updateStoreAll(StoreUpdateAllReq storeUpdateAllReq) {
         Store store = storeRepository.findByStoreId(storeUpdateAllReq.getStoreId()).get();
 
-        storeRepository.save(store.builder()
-                .storeName(storeUpdateAllReq.getStoreName())
-                .storeContent(storeUpdateAllReq.getStoreContent())
-                .storeUrl(storeUpdateAllReq.getStoreUrl())
-                .build());
+        store.updateStoreName(storeUpdateAllReq.getStoreName());
+        store.updateStoreContent(storeUpdateAllReq.getStoreContent());
+        store.updateStoreUrl(storeUpdateAllReq.getStoreUrl());
+
+        storeRepository.save(store);
 
         return true;
     }
@@ -56,7 +56,8 @@ public class StoreServiceImpl implements StoreService{
     public boolean updateStoreName(StoreUpdateNameReq storeUpdateNameReq) {
         Store store = storeRepository.findByStoreId(storeUpdateNameReq.getStoreId()).get();
 
-        store.setStoreName(storeUpdateNameReq.getStoreName());
+        store.updateStoreName(storeUpdateNameReq.getStoreName());
+
         storeRepository.save(store);
 
         return true;
@@ -66,7 +67,8 @@ public class StoreServiceImpl implements StoreService{
     public boolean updateStoreContent(StoreUpdateContentReq storeUpdateContentReq) {
         Store store = storeRepository.findByStoreId(storeUpdateContentReq.getStoreId()).get();
 
-        store.setStoreContent(storeUpdateContentReq.getStoreContent());
+        store.updateStoreContent(storeUpdateContentReq.getStoreContent());
+
         storeRepository.save(store);
 
         return true;
@@ -76,7 +78,8 @@ public class StoreServiceImpl implements StoreService{
     public boolean updateStoreUrl(StoreUpdateUrlReq storeUpdateUrlReq) {
         Store store = storeRepository.findByStoreId(storeUpdateUrlReq.getStoreId()).get();
 
-        store.setStoreUrl(storeUpdateUrlReq.getStoreUrl());
+        store.updateStoreUrl(storeUpdateUrlReq.getStoreUrl());
+
         storeRepository.save(store);
 
         return true;
@@ -108,10 +111,12 @@ public class StoreServiceImpl implements StoreService{
         Store store = storeRepository.findByStoreId(storeId).get();
         // 0: Close  // 1: Open
         if (store.getStoreStatus() == 1l) {
-            store.setStoreStatus(0l);
+            store.updateStoreStatus(0l);
+            storeRepository.save(store);
             return 0;
         } else {
-            store.setStoreStatus(1l);
+            store.updateStoreStatus(1l);
+            storeRepository.save(store);
             return 1;
         }
     }

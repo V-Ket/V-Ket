@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -46,4 +45,19 @@ public class Store {
     private Long storeIslandNum;
 
 
+    public void updateStoreName(String storeName) {
+        this.storeName = storeName;
+    }
+
+    public void updateStoreContent(String storeContent) {
+        this.storeContent = storeContent;
+    }
+
+    public void updateStoreUrl(String storeUrl) {
+        this.storeUrl = storeUrl;
+    }
+
+    public void updateStoreStatus(Long storeStatus) {
+        this.storeStatus = storeStatus;
+    }
 }
