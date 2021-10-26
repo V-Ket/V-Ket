@@ -12,11 +12,12 @@ public interface GoodsRepository extends JpaRepository<Goods, Long> {
     List<Goods> findAll(); // 전체 상품 정보 가져오기
 
     // 상점 별 전체 상품 정보
-    Optional<Goods> findByStore_StoreId(String userId);
+    List<Goods> findByStore_StoreId(Long storeId);
 
     // 선택된 상품의 상세 정보
+    Optional<Goods> findByGoodsId(Long goodsId);
 
-    // 상품 정보 사정하기
+    // 상품 정보 수정하기
 
     // 상품 등록하기
 

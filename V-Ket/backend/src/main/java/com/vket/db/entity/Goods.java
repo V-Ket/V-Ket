@@ -1,5 +1,6 @@
 package com.vket.db.entity;
 
+import com.vket.api.request.GoodsUpdateReq;
 import lombok.*;
 
 import javax.persistence.*;
@@ -34,14 +35,31 @@ public class Goods {
     @JoinColumn(name = "store_id")
     private Store store;
 
+//    @Builder
+//    public Goods(String goodsName, Long goodsPrice, String goodsImg, Long goodsQuantity, String goodsContent) {
+//        this.goodsName = goodsName;
+//        this.goodsPrice = goodsPrice;
+//        this.goodsImg = goodsImg;
+//        this.goodsQuantity = goodsQuantity;
+//        this.goodsContent = goodsContent;
+//        // storeId로 찾아서 store 저장하기?
+//    }
+
     @Builder
     public Goods(String goodsName, Long goodsPrice, String goodsImg, Long goodsQuantity, String goodsContent, Store store) {
         this.goodsName = goodsName;
         this.goodsPrice = goodsPrice;
         this.goodsImg = goodsImg;
-        this.goodsImg = goodsImg;
         this.goodsQuantity = goodsQuantity;
         this.goodsContent = goodsContent;
         this.store = store;
+    }
+
+    public void updateGoodsInfo(GoodsUpdateReq goodsUpdateReq) {
+        this.goodsName = goodsUpdateReq.getGoodsName();
+        this.goodsPrice = goodsUpdateReq.getGoodsPrice();
+        this.goodsImg = goodsUpdateReq.getGoodsImg();
+        this.goodsQuantity = goodsUpdateReq.getGoodsQuantity();
+        this.goodsContent = goodsUpdateReq.getGoodsContent();
     }
 }
