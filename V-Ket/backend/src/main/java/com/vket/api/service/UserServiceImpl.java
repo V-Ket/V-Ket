@@ -1,5 +1,6 @@
 package com.vket.api.service;
 
+import com.vket.api.request.UserCharactorEditReq;
 import com.vket.api.request.UserLoginPostReq;
 import com.vket.api.request.UserNicknameEditReq;
 import com.vket.api.request.UserPostReq;
@@ -22,7 +23,6 @@ import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService{
-
 
     @Autowired
     UserRepository userRepository;
@@ -133,4 +133,16 @@ public class UserServiceImpl implements UserService{
 
         return userFavortieGetRes;
     }
+
+    @Override
+    public void editUserCharacter(UserCharactorEditReq userCharactorEditReq) {
+
+        User user = userRepository.findByUserId(userCharactorEditReq.getUserId()).get();
+
+        user.updateUserCharactor(userCharactorEditReq.getUserCharactor());
+
+        userRepository.save(user);
+
+    }
+
 }

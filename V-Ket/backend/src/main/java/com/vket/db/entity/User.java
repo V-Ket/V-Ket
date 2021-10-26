@@ -87,4 +87,8 @@ public class User implements UserDetails {
         this.userNickname = nickname;
     }
 
+    public void updateUserCharactor(Long charactor){
+        this.userCharacter = charactor;
+    }
+
 }

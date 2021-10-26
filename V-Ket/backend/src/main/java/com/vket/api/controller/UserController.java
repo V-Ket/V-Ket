@@ -1,6 +1,7 @@
 package com.vket.api.controller;
 
 
+import com.vket.api.request.UserCharactorEditReq;
 import com.vket.api.request.UserLoginPostReq;
 import com.vket.api.request.UserNicknameEditReq;
 import com.vket.api.request.UserPostReq;
@@ -100,5 +101,20 @@ public class UserController {
         // 즐겨찾기 목록이 없으면 null 값 반환.
         return new ResponseEntity<List<UserFavortieGetRes>>(favortieGetResList, HttpStatus.OK);
     }
+
+    // 즐겨찾기 추가
+
+    // 즐겨찾기 삭제
+
+    @PutMapping("/character")
+    @ApiOperation(value = "캐릭터 등록/수정", notes = "<strong>캐릭터</strong>를 등록/수정 한다.")
+    public ResponseEntity<? extends BaseResponseBody> editUserCharacter(@RequestBody UserCharactorEditReq userCharactorEditReq){
+
+        userService.editUserCharacter(userCharactorEditReq);
+
+        return ResponseEntity.status(201).body(BaseResponseBody.of(201, "닉네임 변경완료"));
+
+    }
+
 
 }

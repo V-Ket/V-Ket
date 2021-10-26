@@ -1,5 +1,6 @@
 package com.vket.api.service;
 
+import com.vket.api.request.UserCharactorEditReq;
 import com.vket.api.request.UserNicknameEditReq;
 import com.vket.api.request.UserLoginPostReq;
 import com.vket.api.request.UserPostReq;
@@ -20,4 +21,6 @@ public interface UserService {
     void editUserNickname(UserNicknameEditReq userNicknameEditReq);
 
     List<UserFavortieGetRes> getFavoriteList(Long userSeq);
+
+    void editUserCharacter(UserCharactorEditReq userCharactorEditReq);
 }
