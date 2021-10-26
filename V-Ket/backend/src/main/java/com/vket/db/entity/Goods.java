@@ -33,15 +33,4 @@ public class Goods {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Store store;
-
-    @Builder
-    public Goods(String goodsName, Long goodsPrice, String goodsImg, Long goodsQuantity, String goodsContent, Store store) {
-        this.goodsName = goodsName;
-        this.goodsPrice = goodsPrice;
-        this.goodsImg = goodsImg;
-        this.goodsImg = goodsImg;
-        this.goodsQuantity = goodsQuantity;
-        this.goodsContent = goodsContent;
-        this.store = store;
-    }
 }
