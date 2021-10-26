@@ -10,7 +10,7 @@ import lombok.Setter;
 @ApiModel("UserNicknameEditRequest")
 public class UserNicknameEditReq {
 
-    @ApiModelProperty(name="유저 ID", example="pg12@profileglance.com")
+    @ApiModelProperty(name="유저 ID", example="your_id")
     String userId;
     @ApiModelProperty(name="유저 Nickname", example="your_nickname")
     String userNickname;

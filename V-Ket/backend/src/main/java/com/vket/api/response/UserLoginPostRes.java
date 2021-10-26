@@ -33,7 +33,7 @@ public class UserLoginPostRes {
 	String userNickname;
 
 	@ApiModelProperty(name="유저 Character", example = "your_character")
-	Long userCharacter = 0L;
+	Long userCharacter;
 
 
 

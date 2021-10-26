@@ -4,6 +4,7 @@ package com.vket.api.controller;
 import com.vket.api.request.UserLoginPostReq;
 import com.vket.api.request.UserNicknameEditReq;
 import com.vket.api.request.UserPostReq;
+import com.vket.api.response.UserFavortieGetRes;
 import com.vket.api.response.UserLoginPostRes;
 import com.vket.api.service.UserService;
 import com.vket.common.response.BaseResponseBody;
@@ -17,6 +18,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Api(value = "유저 API", tags = {"User"})
 @RequestMapping("/user")
@@ -56,7 +59,7 @@ public class UserController {
 
     @GetMapping("/userNickname/{userNickname}")
     @ApiOperation(value = "닉네임 중복확인", notes = "<strong>닉네임</strong>중복을 확인한다.")
-    public ResponseEntity<? extends BaseResponseBody> userNicknameDuplicate(@PathVariable("userId") String userNickname){
+    public ResponseEntity<? extends BaseResponseBody> userNicknameDuplicate(@PathVariable("userNickname") String userNickname){
         // 중복입니다.
         if(userService.userNicknameDuplicate(userNickname)){
             return ResponseEntity.status(400).body(BaseResponseBody.of(400, "아이디 중복입니다."));
@@ -87,6 +90,15 @@ public class UserController {
         userService.editUserNickname(userNicknameEditReq);
 
         return ResponseEntity.status(201).body(BaseResponseBody.of(201, "닉네임 변경완료"));
+    }
+
+    @GetMapping("/favorite/{userSeq}")
+    @ApiOperation(value = "즐겨찾기 목록 가져오기", notes = "<strong>즐겨찾기 목록</strong>을 가져온다.")
+    public ResponseEntity<List<UserFavortieGetRes>> getFavoriteList(@PathVariable("userSeq") Long userSeq){
+        List<UserFavortieGetRes> favortieGetResList = userService.getFavoriteList(userSeq);
+
+        // 즐겨찾기 목록이 없으면 null 값 반환.
+        return new ResponseEntity<List<UserFavortieGetRes>>(favortieGetResList, HttpStatus.OK);
     }
 
 }

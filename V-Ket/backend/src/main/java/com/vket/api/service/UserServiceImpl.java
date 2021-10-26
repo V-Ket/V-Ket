@@ -3,13 +3,22 @@ package com.vket.api.service;
 import com.vket.api.request.UserLoginPostReq;
 import com.vket.api.request.UserNicknameEditReq;
 import com.vket.api.request.UserPostReq;
+import com.vket.api.response.UserFavortieGetRes;
 import com.vket.api.response.UserLoginPostRes;
 import com.vket.config.JwtTokenProvider;
+import com.vket.db.entity.Favorite;
+import com.vket.db.entity.Store;
 import com.vket.db.entity.User;
+import com.vket.db.repository.FavoriteRepository;
+import com.vket.db.repository.StoreRepository;
 import com.vket.db.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -19,9 +28,12 @@ public class UserServiceImpl implements UserService{
     UserRepository userRepository;
     @Autowired
     PasswordEncoder passwordEncoder;
-
     @Autowired
     JwtTokenProvider jwtTokenProvider;
+    @Autowired
+    FavoriteRepository favoriteRepository;
+    @Autowired
+    StoreRepository storeRepository;
 
     @Override
     public void createUser(UserPostReq userPostReq) {
@@ -91,5 +103,34 @@ public class UserServiceImpl implements UserService{
 
         userRepository.save(user);
 
+    }
+
+    @Override
+    public List<UserFavortieGetRes> getFavoriteList(Long userSeq) {
+
+        List<Favorite> favorites = favoriteRepository.findByUser_UserSeq(userSeq);
+        // 즐겨찾기가 없으면 null 반환
+        if(favorites.size() == 0){
+            return null;
+        }
+        // 반환값
+        List<UserFavortieGetRes> userFavortieGetRes = new ArrayList<>();
+        // 즐겨찾기한 상점에 대해
+        for(Favorite f : favorites) {
+            Long storeId = f.getStoreId();
+
+            Optional<Store> store = storeRepository.findByStoreId(storeId);
+            // 상점이 아직 있다면 반환값들을 넣어준다.
+            if (store.isPresent()) {
+                userFavortieGetRes.add(UserFavortieGetRes.builder()
+                        .storeId(store.get().getStoreId())
+                        .storeName(store.get().getStoreName())
+                        .islandId(store.get().getIsland().getIslandId())
+                        .storeIslandNum(store.get().getStoreIslandNum())
+                        .build());
+            }
+        }
+
+        return userFavortieGetRes;
     }
 }
