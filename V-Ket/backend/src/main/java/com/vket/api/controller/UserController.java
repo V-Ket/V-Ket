@@ -125,9 +125,16 @@ public class UserController {
 
         userService.editUserCharacter(userCharactorEditReq);
 
-        return ResponseEntity.status(201).body(BaseResponseBody.of(201, "닉네임 변경완료"));
+        return ResponseEntity.status(201).body(BaseResponseBody.of(201, "캐릭터 변경완료"));
 
     }
 
+    // 크래딧 충전
+    
+    // 크래딧 화전
+    
+    // 구매 내역 조회
+    
+    // 판매 내역 조회
 
 }
