@@ -10,6 +10,8 @@
       <p> 회원가입 </p>
       <SignUp/>
     </div>
+    <ChatRoomList/>
+    <ChatRoom/>
   </div>
 </template>
 
@@ -17,13 +19,17 @@
 import HelloWorld from "./components/HelloWorld.vue";
 import Login from './components/User/Login.vue'
 import SignUp from './components/User/SighUp.vue'
+import ChatRoomList from './components/Chat/ChatRoomList.vue'
+import ChatRoom from './components/Chat/ChatRoom.vue'
 
 export default {
   name: "App",
   components: {
     HelloWorld,
     Login,
-    SignUp
+    SignUp,
+    ChatRoomList,
+    ChatRoom
   },
   computed:{
     isLogin: function(){

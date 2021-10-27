@@ -31,11 +31,14 @@ export default {
       http.post('/user/login' , body)
       // axios.post('http://localhost:8877/user/login'+body)
       .then((res) => {
+        console.log('로그인됨')
         localStorage.setItem('token', res.data.accessToken)
         localStorage.setItem('userId', res.data.userId)
         localStorage.setItem('userNickname', res.data.userNickname)
       });
-      location.reload();
+      setTimeout(function(){
+        location.reload()
+      },100)
     },
   },
 };

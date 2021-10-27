@@ -69,13 +69,14 @@ public class UserController {
     @PostMapping("/login")
     @ApiOperation(value = "로그인", notes = "<strong>아이디와 패스워드</strong>를 통해 로그인 한다.")
     public ResponseEntity<UserLoginPostRes> userNicknameDuplicate(@RequestBody UserLoginPostReq userLoginPostReq){
-
         try{
             UserLoginPostRes userLoginPostRes = userService.userLogin(userLoginPostReq);
+            System.out.println("로그인성공!!");
             return new ResponseEntity<UserLoginPostRes>(userLoginPostRes, HttpStatus.OK);
         }
         catch (IllegalArgumentException e){
             UserLoginPostRes userLoginPostRes = null;
+            System.out.println("로그인실패!!");
             return new ResponseEntity<UserLoginPostRes>(userLoginPostRes, HttpStatus.BAD_REQUEST);
         }
 
