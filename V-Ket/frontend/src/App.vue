@@ -4,6 +4,7 @@
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <div v-if="isLogin">
       <button @click="logout"> 로그아웃 </button>
+      <Purchase/>
     </div>
     <div v-else>
       <Login/>
@@ -17,13 +18,15 @@
 import HelloWorld from "./components/HelloWorld.vue";
 import Login from './components/User/Login.vue'
 import SignUp from './components/User/SighUp.vue'
+import Purchase from './components/Purchase.vue'
 
 export default {
   name: "App",
   components: {
     HelloWorld,
     Login,
-    SignUp
+    SignUp,
+    Purchase
   },
   computed:{
     isLogin: function(){
