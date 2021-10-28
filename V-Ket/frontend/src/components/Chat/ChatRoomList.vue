@@ -8,10 +8,13 @@
         {{chatRoom}}
       </div> 
     </div>
+    <ChatRoom :chatRoomId="selectedChatRoomId" />
   </div>
 </template>
 <script>
 import http from '@/http.js';
+import ChatRoom from './ChatRoom.vue' // 하위 컴포넌트
+
 export default {
     name:'ChatRoomList',
     setup(){
@@ -21,13 +24,17 @@ export default {
       return {
         userId: localStorage['userId'],
         userNickname: localStorage['userNickname'],
-        roomList:[]
+        roomList:[],
+        selectedChatRoomId:-1
       }
-  },
+    },
+    components: {
+      ChatRoom
+    },
     created(){
           http.get('chatRooms/' + this.userId)
           .then((res) => {
-            console.log('조회 ', res.data);
+            //console.log('조회 ', res.data);
             this.roomList = [];
             for(let i=0; i<res.data.length; i++) {
               let chatRoom = {
@@ -41,8 +48,7 @@ export default {
     },
     methods:{
       enterRoom(chatRoomId){
-        console.log(chatRoomId);
-        //this.$router.push({name:"ChatRoom",params:{chatRoomId : chatRoomId, userId: this.userId, userNickname: this.userNickname}});
+        this.selectedChatRoomId = chatRoomId;
     },
   }
 };

@@ -11,7 +11,6 @@
       <SignUp/>
     </div>
     <ChatRoomList/>
-    <ChatRoom/>
   </div>
 </template>
 
@@ -20,7 +19,6 @@ import HelloWorld from "./components/HelloWorld.vue";
 import Login from './components/User/Login.vue'
 import SignUp from './components/User/SighUp.vue'
 import ChatRoomList from './components/Chat/ChatRoomList.vue'
-import ChatRoom from './components/Chat/ChatRoom.vue'
 
 export default {
   name: "App",
@@ -28,8 +26,7 @@ export default {
     HelloWorld,
     Login,
     SignUp,
-    ChatRoomList,
-    ChatRoom
+    ChatRoomList
   },
   computed:{
     isLogin: function(){
