@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class MessageController {
     private final SimpMessagingTemplate template;
 
-    @MessageMapping("/message")
+    @MessageMapping("/")
     public void sendMessage(@Payload MessageReq message) {
-        System.out.println(">>>>> 전달 메시지 " + message);
-        template.convertAndSend("/sub/message/" + message.getChatroomId(), message);
+        System.out.println(">>>>> 전달 주소 " + "/sub/" + message.getChatRoomId() + ", 전달 메시지 " + message);
+        template.convertAndSend("/sub/" + message.getChatRoomId(), message);
     }
 }

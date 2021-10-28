@@ -48,6 +48,7 @@ export default {
     },
     methods:{
       enterRoom(chatRoomId){
+        alert(chatRoomId + '번 채팅 방 입장!!');
         this.selectedChatRoomId = chatRoomId;
     },
   }

@@ -9,14 +9,14 @@ import lombok.ToString;
 @Getter
 @ToString
 public class MessageReq {
-    Long chatroomId;
+    Long chatRoomId;
     String content; // 채팅 내용
     String userId; // 보내는 사람 Id
 
     @Builder
-    public MessageReq (long chatroomId, String content, String userId) {
+    public MessageReq (long chatRoomId, String content, String userId) {
         super();
-        this.chatroomId = chatroomId;
+        this.chatRoomId = chatRoomId;
         this.content = content;
         this.userId = userId;
     }
