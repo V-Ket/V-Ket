@@ -91,4 +91,8 @@ public class User implements UserDetails {
         this.userCharacter = charactor;
     }
 
+    public void updateUserCredit(Long userCredit){
+        this.userCredit = userCredit;
+    }
+
 }

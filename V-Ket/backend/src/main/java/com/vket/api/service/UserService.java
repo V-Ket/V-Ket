@@ -24,4 +24,6 @@ public interface UserService {
     void addFavorite(UserFavorateReq userFavoratePostReq);
 
     void deleteFavorite(UserFavorateReq userFavorateReq);
+
+    boolean addCredit(CreditAddReq creditAddReq);
 }

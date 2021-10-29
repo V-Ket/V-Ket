@@ -25,4 +25,7 @@ public interface GoodsRepository extends JpaRepository<Goods, Long> {
     // 상품 삭제하기
     @Transactional
     void deleteByGoodsId(Long goodsId);
+
+    @Transactional
+    void deleteByStore_StoreId(Long storeId);
 }
