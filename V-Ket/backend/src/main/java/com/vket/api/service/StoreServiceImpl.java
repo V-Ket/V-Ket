@@ -3,6 +3,7 @@ package com.vket.api.service;
 import com.vket.api.request.*;
 import com.vket.api.response.StoreInfoRes;
 import com.vket.db.entity.Store;
+import com.vket.db.repository.GoodsRepository;
 import com.vket.db.repository.IslandRepository;
 import com.vket.db.repository.StoreRepository;
 import com.vket.db.repository.UserRepository;
@@ -22,9 +23,16 @@ public class StoreServiceImpl implements StoreService{
     private UserRepository userRepository;
     @Autowired
     private IslandRepository islandRepository;
+    @Autowired
+    private GoodsRepository goodsRepository;
 
     @Override
     public boolean addStore(StorePostReq storePostReq) {
+        Optional<Store> isStore = storeRepository.findByUser_UserId(storePostReq.getUserId());
+
+        if(isStore.isPresent()){
+            return false;
+        }
 
         storeRepository.save(Store.builder()
                 .user(userRepository.findByUserId(storePostReq.getUserId()).get())
@@ -123,7 +131,10 @@ public class StoreServiceImpl implements StoreService{
 
     @Override
     public boolean deleteStore(Long storeId) {
+
+        goodsRepository.deleteByStore_StoreId(storeId);
         storeRepository.deleteByStoreId(storeId);
+
         return true;
     }
 
