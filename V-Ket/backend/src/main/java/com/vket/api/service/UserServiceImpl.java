@@ -165,4 +165,14 @@ public class UserServiceImpl implements UserService{
 
     }
 
+    @Override
+    public boolean addCredit(CreditAddReq creditAddReq) {
+        User user = userRepository.findByUserId(creditAddReq.getUserId()).get();
+
+        user.updateUserCredit(creditAddReq.getCredit());
+        userRepository.save(user);
+
+        return true;
+    }
+
 }
