@@ -44,6 +44,15 @@ dependencies {
 
 	implementation 'commons-io:commons-io:2.8.0'
 	implementation 'commons-fileupload:commons-fileupload:1.4'
+
+	// WebSocket
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+	// STOMP 관련 프론트 라이브러리
+	implementation('org.webjars.bower:jquery:3.3.1')
+	implementation('org.webjars:sockjs-client:1.1.2')
+	implementation('org.webjars:stomp-websocket:2.3.3-1')
+	implementation('org.webjars:webjars-locator:0.30')
 }
 
 test {
