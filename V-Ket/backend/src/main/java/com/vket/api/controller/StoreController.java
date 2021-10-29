@@ -104,10 +104,9 @@ public class StoreController {
     @ApiOperation(value = "상점 닫기(삭제)", notes = "")
     public ResponseEntity<? extends BaseResponseBody> deleteStore(@PathVariable("storeId") Long storeId){
 
-        //아마 굿즈 삭제가 되야하지 않나? cascade?
         storeService.deleteStore(storeId);
 
-        return ResponseEntity.status(400).body(BaseResponseBody.of(201, "Success"));
+        return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
 
     }
 }
