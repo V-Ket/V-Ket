@@ -1,5 +1,10 @@
-/Assets/Sprite
-
+!/Assets/Sprite/**/*.meta
+!/Assets/Sprite/*.meta
+!/Assets/Sprite/Cozy/*.meta
+/Assets/Sprite/Cozy/**/*.png
+/Assets/Sprite/Cozy/**/*.gif
+/Assets/Sprite/Cozy/**/*.txt
+!/Assets/Tiles/*.meta
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
