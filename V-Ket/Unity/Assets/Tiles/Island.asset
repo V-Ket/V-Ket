@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: Island
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: -6282032755997203598, guid: 9550181c0687aaf4d9587212ef17d0ea, type: 3}
+  m_DefaultSprite: {fileID: -7617464026696918705, guid: 0ffb7e622347ccc42ae540186474e28d, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
@@ -94,7 +94,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 4
     m_Sprites:
-    - {fileID: -6282032755997203598, guid: 9550181c0687aaf4d9587212ef17d0ea, type: 3}
+    - {fileID: -7617464026696918705, guid: 0ffb7e622347ccc42ae540186474e28d, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
