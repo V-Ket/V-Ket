@@ -1,7 +1,88 @@
 fileFormatVersion: 2
 guid: df057e1b4a902b044bb1df15e590b7dd
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2468195240345492399
+    second: baby_bunny_animations_0
+  - first:
+      213: -460361218753990191
+    second: baby_bunny_animations_1
+  - first:
+      213: 9056863671934910785
+    second: baby_bunny_animations_2
+  - first:
+      213: 5109416060734182799
+    second: baby_bunny_animations_3
+  - first:
+      213: 5154044155598880856
+    second: baby_bunny_animations_4
+  - first:
+      213: 6843899515986993596
+    second: baby_bunny_animations_5
+  - first:
+      213: 7258173388331374382
+    second: baby_bunny_animations_6
+  - first:
+      213: -1809088356571381962
+    second: baby_bunny_animations_7
+  - first:
+      213: -2835420128605967455
+    second: baby_bunny_animations_8
+  - first:
+      213: -6168601414444580498
+    second: baby_bunny_animations_9
+  - first:
+      213: 640662184667091920
+    second: baby_bunny_animations_10
+  - first:
+      213: -8171668530574746694
+    second: baby_bunny_animations_11
+  - first:
+      213: -6058060479558160763
+    second: baby_bunny_animations_12
+  - first:
+      213: -6134335304153356046
+    second: baby_bunny_animations_13
+  - first:
+      213: -5464315615874033345
+    second: baby_bunny_animations_14
+  - first:
+      213: 6626216075753893330
+    second: baby_bunny_animations_15
+  - first:
+      213: 8193992460040388538
+    second: baby_bunny_animations_16
+  - first:
+      213: -8950664585318403993
+    second: baby_bunny_animations_17
+  - first:
+      213: 2753335705256234563
+    second: baby_bunny_animations_18
+  - first:
+      213: -1081642965824276590
+    second: baby_bunny_animations_19
+  - first:
+      213: 348832177872422455
+    second: baby_bunny_animations_20
+  - first:
+      213: -5096195771155579090
+    second: baby_bunny_animations_21
+  - first:
+      213: 2041754799596856359
+    second: baby_bunny_animations_22
+  - first:
+      213: -3208154196044277340
+    second: baby_bunny_animations_23
+  - first:
+      213: -7475830670691848147
+    second: baby_bunny_animations_24
+  - first:
+      213: -6792629331922360970
+    second: baby_bunny_animations_25
+  - first:
+      213: 9042055505419670720
+    second: baby_bunny_animations_26
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,12 +122,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,9 +156,600 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: baby_bunny_animations_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 95
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 154a5e681853fbdd0800000000000000
+      internalID: -2468195240345492399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 100
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d17dcf19e77c99f0800000000000000
+      internalID: -460361218753990191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_2
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 104
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14102d8368170bd70800000000000000
+      internalID: 9056863671934910785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_3
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 96
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f859cbd16da48e640800000000000000
+      internalID: 5109416060734182799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_4
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 76
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 850462b2ad7d68740800000000000000
+      internalID: 5154044155598880856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_5
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 78
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb16fd8695a6afe50800000000000000
+      internalID: 6843899515986993596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_6
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 82
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e275fa1cd363ab460800000000000000
+      internalID: 7258173388331374382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_7
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 78
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f744389b3d4e6e0800000000000000
+      internalID: -1809088356571381962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 57
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1abe27d6a6096a8d0800000000000000
+      internalID: -2835420128605967455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_9
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 59
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e610f0b32b9b46aa0800000000000000
+      internalID: -6168601414444580498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_10
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 63
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d39b12dcd614e800800000000000000
+      internalID: 640662184667091920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_11
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 59
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb9adc44c6689e80800000000000000
+      internalID: -8171668530574746694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_12
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 38
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58e6a1047127deba0800000000000000
+      internalID: -6058060479558160763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_13
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 40
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f82dceba867edaa0800000000000000
+      internalID: -6134335304153356046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_14
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 44
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f39553706e9da24b0800000000000000
+      internalID: -5464315615874033345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_15
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 40
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dd2b48e96c05fb50800000000000000
+      internalID: 6626216075753893330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_16
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 13
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abfbfe09ab8e6b170800000000000000
+      internalID: 8193992460040388538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_17
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 19
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7607d687bf9d8c380800000000000000
+      internalID: -8950664585318403993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_18
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 19
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34e82337c30d53620800000000000000
+      internalID: 2753335705256234563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_19
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 19
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2977e30147b3df0f0800000000000000
+      internalID: -1081642965824276590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_20
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 12
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 736cf40840d47d400800000000000000
+      internalID: 348832177872422455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_21
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 11
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2f7c6a62fca649b0800000000000000
+      internalID: -5096195771155579090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_22
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 11
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7246b6c2c25c55c10800000000000000
+      internalID: 2041754799596856359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_23
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a91a1891c85a73d0800000000000000
+      internalID: -3208154196044277340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_24
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2031781d93804890800000000000000
+      internalID: -7475830670691848147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_25
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 0
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6756edb8c9bbbb1a0800000000000000
+      internalID: -6792629331922360970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baby_bunny_animations_26
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c497e74395db7d70800000000000000
+      internalID: 9042055505419670720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
