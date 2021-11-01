@@ -110,4 +110,32 @@ public class PlayerAction : MonoBehaviour
             scanObject = null;
         }
     }
+
+    // 고래와의 충돌
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Whale")
+        {
+            Debug.Log("고래와의 충돌 감지");
+        }
+    }
+
+    // 충돌 중
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Whale")
+        {
+            Debug.Log("고래와의 충돌 유지");
+        }
+    }
+
+    // 충돌 끝남
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Whale")
+        {
+            Debug.Log("고래와의 충돌 종료");
+        }
+    }
+
 }
