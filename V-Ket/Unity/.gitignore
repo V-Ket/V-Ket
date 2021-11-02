@@ -12,6 +12,10 @@
 /Assets/Sprite/MarketPlace/**/*.png
 /Assets/Sprite/MarketPlace/**/*.gif
 /Assets/Sprite/MarketPlace/**/*.txt
+!/Assets/Sprite/IceWorld/*.meta
+/Assets/Sprite/IceWorld/**/*.png
+/Assets/Sprite/IceWorld/**/*.gif
+/Assets/Sprite/IceWorld/**/*.txt
 !/Assets/Tiles/*.meta
 # This .gitignore file should be placed at the root of your Unity project directory
 #
