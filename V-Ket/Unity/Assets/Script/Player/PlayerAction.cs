@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAction : MonoBehaviour
 {
     public float Speed;
-
+    public GameManager manager;
     Rigidbody2D rigid;
     Animator anim;
     float h;
@@ -29,13 +29,13 @@ public class PlayerAction : MonoBehaviour
 
     void Update()
     {
-        h = Input.GetAxisRaw("Horizontal");
-        v = Input.GetAxisRaw("Vertical");
+    h = manager.isAction ? 0 : Input.GetAxisRaw("Horizontal");
+    v = manager.isAction ? 0 : Input.GetAxisRaw("Vertical");
 
-        bool hDown = Input.GetButtonDown("Horizontal");
-        bool vDown = Input.GetButtonDown("Vertical");
-        bool hUp = Input.GetButtonUp("Horizontal");
-        bool vUp = Input.GetButtonUp("Vertical");
+    bool hDown = manager.isAction ? false : Input.GetButtonDown("Horizontal");
+    bool vDown = manager.isAction ? false : Input.GetButtonDown("Vertical");
+    bool hUp = manager.isAction ? false : Input.GetButtonUp("Horizontal");
+    bool vUp = manager.isAction ? false : Input.GetButtonUp("Vertical");
 
 
         if (hDown)
@@ -72,23 +72,31 @@ public class PlayerAction : MonoBehaviour
             dirVec = Vector3.right;
 
         // Scan Object
+        if(Input.GetButtonDown("Jump")){
+            Debug.Log("Ï†êÌîÑÌï®");
+            Debug.Log(scanObject);
+        }
         if (Input.GetButtonDown("Jump") && scanObject != null)
         {
             Debug.Log("This is : " + scanObject.name);
-            // ªÛ¡°¿Ã∞Ì, æ»ø≠∑¡ ¿÷¿∏∏È
-            //if (scanObject.name == "Store" && scanObject.GetComponent<StoreControl>().isOpen == false)
-            //{
-            //    Debug.Log("ªÛ¡°¿Ã ¥›«Ù¿÷Ω¿¥œ¥Ÿ.");
-            //    scanObject.GetComponent<StoreControl>().OpenStore();
-            //}
-            //// ªÛ¡°¿Ã∞Ì, ø≠∑¡¿÷¿∏∏È
-            //else if (scanObject.name == "Store" && scanObject.GetComponent<StoreControl>().isOpen == true)
-            //{
+            if(scanObject.name.Equals("Whale_R")){
 
-            //    Debug.Log("ªÛ¡°¿Ã ø≠∑¡¿÷Ω¿¥œ¥Ÿ.");
-            //    scanObject.GetComponent<StoreControl>().CloseStore();
-            //}
-        }
+                manager.Action(scanObject);
+            }
+      // ÔøΩÔøΩÔøΩÔøΩÔøΩÃ∞ÔøΩ, ÔøΩ»øÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ
+      //if (scanObject.name == "Store" && scanObject.GetComponent<StoreControl>().isOpen == false)
+      //{
+      //    Debug.Log("ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩ÷ΩÔøΩÔøΩœ¥ÔøΩ.");
+      //    scanObject.GetComponent<StoreControl>().OpenStore();
+      //}
+      //// ÔøΩÔøΩÔøΩÔøΩÔøΩÃ∞ÔøΩ, ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ
+      //else if (scanObject.name == "Store" && scanObject.GetComponent<StoreControl>().isOpen == true)
+      //{
+
+      //    Debug.Log("ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩ÷ΩÔøΩÔøΩœ¥ÔøΩ.");
+      //    scanObject.GetComponent<StoreControl>().CloseStore();
+      //}
+    }
 
     }
 
@@ -110,32 +118,4 @@ public class PlayerAction : MonoBehaviour
             scanObject = null;
         }
     }
-
-    // ∞Ì∑°øÕ¿« √Êµπ
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.tag == "Whale")
-        {
-            Debug.Log("∞Ì∑°øÕ¿« √Êµπ ∞®¡ˆ");
-        }
-    }
-
-    // √Êµπ ¡ﬂ
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.collider.tag == "Whale")
-        {
-            Debug.Log("∞Ì∑°øÕ¿« √Êµπ ¿Ø¡ˆ");
-        }
-    }
-
-    // √Êµπ ≥°≥≤
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.collider.tag == "Whale")
-        {
-            Debug.Log("∞Ì∑°øÕ¿« √Êµπ ¡æ∑·");
-        }
-    }
-
 }
