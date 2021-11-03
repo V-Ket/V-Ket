@@ -11,6 +11,7 @@
       <SignUp/>
     </div>
     <ChatRoomList/>
+    <button @click="unity">uniny</button>
   </div>
 </template>
 
@@ -39,7 +40,11 @@ export default {
       localStorage.removeItem('userId')
       localStorage.removeItem('userNickname')
       location.reload()
+    },
+    unity(){
+      
     }
+    
   }
 };
 </script>
