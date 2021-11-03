@@ -12,6 +12,7 @@
     </div>
     <ChatRoomList/>
     <button @click="unity">uniny</button>
+    
   </div>
 </template>
 
@@ -44,7 +45,6 @@ export default {
     unity(){
       
     }
-    
   }
 };
 </script>
@@ -58,4 +58,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>
