@@ -1,35 +1,46 @@
 <template>
-  <div id="main">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-    <div v-if="isLogin">
-      <button @click="logout"> 로그아웃 </button>
+  <div>
+    <!-- <v-img id = "background" src="images/Main_Background.png"></v-img> -->
+    <!-- <v-img id = "background" src="images/background.gif"></v-img> -->
+    <v-img id = "background" src="images/background5.gif"></v-img>
+    <img class="tt" src="images/char1.png" />
+    <SignUp class="signup" v-if="isModalViewed" @close-modal="isModalViewed=false"/>
+    <div class="login">
+      <div class="idDiv">
+        <b>아이디</b>
+        <input v-model="userId" class="idInput" style="margin-left: 35px"/><br>
+      </div>
+      <div class="pwDiv">
+        <b>비밀번호</b>
+        <input v-model="userPassword" type="password" class="pwInput" style="margin-left: 20px"/><br>
+      </div>
+      <div class="buttons">
+        <button class="btn" style="margin-right: 40px; margin-left: 40px" @click="login"><b>로그인</b></button>
+        <button class="btn" @click="isModalViewed=true"><b>회원가입</b></button>
+      </div>
     </div>
-    <div v-else>
-      <Login/>
-      <p> 회원가입 </p>
-      <SignUp/>
-    </div>
-
-    <Chat/>
-    <button @click="unity">unity</button>
-    
   </div>
 </template>
 
 <script>
-// import HelloWorld from "../components/HelloWorld.vue";
-import Login from '../components/User/Login.vue'
-import SignUp from '../components/User/SighUp.vue'
-import Chat from '../components/Chat/Chat.vue'
+import http from '@/http.js';
+import SignUp from '@/components/User/SignUp.vue'
 
 export default {
   name: "Main",
-  components: {
-    // HelloWorld,
-    Login,
-    SignUp,
-    Chat
+  components:{
+    SignUp
+  },
+  data () {
+    return {
+      userSeq: '',
+      userId: '',
+      userNickname: '',
+      userPhone: '',
+      userToken: '',
+      userPassword: '',
+      isModalViewed: false,
+    }
   },
   computed:{
     isLogin: function(){
@@ -37,27 +48,94 @@ export default {
     }
   },
   methods:{
-    logout(){
-      localStorage.removeItem('token')
-      localStorage.removeItem('userId')
-      localStorage.removeItem('userNickname')
-      location.reload()
+    // logout(){
+    //   localStorage.removeItem('token')
+    //   localStorage.removeItem('userId')
+    //   localStorage.removeItem('userNickname')
+    //   this.$router.push({name:'Main'})
+    // },
+    login() {
+      const body = {
+        userId : this.userId,
+        userPassword : this.userPassword
+      }
+      http.post('/user/login' , body)
+      .then((res) => {
+        console.log('로그인됨')
+        localStorage.setItem('token', res.data.accessToken)
+        localStorage.setItem('userId', res.data.userId)
+        localStorage.setItem('userNickname', res.data.userNickname)
+        this.$router.push({name:'Unity'})
+      })
+      .catch((err) => {
+        alert(err);
+      });
     },
-    unity(){
-      
-    }
   }
 };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+#background {
+  width: 100vw;
+  height: 100vh;
 }
-
+.signup{
+  position:absolute;
+  border: 2px solid black;
+  border-radius: 10px;
+  left: 50%;
+  top: 10%;
+  width: 30vw;
+  height: 50vh;
+  transform: translate(-50%,10%);
+  background-color: #eee;
+}
+.tt{
+  position:absolute;
+  border-radius: 10px;
+  left: 50%;
+  top: 10%;
+  width: auto;
+  height: auto;
+  transform: translate(-250%,130%);
+}
+.login{
+  position:absolute;
+  border: 2px solid black;
+  border-radius: 10px;
+  left: 50%;
+  top: 52%;
+  width: 30vw;
+  height: 20vh;
+  transform: translate(-50%, 90%);
+  background-color: #eee;
+  /* background-color: rgb(57, 114, 189); */
+}
+.idInput{
+  position:absolute;
+  border: 2px solid black;
+  border-radius: 7px;
+}
+.pwInput{
+  position:absolute;
+  border: 2px solid black;
+  border-radius: 7px;
+}
+.idDiv{
+  margin-left: 5vw;
+  margin-top: 3vh;
+}
+.pwDiv{
+  margin-left: 5vw;
+  margin-top: 1.5vh;
+}
+.buttons{
+  margin-left: 5vw;
+  margin-top: 2vh;
+}
+.btn{
+  border: 1px solid black;
+  background-color: #eee;
+}
 </style>
