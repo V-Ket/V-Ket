@@ -1,5 +1,6 @@
 package com.vket.api.controller;
 
+import com.vket.api.request.ChatRoomReq;
 import com.vket.api.request.MessageReq;
 import com.vket.api.response.ChatRoomRes;
 import com.vket.api.service.ChatRoomService;
@@ -36,8 +37,19 @@ public class ChatRoomController {
     @ApiOperation(value = "전체 채팅방들 가져오기", notes = "")
     public ResponseEntity<List<ChatRoomRes>> findAllChatRooms() {
         List<ChatRoomRes> chatRoomList = chatRoomService.findAllChatRooms();
-
         return new ResponseEntity<List<ChatRoomRes>>(chatRoomList, HttpStatus.OK);
+    }
+
+    // 새 채팅방 만들기 (상점 주인과 대화 시작)
+    @PostMapping("/add")
+    @ApiOperation(value = "새 채팅방 만들기 (상점 주인과 대화 시작)", notes = "")
+    public ResponseEntity<? extends BaseResponseBody> addChatRoom(ChatRoomReq chatRoomReq) {
+        System.out.println(">>>>>> "+chatRoomReq.getChatRoomId() + " " + chatRoomReq.getSenderId() + " " + chatRoomReq.getReceiverId());
+        if(chatRoomService.addChatRoom(chatRoomReq)) {
+            return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
+        } else {
+            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
+        }
     }
 
     // 사용자의 전체 채팅방 가져오기
