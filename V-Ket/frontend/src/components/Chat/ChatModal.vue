@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import http from '@/http.js';
 import store from '../../store/index';
 import Stomp from 'webstomp-client'
 import SockJS from 'sockjs-client'
@@ -57,10 +58,11 @@ export default {
         }
     },
     created(){
+        this.getMessage();
+
         let socket = new SockJS(store.getters.baseURL + 'ws');
         this.stompClient = Stomp.over(socket);
         console.log(this.chatRoomId,'번 방 연결');
-
         this.stompClient.connect({}, frame => {
             console.log('>>>> success ', this.chatRoomId, '번 방 연결 성공', frame);
             this.stompClient.subscribe('/sub/' + this.chatRoomId, res => { // 메시지 받기
@@ -85,6 +87,20 @@ export default {
            };
            this.stompClient.send('/pub/', JSON.stringify(msg));
            this.content='';
+        },
+        getMessage() {
+          http.get('chatRooms/message/' + this.chatRoomId)
+          .then((res) => {
+
+            for(let i=0; i<res.data.length; i++) {
+              let msg = {
+                'userId': res.data[i].userId,
+                'content': res.data[i].content,
+                'style': res.data[i].userId === this.userId ? 'myMessage' : 'otherMessage' 
+              };
+              this.msgArr.push(msg);
+            }
+          });
         }
     }
 }
