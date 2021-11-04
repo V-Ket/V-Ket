@@ -20,8 +20,7 @@ const routes = [{
         path: '/unity',
         name: 'Unity',
         component: Test
-    },
-
+    }
 ]
 
 const router = new VueRouter({

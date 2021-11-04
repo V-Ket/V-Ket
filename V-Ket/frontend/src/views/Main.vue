@@ -1,7 +1,7 @@
 <template>
   <div id="main">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
     <div v-if="isLogin">
       <button @click="logout"> 로그아웃 </button>
     </div>
@@ -10,24 +10,26 @@
       <p> 회원가입 </p>
       <SignUp/>
     </div>
-    <ChatRoomList/>
-    <button @click="unity">uniny</button>
+
+    <Chat/>
+    <button @click="unity">unity</button>
+    
   </div>
 </template>
 
 <script>
-import HelloWorld from "../components/HelloWorld.vue";
+// import HelloWorld from "../components/HelloWorld.vue";
 import Login from '../components/User/Login.vue'
 import SignUp from '../components/User/SighUp.vue'
-import ChatRoomList from '../components/Chat/ChatRoomList.vue'
+import Chat from '../components/Chat/Chat.vue'
 
 export default {
   name: "Main",
   components: {
-    HelloWorld,
+    // HelloWorld,
     Login,
     SignUp,
-    ChatRoomList
+    Chat
   },
   computed:{
     isLogin: function(){
@@ -44,7 +46,6 @@ export default {
     unity(){
       
     }
-    
   }
 };
 </script>
@@ -58,4 +59,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>
