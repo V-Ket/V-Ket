@@ -11,7 +11,7 @@
       <SignUp/>
     </div>
 
-    머임<Chat/>
+    <Chat/>
     <button @click="unity">unity</button>
     
   </div>
