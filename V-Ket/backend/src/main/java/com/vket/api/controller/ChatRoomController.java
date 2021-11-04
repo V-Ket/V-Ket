@@ -1,5 +1,6 @@
 package com.vket.api.controller;
 
+import com.vket.api.request.MessageReq;
 import com.vket.api.response.ChatRoomRes;
 import com.vket.api.service.ChatRoomService;
 import com.vket.common.response.BaseResponseBody;
@@ -25,6 +26,11 @@ public class ChatRoomController {
     @Autowired
     ChatRoomService chatRoomService;
 
+    static ArrayList<MessageReq> messageList = new ArrayList<MessageReq>();
+    static void addMessage(MessageReq message) {
+        messageList.add(message);
+    }
+
     // 전체 채팅방 가져오기
     @GetMapping("")
     @ApiOperation(value = "전체 채팅방들 가져오기", notes = "")
@@ -41,5 +47,18 @@ public class ChatRoomController {
         List<ChatRoomRes> chatRoomListByUserId = chatRoomService.findChatRoomsByUserId(userId);
 
         return new ResponseEntity<List<ChatRoomRes>>(chatRoomListByUserId, HttpStatus.OK);
+    }
+    
+    // 해당 채팅방 메시지들 가져오기
+    @GetMapping("/message/{chatRoomId}")
+    @ApiOperation(value = "채팅창 메시지 가져오기", notes = "")
+    public ResponseEntity<ArrayList<MessageReq>> getMessageList(@PathVariable("chatRoomId") Long chatRoomId) {
+        ArrayList<MessageReq> list = new ArrayList<MessageReq>();
+        for(MessageReq messageReq: messageList) {
+            if(messageReq.getChatRoomId() == chatRoomId) {
+                list.add(messageReq);
+            }
+        }
+        return new ResponseEntity<ArrayList<MessageReq>>(list, HttpStatus.OK);
     }
 }

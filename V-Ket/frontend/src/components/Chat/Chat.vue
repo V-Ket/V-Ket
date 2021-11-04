@@ -13,7 +13,8 @@
         <div class="offcanvas-body">
             <div v-for="(chatRoom, idx) in roomList" :key="idx">
                 {{chatRoom}}
-                <button id="show-modal" @click="showModal = true, enterRoom(chatRoom.chatRoomId)">채팅방 입장하기</button>
+                <button id="show-modal" @click="showModal = true, enterRoom(chatRoom.chatRoomId)">
+                    채팅방 입장하기</button>
                 <ChatModal :chatRoomId="selectedChatRoomId" v-if="showModal" @close="showModal = false">
                     <h3 slot="header">채팅보여줄거임</h3>
                 </ChatModal>
