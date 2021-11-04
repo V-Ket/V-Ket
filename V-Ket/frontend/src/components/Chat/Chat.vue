@@ -48,7 +48,7 @@ import Offcanvas from 'bootstrap/js/dist/offcanvas'
 
 export default {
     name: 'Chat',
-    data: () => {
+    data() {
         return {
             // 채팅방 
             chatRoomId:-1,
@@ -59,7 +59,6 @@ export default {
             chatMsgArr:{},
             bsOffcanvas: '',
             // 채팅 내역과 채팅 보내기
-            // socket:null,
             stompClient:null,
             content:'',
         }
@@ -73,10 +72,7 @@ export default {
         http.get('chatRooms/' + this.userId)
         .then((res) => {
             this.roomList = [];
-            console.log(res.data[0]);
-            console.log(res.data[1]);
             for(let i=0; i<res.data.length; i++) {
-                // console.log('i ', i);
                 let chatRoom = {
                     'chatRoomId': res.data[i].chatRoomId,
                     'senderId': res.data[i].senderId,
@@ -85,9 +81,9 @@ export default {
                 this.roomList.push(chatRoom);
             }
 
-            for(let i=0; i<res.data.length; i++) {
-                this.connectStompClient(res.data[i].chatRoomId);
-            }
+            // for(let i=0; i<res.data.length; i++) {
+            //     this.connectStompClient(res.data[i].chatRoomId);
+            // }
         });
     },
     mounted () {
@@ -96,6 +92,7 @@ export default {
     methods:{
         // connectStompClient: async function(inputChatRoomId) {
         connectStompClient(inputChatRoomId) {
+           
             console.log(inputChatRoomId,'번 방 연결');
 
             this.stompClient.connect({}, frame => {
@@ -125,6 +122,8 @@ export default {
             this.chatRoomId = inputChatRoomId;
             this.chatRoomIdStr = String(inputChatRoomId);
             //this.connectStompClient(inputChatRoomId);
+            // 라우터 이동
+            this.$router.push({name:"ChatRoom", params:{chatRoomId : this.chatRoomId}});
         },
 
         sendMessage(){

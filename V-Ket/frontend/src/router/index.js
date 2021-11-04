@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Main from '../views/Main.vue'
 import Home from '../views/Home.vue'
 import Test from '../views/test.vue'
+import ChatRoom from '../components/Chat/ChatRoom.vue'
 
 Vue.use(VueRouter)
 
@@ -20,6 +21,11 @@ const routes = [{
         path: '/unity',
         name: 'Unity',
         component: Test
+    },
+    {
+        path: '/chatRoom',
+        name: 'ChatRoom',
+        component: ChatRoom
     },
 
 ]
