@@ -10,11 +10,14 @@
             </slot>
           </div>
 
-          <div class="modal-body">
+          <div class="modal-body" scroll=auto>
             <slot name="body">
               <div>
                 <div v-for="(msg, idx) in msgArr" :key="idx">
-                    <div> {{ msg }} </div>
+                    <div class="chatDiv" :class="msg.style"> 
+                      <span>{{ msg.userId }} : </span> 
+                      <span class="chatContent"> {{ msg.content }}</span>
+                    </div>
                 </div>
                 <br/>
                 <input type="text" v-model="content" placeholder="보낼 메세지" size="28" />
@@ -70,7 +73,7 @@ export default {
                 let msg = {
                     'userId': jsonBody.userId,
                     'content': jsonBody.content,
-                    'style': jsonBody.userId === this.userId ? 'myMessage' : 'otherMessage' 
+                    'style': jsonBody.userId === this.userId ? 'myMsg' : 'otherMsg' 
                 };
 
                 this.msgArr.push(msg);
@@ -80,13 +83,15 @@ export default {
 
     methods: {
         sendMessage(){
-           let msg = {
-                'chatRoomId': this.chatRoomId,
-                'content': this.content,
-                'userId': this.userId
-           };
-           this.stompClient.send('/pub/', JSON.stringify(msg));
-           this.content='';
+          if(this.content != '') {
+            let msg = {
+                  'chatRoomId': this.chatRoomId,
+                  'content': this.content,
+                  'userId': this.userId
+            };
+            this.stompClient.send('/pub/', JSON.stringify(msg));
+            this.content='';
+          }
         },
         getMessage() {
           http.get('chatRooms/message/' + this.chatRoomId)
@@ -106,7 +111,43 @@ export default {
 }
 </script>
 
+<style>
+.chatDiv{
+  background-color: white;
+  margin-bottom: 8px;
+  display: flex;
+  padding: 10px 10px 0 10px;
+  border-radius: 0 6px 6px 0;
+  max-width: 60%;
+  width: auto;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 50px);
+}
+.chatDiv .chatContent {
+  display: inline-block;
+  text-align: start;
+  font-size: 11pt;
+  line-height: 13pt;
+  margin: 0 0 10px;
+}
+/* .chatDiv > span {
+  font-size: 8pt;
+  margin-bottom: 10px;
+} */
+.myMsg {
+  float: right;
+  border-radius: 6px 0 0 6px;
+  color: gray;
+  text-align: right;
+}
+
+</style>
+
 <style scoped>
+/* Modal 창에 대한 style */
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -133,16 +174,28 @@ export default {
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
   transition: all .3s ease;
   font-family: Helvetica, Arial, sans-serif;
+  /*overflow: scroll;*/   /* 스크롤 추가 */
 }
 
 .modal-header h3 {
   margin-top: 0;
   color: #42b983;
+  height: 75vh;
 }
 
 .modal-body {
   margin: 20px 0;
 }
+/* .modal-body::-webkit-scrollbar {
+  width: 10px;
+}
+.modal-body::-webkit-scrollbar-thumb {
+  background-color: grey;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  visibility: hidden;
+} */
 
 .modal-default-button {
   float: right;

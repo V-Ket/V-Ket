@@ -1,5 +1,6 @@
 package com.vket.api.service;
 
+import com.vket.api.request.ChatRoomReq;
 import com.vket.api.response.ChatRoomRes;
 import com.vket.db.entity.ChatRoom;
 import com.vket.db.repository.ChatRootRepository;
@@ -13,6 +14,16 @@ import java.util.List;
 public class ChatRoomServiceImpl implements ChatRoomService {
     @Autowired
     ChatRootRepository chatRootRepository;
+
+    @Override
+    public boolean addChatRoom(ChatRoomReq chatRoomReq) {
+        chatRootRepository.save(ChatRoom.builder()
+            .chatRoomId(chatRoomReq.getChatRoomId())
+            .senderId(chatRoomReq.getSenderId())
+            .receiverId(chatRoomReq.getReceiverId())
+            .build());
+        return true;
+    }
 
     @Override
     public List<ChatRoomRes> findAllChatRooms() {
