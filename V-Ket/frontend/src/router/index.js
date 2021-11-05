@@ -6,7 +6,7 @@ import Test from '../views/test.vue'
 // import Unity from '../components/Unity/UnityGame.vue'
 import SelectCH from '../views/SelectCH.vue'
 import Purchase from '../components/Purchase.vue'
-
+import NavTmp from '../views/NavTmp.vue'
 Vue.use(VueRouter)
 
 const routes = [{
@@ -33,6 +33,11 @@ const routes = [{
         path: '/purchase',
         name: 'Purchase',
         component: Purchase
+    },
+    {
+        path: '/navtmp',
+        name: 'Navtmp',
+        component: NavTmp
     }
 ]
 
