@@ -3,7 +3,7 @@
     <!-- <v-img id = "background" src="images/Main_Background.png"></v-img> -->
     <!-- <v-img id = "background" src="images/background.gif"></v-img> -->
     <v-img id = "background" src="images/background5.gif"></v-img>
-    <img class="tt" src="images/char1.png" />
+    <!-- <img class="tt" src="images/char1.png" /> -->
     <SignUp class="signup" v-if="isModalViewed" @close-modal="isModalViewed=false"/>
     <div class="login">
       <div class="idDiv">
@@ -17,6 +17,7 @@
       <div class="buttons">
         <button class="btn" style="margin-right: 40px; margin-left: 40px" @click="login"><b>로그인</b></button>
         <button class="btn" @click="isModalViewed=true"><b>회원가입</b></button>
+        <button class="btn" @click="unitytest"><b>유니티</b></button>
       </div>
     </div>
   </div>
@@ -65,12 +66,15 @@ export default {
         localStorage.setItem('token', res.data.accessToken)
         localStorage.setItem('userId', res.data.userId)
         localStorage.setItem('userNickname', res.data.userNickname)
-        this.$router.push({name:'Unity'})
+        this.$router.push({name:'Select'})
       })
       .catch((err) => {
         alert(err);
       });
     },
+    unitytest(){
+      this.$router.push({name:'Unity'})
+    }
   }
 };
 </script>
