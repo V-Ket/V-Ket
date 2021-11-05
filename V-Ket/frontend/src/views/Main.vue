@@ -20,17 +20,19 @@
         <button class="btn" @click="unitytest"><b>유니티</b></button>
       </div>
     </div>
+        <Chat class="chat"/>
   </div>
 </template>
 
 <script>
 import http from '@/http.js';
 import SignUp from '@/components/User/SignUp.vue'
-
+import Chat from '@/components/Chat/Chat.vue'
 export default {
   name: "Main",
   components:{
-    SignUp
+    SignUp,
+    Chat
   },
   data () {
     return {
@@ -140,6 +142,14 @@ export default {
 }
 .btn{
   border: 1px solid black;
+  background-color: #eee;
+}
+.chat{
+  position:absolute;
+  border: 2px solid black;
+  border-radius: 10px;
+  left: 50%;
+  top: 10%;
   background-color: #eee;
 }
 </style>
