@@ -2,33 +2,33 @@
   <div id="unity">
     <Nav/>
     <div>
-
-    <SignUp class="signup" v-if="isModalViewed" @close-modal="isModalViewed=false"/>
+      <SignUp class="signup" v-if="isModalViewed" @close-modal="isModalViewed=false"/>
     </div>
-    <div id="unity-container">
-      <UnityGame v-if="showUnity"/>
-    </div>
-      <p>hi</p>
-      <div class="btnClass">
-
-      <button class="btn" @click="isModalViewed=true"><b>회원가입</b></button>
+    <!-- <div id="unity-container">
+      <div id="unity-game-container">
+        <div id="game-container"></div>
       </div>
-    <button @click="logout">로그아웃</button>
+    </div> -->
+    <!-- <p>hi</p>
+    <div class="btnClass">
+      <button class="btn" @click="isModalViewed=true"><b>회원가입</b></button>
+    </div>
+    <button @click="logout">로그아웃</button> -->
   </div>
 </template>
 
 <script>
-import UnityGame from '@/components/Unity/UnityGame.vue';
+// import UnityGame from '@/components/Unity/UnityGame.vue';
 import Nav from '@/views/Nav.vue'
 import SignUp from '@/components/User/SignUp.vue'
 export default {
 
     components:{
-        UnityGame,
+        // UnityGame,
         Nav,
         SignUp
     },
-    data () {
+    data () { 
       return {
         isModalViewed: false,
       }

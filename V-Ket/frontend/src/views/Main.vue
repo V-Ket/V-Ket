@@ -20,19 +20,19 @@
         <button class="btn" @click="unitytest"><b>유니티</b></button>
       </div>
     </div>
-        <Chat class="chat"/>
+        <!-- <Chat class="chat"/> -->
   </div>
 </template>
 
 <script>
 import http from '@/http.js';
 import SignUp from '@/components/User/SignUp.vue'
-import Chat from '@/components/Chat/Chat.vue'
+// import Chat from '@/components/Chat/Chat.vue'
 export default {
   name: "Main",
   components:{
     SignUp,
-    Chat
+    // Chat
   },
   data () {
     return {

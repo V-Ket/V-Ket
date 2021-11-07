@@ -1,9 +1,7 @@
 <template>
   <div id="chat">
-    하이 Chat.vue
- 
     <div id="navBar">  
-      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">채팅</button>
+      <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">채팅</button>
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
           <h5 id="offcanvasRightLabel">{{userId}}님의 채팅방</h5>
@@ -80,3 +78,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.btn{
+    border: 1px solid black;
+}
+</style>
