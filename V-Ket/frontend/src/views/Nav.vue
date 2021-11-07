@@ -27,6 +27,7 @@
             <li><button @click="handleMypage">마이페이지</button></li>
             <li><button @click="handleLogout">로그아웃</button></li>
           </ul>
+          <Chat/>
         </div>
       </div>
     </div>
@@ -35,10 +36,12 @@
 
 <script>
 import SignUp from '@/components/User/SignUp.vue'
+import Chat from '@/components/Chat/Chat.vue'
 export default {
   name: "Nav",
   components:{
-    SignUp
+    SignUp,
+    Chat
   },
   data() {
     return {
