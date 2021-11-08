@@ -7,6 +7,7 @@ import Test from '../views/test.vue'
 import SelectCH from '../views/SelectCH.vue'
 import Purchase from '../components/Purchase.vue'
 import NavTmp from '../views/NavTmp.vue'
+import Meetings from '../views/Meetings.vue'
 Vue.use(VueRouter)
 
 const routes = [{
@@ -38,6 +39,11 @@ const routes = [{
         path: '/navtmp',
         name: 'Navtmp',
         component: NavTmp
+    },
+    {
+        path: '/meeting',
+        name: 'Meeting',
+        component: Meetings
     }
 ]
 
