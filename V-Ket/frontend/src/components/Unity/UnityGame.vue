@@ -76,11 +76,14 @@
             "click",
             function (event) {
                 if (event.target.closest("#game-container")){ // 유니티 가능
-                    if(this.$refs.hookInstance !== undefined) this.$refs.hookInstance.message('Game Manager','focusing',"true");
+                    if(this.$refs.hookInstance !== undefined) this.$refs.hookInstance.message('GameManager','focusing',"true");
                     this.unityFocus = true;
                     this.keydownAlt = false;
+                }else if(this.$store.state.chat){
+                    if(this.$refs.hookInstance !== undefined)  this.$refs.hookInstance.message('GameManager','focusing',"false");
+                    this.unityFocus = false;
                 }else{ // 윈도우 인풋 가능
-                    if(this.$refs.hookInstance !== undefined)  this.$refs.hookInstance.message('Game Manager','focusing',"false");
+                    if(this.$refs.hookInstance !== undefined)  this.$refs.hookInstance.message('GameManager','focusing',"false");
                     this.unityFocus = false;
                 }
             }.bind(this)
@@ -135,7 +138,8 @@
                 this.width = '150';
                 this.height = '100';
             }
-        }
+        },
+
     },
     methods : {
         goUnity(){

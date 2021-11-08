@@ -4,13 +4,16 @@
       <div class="creditDiv">
         보유 credit : 10,000
       </div>
-      <button class="btnPurchase" @click="purchase">충전하기</button>
+      <button class="btnPurchase" @click="purchase">충전하기(새창)</button>
     </div>
     <div>
       <Chat class="chat"/>
     </div>
     <div>
       <button class="btnLogout" @click="logout">로그아웃</button>
+    </div>
+    <div>
+      <button class="btnPurchase2" @click="purchase2">충전하기(라우터)</button>
     </div>
   </div>
 </template>
@@ -47,6 +50,9 @@ export default {
     purchase(){
       window.open("http://localhost:8080/purchase", "충전하기", "width=800, height=700")
     },
+    purchase2(){
+      this.$router.push({name:'Purchase'})
+    }
   },
 };
 </script>

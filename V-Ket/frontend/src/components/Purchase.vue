@@ -15,6 +15,10 @@
       <span>충전할 금액 : {{picked}}</span>
       <button type="button" class="btn btn-lg btn-block  btn-custom" id="charge_kakao" @click="requestPay()">충 전 하 기</button>
     </div>
+    <div>
+      <input type="text">
+      <button @click="goUni">유니티로 돌아가기</button>
+    </div>
   </div>
 </template>
 <script>
@@ -41,6 +45,9 @@ export default {
     }
   },
   methods: {
+    goUni(){
+      this.$router.push({name:'Unity'})
+    },
     requestPay(){
       var IMP = window.IMP;
       IMP.init('imp83028829');

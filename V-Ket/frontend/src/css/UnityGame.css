@@ -24,6 +24,9 @@
   top: 85% !important;
   left: 90% !important;
 }
+.small-map > .webgl-content{
+  display: hidden;
+}
 .map-alt{
   width: 100%;
   height: 100%;

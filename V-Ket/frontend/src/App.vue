@@ -13,10 +13,14 @@ export default {
   },
   computed : {
     showUnity : function(){
-      if(this.$route.name === "Main" || this.$route.name === "Purchase" || this.$route.name === "About"){
+      if(this.$route.name === "Main" || this.$route.name === "Select"){
         return false;
       }
       return true;
+      // if(this.$route.name == "Unity"){
+      //   return true;
+      // }
+      // return false;
     }
   }
 }
