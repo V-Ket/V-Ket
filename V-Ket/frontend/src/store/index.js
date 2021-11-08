@@ -10,7 +10,8 @@ let baseURL = DEVELOPMODE ? 'http://localhost:8877/' : 'https://k5a404.p.ssafy.i
 
 export default new Vuex.Store({
     state: {
-        chat : false,
+        chat: false,
+        characterNum : null
     },
     getters: {
         fileURL: function() {
@@ -27,11 +28,20 @@ export default new Vuex.Store({
         // }
         getChat(state) {
             return state.chat;
+        },
+        getCharacterNum(state) {
+            if (state.characterNum == null) {
+                return null;
+            }
+            return state.characterNum;
         }
     },
     mutations: {
         setChat(state, status) {
             state.chat = status;
+        },
+        setChracterNum(state, characterNum) {
+            state.characterNum = characterNum;
         }
     }
 })

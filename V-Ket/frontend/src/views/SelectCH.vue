@@ -34,17 +34,23 @@ export default {
     },
     selected1(){
       this.characterNum = 1
+      this.$store.commit('setChracterNum', 1)
       this.selectfalse()
       this.select1 = true
       // alert(this.characterNum)
+      alert(this.$store.getters.getCharacterNum)
     },
     selected2(){
       this.characterNum = 2
+      this.$store.commit('setChracterNum', 2)
       this.selectfalse()
       this.select2 = true
       // alert(this.characterNum)
+      alert(this.$store.getters.getCharacterNum)
     },
     selected3(){
+      
+      alert(this.$store.getters.getCharacterNum)
       this.characterNum = 3
       this.selectfalse()
       this.select3 = true
