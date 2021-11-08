@@ -2,12 +2,12 @@
   <div>
     <v-img id = "background" src="images/background5.gif"></v-img>
     <div>
-      <img class="char1" v-bind:style="[select1?{'filter':'drop-shadow(0px 0px 15px rgba(255, 255, 0))'}:{}]" @click="selected1" src="images/char1.png" />
-      <img class="char2" v-bind:style="[select2?{'filter':'drop-shadow(0px 0px 15px rgba(255, 255, 0))'}:{}]" @click="selected2" src="images/char1.png" />
-      <img class="char3" v-bind:style="[select3?{'filter':'drop-shadow(0px 0px 15px rgba(255, 255, 0))'}:{}]" @click="selected3" src="images/char1.png" />
-      <img class="char4" v-bind:style="[select4?{'filter':'drop-shadow(0px 0px 15px rgba(255, 255, 0))'}:{}]" @click="selected4" src="images/char1.png" />
-      <img class="char5" v-bind:style="[select5?{'filter':'drop-shadow(0px 0px 15px rgba(255, 255, 0))'}:{}]" @click="selected5" src="images/char1.png" />
-      <img class="char6" v-bind:style="[select6?{'filter':'drop-shadow(0px 0px 15px rgba(255, 255, 0))'}:{}]" @click="selected6" src="images/char1.png" />
+      <img class="char1" v-bind:style="[select1?{'filter':'drop-shadow(0px 0px 15px rgba(255, 255, 0))'}:{}]" @click="selected1" src="images/character/char1.png" />
+      <img class="char2" v-bind:style="[select2?{'filter':'drop-shadow(0px 0px 15px rgba(255, 255, 0))'}:{}]" @click="selected2" src="images/character/char2.png" />
+      <img class="char3" v-bind:style="[select3?{'filter':'drop-shadow(0px 0px 15px rgba(255, 255, 0))'}:{}]" @click="selected3" src="images/character/char5.png" />
+      <img class="char4" v-bind:style="[select4?{'filter':'drop-shadow(0px 0px 15px rgba(255, 255, 0))'}:{}]" @click="selected4" src="images/character/char3.png" />
+      <img class="char5" v-bind:style="[select5?{'filter':'drop-shadow(0px 0px 15px rgba(255, 255, 0))'}:{}]" @click="selected5" src="images/character/char4.png" />
+      <img class="char6" v-bind:style="[select6?{'filter':'drop-shadow(0px 0px 15px rgba(255, 255, 0))'}:{}]" @click="selected6" src="images/character/char6_2.png" />
     </div>
     <div class="joinButtonDiv">
       <button class="joinButton" @click="joinUnity"><b>접속하기</b></button>
@@ -113,54 +113,54 @@ img:hover{
   border-radius: 10px;
   left: 50%;
   top: 10%;
-  width: auto;
+  width: 10vw;
   height: auto;
-  transform: translate(-380%,130%);
+  transform: translate(-400%,220%);
 }
 .char2{
   position:absolute;
   border-radius: 10px;
   left: 50%;
   top: 10%;
-  width: auto;
+  width: 10vw;
   height: auto;
-  transform: translate(-250%,130%);
+  transform: translate(-270%,210%);
 }
 .char3{
   position:absolute;
   border-radius: 10px;
   left: 50%;
   top: 10%;
-  width: auto;
+  width: 10vw;
   height: auto;
-  transform: translate(-120%,130%);
+  transform: translate(-120%,205%);
 }
 .char4{
   position:absolute;
   border-radius: 10px;
   left: 50%;
   top: 10%;
-  width: auto;
+  width: 10vw;
   height: auto;
-  transform: translate(10%,130%);
+  transform: translate(10%,190%);
 }
 .char5{
   position:absolute;
   border-radius: 10px;
   left: 50%;
   top: 10%;
-  width: auto;
+  width: 10vw;
   height: auto;
-  transform: translate(140%,130%);
+  transform: translate(140%,228%);
 }
 .char6{
   position:absolute;
   border-radius: 10px;
   left: 50%;
   top: 10%;
-  width: auto;
+  width: 10vw;
   height: auto;
-  transform: translate(270%,130%);
+  transform: translate(270%,208%);
 }
 
 </style>

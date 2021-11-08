@@ -4,11 +4,11 @@
     <div>
       <SignUp class="signup" v-if="isModalViewed" @close-modal="isModalViewed=false"/>
     </div>
-    <div id="unity-container">
+    <!-- <div id="unity-container">
       <div id="unity-game-container">
         <div id="game-container"></div>
       </div>
-    </div>
+    </div> -->
     <!-- <p>hi</p>
     <div class="btnClass">
       <button class="btn" @click="isModalViewed=true"><b>회원가입</b></button>
@@ -73,4 +73,5 @@ export default {
 .btnClass{
   margin-left: 65vw;
 }
+
 </style>
