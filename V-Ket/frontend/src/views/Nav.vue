@@ -1,62 +1,34 @@
 <template>
   <div id="nav">
-    <SignUp class="signup" v-if="isModalViewed" @close-modal="isModalViewed=false"/>
-    
-    <div class="nav-container">
-      <div id="user-container">
-        <div id="user-name"><p>{{isUser ? user + '님' : '로그인이 필요합니다.'}}</p></div>
-        <p>dddddd</p>
-        <button class="btn" @click="isModalViewed=true"><b>회원가입</b></button>
-        <div id="menu-container">
-          <button id="menu-dropdown" @click="showMenu = !showMenu">보여라
-          </button>
-          <ul
-            id="menus"
-            v-if="this.user === null"
-          >
-            <li><button @click="handleAbout">About</button></li>
-            <li><button @click="handleLogin">로그인</button></li>
-            <li><button @click="handleJoin">회원가입</button></li>
-          </ul>
-          <ul
-            id="menus"
-            v-else
-          >
-            <li><button @click="handleAbout">About</button></li>
-            <li><button @click="handleUnity">학교가기</button></li>
-            <li><button @click="handleMypage">마이페이지</button></li>
-            <li><button @click="handleLogout">로그아웃</button></li>
-          </ul>
-          <Chat/>
-        </div>
+    <div>
+      <div class="creditDiv">
+        보유 credit : 10,000
       </div>
+      <button class="btnPurchase" @click="purchase">충전하기(새창)</button>
+    </div>
+    <div>
+      <Chat class="chat"/>
+    </div>
+    <div>
+      <button class="btnLogout" @click="logout">로그아웃</button>
+    </div>
+    <div>
+      <button class="btnPurchase2" @click="purchase2">충전하기(라우터)</button>
     </div>
   </div>
 </template>
 
 <script>
-import SignUp from '@/components/User/SignUp.vue'
 import Chat from '@/components/Chat/Chat.vue'
 export default {
   name: "Nav",
   components:{
-    SignUp,
     Chat
   },
   data() {
     return {
-      showMenu: false,
-      // user:{},
-      user : '나다',
-      isUser: true,
-        isModalViewed: false,
+
     };
-  },
-  created(){
-    // this.user=this.$store.getters.getUser;
-    // if(this.user===null){
-    //   window.location.href="https://k4b107.p.ssafy.io:8000/login"
-    // }
   },
   mounted() {
     document.addEventListener(
@@ -68,43 +40,59 @@ export default {
     );
   },
   methods: {
-    showMenus() {
-      this.showMenu = !this.showMenu;
+    logout(){
+      localStorage.removeItem('token')
+      localStorage.removeItem('userId')
+      localStorage.removeItem('userNickname')
+      // this.$router.push({name:'Main'})
+      window.location.href="http://localhost:8080/"
     },
-    handleMypage(){
-      // window.location.href="https://k4b107.p.ssafy.io:8000/mypage"
+    purchase(){
+      window.open("http://localhost:8080/purchase", "충전하기", "width=800, height=700")
     },
-    handleLogout(){
-      this.$router.push('/');
-    },
-    handleAbout(){
-      window.location.href="http://localhost:8080/purchase"
-    },
-    handleLogin(){
-      this.$router.push('/');
-    },
-    // handleJoin(){
-    //   this.$router.push('/join');
-    // },
-    handleUnity(){
-      this.$router.push({name : 'Unity'});
+    purchase2(){
+      this.$router.push({name:'Purchase'})
     }
   },
 };
 </script>
 
-<style scoped src="../css/Nav.css">
-</style>
-<style>
-  .signup{
+<style scoped>
+.creditDiv{
+  margin-top: 10vh;
+  text-align: center;
+}
+.btnPurchase{
+  border: 1px solid black;
+  margin-left: 1vw;
+}
+.chat{
+  margin-top: 10vh;
+  margin-left: 1vw;
+}
+.btnLogout{
+  margin-top: 10vh;
+  border: 1px solid black;
+  margin-left: 1vw;
+}
+#nav{
   position:absolute;
-  border: 2px solid black;
-  border-radius: 10px;
-  left: 50%;
-  top: 10%;
-  width: 30vw;
-  height: 50vh;
-  transform: translate(-50%,10%);
+  width: 15vw;
+  height: 100vh;
+  left: 70.3vw;
+  z-index:100;
+  border-left: 1px solid black;
+  border-bottom: 1px solid var(--color-grey-6);
   background-color: #eee;
+  /* background-color: saddlebrown; */
+  border: 1px solid black;
+}
+#nav > .nav-container{
+  width : 80%;
+  height: 100%;
+  margin : auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 </style>

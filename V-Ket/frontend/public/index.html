@@ -9,12 +9,18 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
     <!-- iamport.payment.js -->
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>V-Ket</title>
   </head>
+  <script>
+      {% comment %} function _funcJShook(object){
+        document.getElementById('unity-object-name').innerHTML = object;
+      }
+      function _userJShook(users){
+        document.getElementById('unity-users-name').innerHTML = users;
+      } {% endcomment %}
+  </script>
+  <script src="./unity/Build/UnityLoader.js"></script>
   <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>

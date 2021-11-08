@@ -1,13 +1,14 @@
 #nav{
   position:absolute;
   width: 15vw;
-  height: 92.9vh;
-  left: 61.2vw;
+  height: 100vh;
+  left: 70.3vw;
   z-index:100;
   border-left: 1px solid black;
   border-bottom: 1px solid var(--color-grey-6);
+  background-color: #eee;
   /* background-color: saddlebrown; */
-  border: 10px solid black;
+  border: 1px solid black;
 }
 #nav > .nav-container{
   width : 80%;

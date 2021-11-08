@@ -3,7 +3,6 @@
         <div id="game-container">
             <div id="mini-map-alt" class="map-alt" v-if="!showMap">
                 <div class="mini-alt">
-                    <v-icon id="mini-alt-icon">fas fa-sign-in-alt</v-icon>
                     <p id="mini-alt-text">학교로 <br> 돌아가기</p>
                 </div>
             </div>
@@ -11,13 +10,15 @@
                 <v-icon id="keydown-alt-icon">fas fa-exclamation-circle</v-icon>
                 <p id="keydown-alt-text">캐릭터를 움직이기 위해선 게임 화면을 클릭해 주세요.</p>
             </div>
-            <unity id="bts-unity" 
+            <unity id="vket-unity" 
             src="./unity/Build/unity.json" 
-            :width = width
-            :height = height
+            width = "1080"
+            height = "720"
             unityLoader="./unity/Build/UnityLoader.js" 
             :hideFooter="true"
-            ref="hookInstance"></unity>
+            ref="hookInstance">
+            </unity>
+            <button @click="unityHook">시~작~</button>
         </div>
         <div id="unity-school-name" hidden></div>
         <div id="unity-object-name" hidden></div>
@@ -36,8 +37,8 @@
             objectName : '',
             schoolName : '',
             linked : false,
-            height : '700',
-            width : '950',
+            height : '720',
+            width : '1080',
             interval : '',
             mapHeight : 0,
             mapWidth : 0,
@@ -75,11 +76,14 @@
             "click",
             function (event) {
                 if (event.target.closest("#game-container")){ // 유니티 가능
-                    if(this.$refs.hookInstance !== undefined) this.$refs.hookInstance.message('Game Manager','focusing',"true");
+                    if(this.$refs.hookInstance !== undefined) this.$refs.hookInstance.message('GameManager','focusing',"true");
                     this.unityFocus = true;
                     this.keydownAlt = false;
+                }else if(this.$store.state.chat){
+                    if(this.$refs.hookInstance !== undefined)  this.$refs.hookInstance.message('GameManager','focusing',"false");
+                    this.unityFocus = false;
                 }else{ // 윈도우 인풋 가능
-                    if(this.$refs.hookInstance !== undefined)  this.$refs.hookInstance.message('Game Manager','focusing',"false");
+                    if(this.$refs.hookInstance !== undefined)  this.$refs.hookInstance.message('GameManager','focusing',"false");
                     this.unityFocus = false;
                 }
             }.bind(this)
@@ -134,7 +138,8 @@
                 this.width = '150';
                 this.height = '100';
             }
-        }
+        },
+
     },
     methods : {
         goUnity(){
@@ -143,8 +148,24 @@
                 this.$router.push({name : "Unity"});
             }
         },
+        unityHook(){
+            this.objectName = "";
+            this.interval = setInterval(()=>{
+                if(document.getElementById('unity-object-name').innerHTML != this.objectName){
+                    this.objectName = document.getElementById('unity-object-name').innerHTML;
+                    switch (this.objectName) {
+                        case "Whale_R": // 정보공유/코드공유 - blackboard
+                            this.$router.push({name : 'Purchase'});
+                            break;
+                        default:
+                            break;
+                    }
+                    document.getElementById('unity-object-name').innerHTML = "";
+                }
+            })
+        }
     }
-}
+  }
 </script>
 <style scoped src="../../css/UnityGame.css">
 </style>
