@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -21,7 +22,7 @@ public class GoodsUpdateReq {
     private Long goodsPrice;
 
     @ApiModelProperty(name="상품 이미지")
-    private String goodsImg;
+    private MultipartFile goodsImg;
 
     @ApiModelProperty(name="상품 수량")
     private Long goodsQuantity;

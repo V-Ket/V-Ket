@@ -4,13 +4,19 @@ import com.vket.api.request.GoodsAddReq;
 import com.vket.api.request.GoodsUpdateReq;
 import com.vket.api.response.GoodsRes;
 import com.vket.db.entity.Goods;
+import com.vket.db.entity.Store;
 import com.vket.db.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+
+import static com.vket.config.DirPathConfig.baseDir;
 
 @Service
 public class GoodsServiceImpl implements GoodsService {
@@ -92,8 +98,32 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public boolean updateGoodsInfo(GoodsUpdateReq goodsUpdateReq) {
         if (goodsRepository.findByGoodsId(goodsUpdateReq.getGoodsId()).isPresent()) {
+
             Goods goods = goodsRepository.findByGoodsId(goodsUpdateReq.getGoodsId()).get();
-            goods.updateGoodsInfo(goodsUpdateReq);
+//            goods.updateGoodsInfo(goodsUpdateReq);
+            String newPath = "";
+            String newFile = "";
+            if (goodsUpdateReq.getGoodsImg() == null && goodsUpdateReq.getGoodsImg().isEmpty()){
+                newFile = goods.getGoodsImg();
+            }else{
+                Store store = storeRepository.findByStoreId(goodsUpdateReq.getStoreId()).get();
+                Date nowTime = new Date();
+                SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+                String now = format.format(nowTime);
+                newPath = baseDir + "/goods/" + now + store.getStoreId() + ".jpg";
+                newFile = now + store.getStoreId() + ".jpg";
+                try {
+                    goodsUpdateReq.getGoodsImg().transferTo(new File(newPath));
+                }catch (Exception e){
+                    return false;
+                }
+            }
+            goods.setGoodsName(goodsUpdateReq.getGoodsName());
+            goods.setGoodsPrice(goodsUpdateReq.getGoodsPrice());
+            goods.setGoodsImg(newFile);
+            goods.setGoodsQuantity(goodsUpdateReq.getGoodsQuantity());
+            goods.setGoodsContent(goodsUpdateReq.getGoodsContent());
+
             goodsRepository.save(goods);
             return true;
         } else {
@@ -104,15 +134,30 @@ public class GoodsServiceImpl implements GoodsService {
     // 상품 등록하기
     @Override
     public boolean addGoods(GoodsAddReq goodsAddReq) {
+        Store store = storeRepository.findByStoreId(goodsAddReq.getStoreId()).get();
+
+        Date nowTime = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+        String now = format.format(nowTime);
+
+        String imgPath = baseDir + "/goods/" + now + store.getStoreId() + ".jpg";
+        String imgFile = now + store.getStoreId() + ".jpg";
+
+        try {
+            goodsAddReq.getGoodsImg().transferTo(new File(imgPath));
+        }catch (Exception e){
+            return false;
+        }
+
         if(storeRepository.findByStoreId(goodsAddReq.getStoreId()).isPresent()) {
             goodsRepository.save(Goods.builder()
                     .goodsId(goodsAddReq.getGoodsId())
                     .goodsName(goodsAddReq.getGoodsName())
                     .goodsPrice(goodsAddReq.getGoodsPrice())
-                    .goodsImg(goodsAddReq.getGoodsImg())
+                    .goodsImg(imgFile)
                     .goodsQuantity(goodsAddReq.getGoodsQuantity())
                     .goodsContent(goodsAddReq.getGoodsContent())
-                    .store((storeRepository.findByStoreId(goodsAddReq.getStoreId()).get()))
+                    .store(store)
                     .build());
             return true;
         } else {

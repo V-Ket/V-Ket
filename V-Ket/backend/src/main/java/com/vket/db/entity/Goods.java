@@ -10,6 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
+@Setter
 public class Goods {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,11 +36,4 @@ public class Goods {
     @JoinColumn(name = "store_id")
     private Store store;
 
-    public void updateGoodsInfo(GoodsUpdateReq goodsUpdateReq) {
-        this.goodsName = goodsUpdateReq.getGoodsName();
-        this.goodsPrice = goodsUpdateReq.getGoodsPrice();
-        this.goodsImg = goodsUpdateReq.getGoodsImg();
-        this.goodsQuantity = goodsUpdateReq.getGoodsQuantity();
-        this.goodsContent = goodsUpdateReq.getGoodsContent();
-    }
 }
