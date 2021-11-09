@@ -31,6 +31,7 @@
               <td><button @click="$router.push({name:'Meeting', params:{sessionid: meeting.sessionName}})">접속하기</button></td>
             </tr>
           </table>
+          <button @click="$router.push({name:'Meeting', params:{sessionid: 'jwjw2test'}})">jt접속하기</button>
         </div>
       </div>
       <div class="container-fluid mt-3">
@@ -55,6 +56,7 @@ export default {
   data() {
     return {
       meetings: Array,
+      meetings2: Array,
       sellerId: String,
       meetingListSize : '',
     };
@@ -91,6 +93,7 @@ export default {
         // console.log('뒤'+this.meetingListSize)
       })
     }, 1000);
+    
   },
   methods: {
     logout(){
