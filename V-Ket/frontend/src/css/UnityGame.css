@@ -21,8 +21,8 @@
 }
 .small-map{
   transform: none !important;
-  top: 85% !important;
-  left: 90% !important;
+  top: 100% !important;
+  left: 100% !important;
 }
 .small-map > .webgl-content{
   display: hidden;

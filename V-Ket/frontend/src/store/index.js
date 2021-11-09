@@ -11,7 +11,8 @@ let baseURL = DEVELOPMODE ? 'http://localhost:8877/' : 'https://k5a404.p.ssafy.i
 export default new Vuex.Store({
     state: {
         chat: false,
-        characterNum : null
+        characterNum: null,
+        meetingListSize: null,
     },
     getters: {
         fileURL: function() {
@@ -34,6 +35,12 @@ export default new Vuex.Store({
                 return null;
             }
             return state.characterNum;
+        },
+        getMeetingListSize(state) {
+            if (state.meetingListSize == null) {
+                return null;
+            }
+            return state.meetingListSize;
         }
     },
     mutations: {
@@ -42,6 +49,9 @@ export default new Vuex.Store({
         },
         setChracterNum(state, characterNum) {
             state.characterNum = characterNum;
+        },
+        setMeetingListSize(state, meetingListSize) {
+            state.meetingListSize = meetingListSize;
         }
     }
 })
