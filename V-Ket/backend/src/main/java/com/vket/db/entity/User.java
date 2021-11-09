@@ -48,6 +48,9 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<Deal> deals = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user")
+    private List<Session> sessions = new ArrayList<>();
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
