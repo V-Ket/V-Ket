@@ -7,9 +7,9 @@
 					<p>이미지</p>
 				</div>
 				<Dialog
-				:buttonText="'면접장 퇴장'"
+				:buttonText="'나가기'"
 				:dialogTitle="'알림'"
-				:dialogContent="'면접장을 퇴장하시겠습니까?'"
+				:dialogContent="'미팅을 종료하시겠습니까?'"
 				:buttonO="'네'"
 				:buttonX="'아니오'"
 				@clickO="exitInterview"/>
