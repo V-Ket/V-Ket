@@ -15,10 +15,19 @@
 				@clickO="exitInterview"/>
 			</div>
 			<div id="session-body">
+
 				<div id="session-video" class="d-inline-flex row">
 					<user-video	:stream-manager="publisher" class="col-6"	@click.native="updateMainVideoStreamManager(publisher)" />
 					<user-video	v-for="pub in publishers"	:key="pub.stream.connection.connectionId + '2'" :stream-manager="pub" class="col-6" />
 				</div>
+				<button id="btn-camoff" @click="updateStream(0)" >
+					<div v-if="!setting.publishVideo"><v-icon id="unpublish-video">fas fa-video-slash</v-icon></div>
+          <div v-else><v-icon id="publish-video">fas fa-video</v-icon></div>
+					</button>
+					<button id="btn-audiooff" @click="updateStream(1)">
+          <div v-if="!setting.publishAudio"><v-icon id="unpublish-audio">fas fa-microphone-slash</v-icon></div>
+          <div v-else><v-icon id="publish-audio">fas fa-microphone</v-icon></div>
+      </button>
 				<div id="session-message">
 					<div id="session-message-header" class="elevation-2">
 						{{this.sessionId}} 세션아이디
@@ -26,9 +35,19 @@
         </div>
 			</div>
 		</div>
+		
 	</div>
 </template>
 <style scoped>	
+#btn-camoff{
+	position: absolute;
+	top:90%;
+}
+#btn-audiooff{
+	position: absolute;
+	top:90%;
+	left: 30%;
+}
 .header-logo-letter {
     height: 40px;
     width: 300px; 
@@ -248,6 +267,12 @@ export default {
 			myUserName: '',
 			isHost: false,
 			muteList: [],
+			setting:{
+				audioSource: undefined,
+				videoSource: undefined,
+				publishAudio: false,
+				publishVideo: false,
+			}
 		}
 	},
 	computed: {
@@ -259,44 +284,8 @@ export default {
     // ]),
   },
 	created () {
-    this.mySessionId = this.sessionId
-    // this.myUserName = localStorage.getItem('id')
-		// // 면접방 존재하는지 확인
-		// const body = {csId: this.sessionId, userNickname: this.interviewee}
-		// http.post('/interview/checkCSID', body)
-		// .then((res) => {
-		// 	// 없으면(202면) 넣어주기
-		// 	const statusCode = res.data.statusCode
-		// 	if (statusCode === 202) {
-		// 		this.isHost = true
-		// 		var now = new Date().toISOString()
-		// 		this.startTime = now
-		// 		const body = {companyId: this.myUserName, userNickname: this.interviewee, createAt: now}
-		// 		http.post('/interview/createroom', body)
-		// 		.then((res) => {
-		// 			console.log(res)
-		// 		})
-		// 		.catch((err) => {
-		// 			console.log(err)
-		// 		})
-		// 	}
-		// })
-		const firstChat = {
-			'img': 'noimage.png',
-			'loginType': 'user',
-			'msg': this.sessionId + '의 면접장에 참여하셨습니다. 상대방의 기분을 고려하여 채팅 예절을 준수해주시기 바랍니다.',
-			'nickname': '시스템',
-			'userId': '시스템'
-		}
-		const secondChat = {
-			'img': 'noimage.png',
-			'loginType': 'user',
-			'msg': '이용 중 불편함을 느끼셨다면 Profile Glance 고객센터로 문의해주시기 바랍니다. 감사합니다.',
-			'nickname': '시스템',
-			'userId': '시스템'
-		}
-		this.chats.push(firstChat)
-		this.chats.push(secondChat)
+		this.setting.audioSource = this.$store.getters.getAudio;
+		this.setting.videoSource = this.$store.getters.getVideo;
 	},
 	mounted() {
 		this.joinSession()
@@ -305,20 +294,15 @@ export default {
     this.leaveSession()
   },
 	methods: {
-		getImg(chat) {
-        // if (chat.loginType == 'user') {
-        //     return (
-        //         this.fileURL + 'ServerFiles/UserImg/' +
-        //         chat.img
-        //     )
-        // } else {
-        //     return (
-        //         this.fileURL + 'ServerFiles/CompanyLogo/' +
-        //         chat.img
-        //     )
-        // }
-				console.log(chat);
-    },
+		updateStream(type){
+        if (type == 1) {
+          this.setting.publishAudio = !this.setting.publishAudio;
+          this.publisher.publishAudio(this.setting.publishAudio);
+        } else {
+          this.setting.publishVideo = !this.setting.publishVideo;
+          this.publisher.publishVideo(this.setting.publishVideo);
+        }
+      },
 		removeSession () {
 			axios.delete(`${OPENVIDU_SERVER_URL}/openvidu/api/sessions/${this.sessionId}`, {
 			auth: {
@@ -344,89 +328,6 @@ export default {
 			})
       this.$router.go(-1)
     },
-    // chat_on_scroll() {
-    //   this.$refs.chatDisplay.scrollTop = this.$refs.chatDisplay.scrollHeight;
-    // },
-    // submitMsg() {
-    //   if (this.sendMsg.trim() === '') return;
-    //   const sendData = {
-    //     userId: this.myUserName,
-    //     nickname: this.myUserName,
-    //     msg: this.sendMsg,
-    //     loginType: localStorage.getItem('login_type'),
-    //     img: localStorage.getItem('profile')
-    //   };
-    //   this.sendMsg = '';
-    //   this.session
-    //     .signal({
-    //       data: JSON.stringify(sendData), // Any string (optional)
-    //       to: [], // Array of Connection objects (optional. Broadcast to everyone if empty)
-    //       type: 'my-chat', // The type of message (optional)
-    //     })
-    //     .then(() => {
-    //       console.log('Message successfully sent');
-    //     })
-    //     .catch((error) => {
-    //       console.error(error);
-    //     });
-    // },
-    // submitQuestion(msg) {
-    //   const sendData = {
-    //     userId: this.myUserName,
-    //     nickname: msg.nickname,
-    //     msg: msg.msg,
-    //     img: msg.img
-    //   };
-    //   this.session
-    //     .signal({
-    //       data: JSON.stringify(sendData), // Any string (optional)
-    //       to: [], // Array of Connection objects (optional. Broadcast to everyone if empty)
-    //       type: 'question', // The type of message (optional)
-    //     })
-    //     .then(() => {
-    //       console.log('Message successfully sent');
-    //     })
-    //     .catch((error) => {
-    //       console.error(error);
-    //     });
-    // },
-			// muteUserConfirm(nickname) {
-			// 	this.$swal({ 
-			// 			icon: 'warning', // Alert 타입 
-			// 			title: nickname + '님을 차단하시겠어요?', // Alert 제목 
-			// 			text: '차단하면 해당 참가자는 더 이상 채팅을 할 수 없습니다.',
-			// 			showCancelButton: true,
-			// 			showConfirmButton: false,
-			// 			showDenyButton: true,
-			// 			denyButtonText: `차단`,
-			// 			cancelButtonText: `아니오`,
-			// 	})
-			// 	.then((res) => {
-			// 			if(res.isDenied) {
-			// 					return this.muteUser(nickname)
-			// 			}
-			// 	})
-			// },
-    // muteUser(nickname) {
-    //   const sendData = {
-    //     nickname: nickname,
-    //   };
-    //   this.session
-    //     .signal({
-    //       data: JSON.stringify(sendData), // Any string (optional)
-    //       to: [], // Array of Connection objects (optional. Broadcast to everyone if empty)
-    //       type: 'mute', // The type of message (optional)
-    //     })
-    //     .then(() => {
-    //       console.log('Mute successfully sent');
-    //     })
-    //     .catch((error) => {
-    //       console.error(error);
-    //     });
-    // },
-		// deleteQuestion() {
-		// 	this.question = Object
-		// },
 		joinSession () {
 			// --- Get an OpenVidu object ---
 			this.OV = new OpenVidu();
@@ -472,7 +373,7 @@ export default {
 								videoSource: undefined, // The source of video. If undefined default webcam
 								publishAudio: true,  	// Whether you want to start publishing with your audio unmuted or not
 								publishVideo: true,  	// Whether you want to start publishing with your video enabled or not
-								resolution: '1280x720',  // The resolution of your video
+								resolution: '640x480',  // The resolution of your video
 								frameRate: 30,			// The frame rate of your video
 								insertMode: 'APPEND',	// How the video is inserted in the target element 'video-container'
 								mirror: false,       	// Whether to mirror your local video or not
