@@ -45,6 +45,9 @@
             unityFocus : false,
             keydownAlt : false,
             enterMap : false,
+            userId : '',
+            userNickname : '',
+            userChar : '',
         }
     },
     created(){
@@ -53,8 +56,11 @@
       // }
       // this.schoolName=this.$store.state.schoolName;
       // this.user=this.$store.getters.getUser;
+      // 유저 아이디, 닉네임, 캐릭터 가져와서 data에 저장
+      
     },
     mounted() {
+
         this.enterMap = false;
         this.schoolName = "";
         // this.$store.commit('setIsSubmit',true);
@@ -125,6 +131,17 @@
         }
     },
     watch : {
+        $route(to, from){
+            console.log(to.path);
+            console.log(from.path);
+            if(from.path == '/select'){
+                console.log("이게 나올거에요 제발요 안나오면 안되여");
+                this.userChar = this.$store.getters.getCharacterNum;
+                this.userId = localStorage.getItem('userId');
+                this.userNickname = localStorage.getItem('userNickname');
+                this.startGame();
+            }
+        },
         showMap : function(newVal){
             if(newVal){
                 // const top = document.querySelector('#nav').getBoundingClientRect().height + 1;
@@ -142,6 +159,13 @@
 
     },
     methods : {
+        startGame(){
+            console.log("캐릭터 번호 확인 : " + this.userChar);
+            this.$refs.hookInstance.message('PlayerManager', 'SetUserId', this.userId);
+            this.$refs.hookInstance.message('PlayerManager', 'SetUserNickname', this.userNickname);
+            this.$refs.hookInstance.message('PlayerManager', 'SetUserChar', this.userChar);
+            this.$refs.hookInstance.message('PlayerManager', 'StartGame');
+        },
         goUnity(){
             if(!this.showMap){
               console.log('두번실행')

@@ -34,42 +34,46 @@ export default {
     },
     selected1(){
       this.characterNum = 1
-      this.$store.commit('setChracterNum', 1)
+      this.$store.commit('setChracterNum', 0)
       this.selectfalse()
       this.select1 = true
       // alert(this.characterNum)
-      alert(this.$store.getters.getCharacterNum)
+      // alert(this.$store.getters.getCharacterNum)
     },
     selected2(){
       this.characterNum = 2
-      this.$store.commit('setChracterNum', 2)
+      this.$store.commit('setChracterNum', 1)
+      console.log(this.$store.getters.getCharacterNum)
       this.selectfalse()
       this.select2 = true
       // alert(this.characterNum)
-      alert(this.$store.getters.getCharacterNum)
+      // alert(this.$store.getters.getCharacterNum)
     },
     selected3(){
-      
-      alert(this.$store.getters.getCharacterNum)
+      // alert(this.$store.getters.getCharacterNum)
       this.characterNum = 3
+      this.$store.commit('setChracterNum', 2)
       this.selectfalse()
       this.select3 = true
       // alert(this.characterNum)
     },
     selected4(){
       this.characterNum = 4
+      this.$store.commit('setChracterNum', 3)
       this.selectfalse()
       this.select4 = true
       // alert(this.characterNum)
     },
     selected5(){
       this.characterNum = 5
+      this.$store.commit('setChracterNum', 4)
       this.selectfalse()
       this.select5 = true
       // alert(this.characterNum)
     },
     selected6(){
       this.characterNum = 6
+      this.$store.commit('setChracterNum', 5)
       this.selectfalse()
       this.select6 = true
       // alert(this.characterNum)
