@@ -13,7 +13,7 @@ export default {
   },
   computed : {
     showUnity : function(){
-      if(this.$route.name === "Main" || this.$route.name === "Select"){
+      if(this.$route.name === "Main"){
         return false;
       }
       return true;
