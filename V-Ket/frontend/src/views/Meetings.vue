@@ -21,71 +21,11 @@
 				</div>
 				<div id="session-message">
 					<div id="session-message-header" class="elevation-2">
-						{{this.sessionId}} 면접
+						{{this.sessionId}} 세션아이디
 					</div>
-					<!-- <div ref="chatDisplay" id="session-message-box">
-						<div v-for="(chat, index) in chats" :key="index" class="chat-line">
-							<div v-if="chat.userId === myUserName" class="my-comment">
-								<div class="d-flex flex-column align-items-end">
-									<div class="userInfo mb-1">
-										<div class="chat-image-box mr-2">
-											<img :src="getImg(chat)" class="chat-image" alt="profile_img">
-										</div>
-										<span class="participant-name">{{ chat.nickname }} </span>
-									</div>
-									<span class="my-chat-box mb-2">
-										<span class="chat-msg">{{ chat.msg }}</span>
-									</span>
-								</div>
-							</div>
-							<div v-else-if="!muteList.includes(chat.nickname)" class="other-comment">
-								<div>
-									<div class="d-flex justify-content-start">
-										<div class="userInfo mb-1 me-3">
-											<div class="chat-image-box mr-2">
-												<img :src="getImg(chat)" class="chat-image" alt="profile_img">
-											</div>
-											<span class="participant-name other">{{ chat.nickname }} </span>
-										</div>
-										<div class="icon-box elevation-1" @click="submitQuestion(chat)"><i class="far fa-comment"></i></div>
-										<div class="icon-box mute elevation-1" @click="muteUserConfirm(chat.nickname)"><i class="fas fa-comment-slash"></i></div>
-									</div>
-									<div class="d-flex justify-content-start">
-										<span class="chat-box mb-2">
-											<span class="chat-msg">{{ chat.msg }}</span>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> -->
-					<!-- <div id="session-message-send">
-						<div class="msg-guide p-2 fs-4" style="border-bottom: 1px solid rgb(189, 189, 189)">
-							내 메시지
-						</div>
-						<input
-							v-model="sendMsg"
-							type="textarea"
-							id="session-message-input"
-							placeholder="메세지를 입력해주세요"
-							class="p-3 pt-5 pb-5"
-							@keydown.enter="submitMsg"
-						/>
-					</div> -->
         </div>
 			</div>
 		</div>
-		<!-- <v-btn @click="isQuestion = true" class="d-none"></v-btn>
-    <v-snackbar v-model="isQuestion" :vertical="vertical" top light class="m-t-50" :timeout="timeout"
-		>
-      <div id="question-header">
-				<div id="question-nickname">{{question.nickname}}님의 질문</div>
-				<v-btn color="indigo" text v-bind="attrs" @click="isQuestion = false" class="">
-					닫기
-				</v-btn>
-			</div>
-			<div id="question-content">{{question.msg}}</div>
-    </v-snackbar> -->
 	</div>
 </template>
 <style scoped>	
@@ -297,7 +237,7 @@ export default {
 			OV: undefined,
 			session: undefined,
       sessionId: this.$route.params.sessionid,
-			interviewee: this.$route.params.interviewee,
+			// interviewee: this.$route.params.interviewee,
       publisher: undefined,
 			subscribers: [],
       publishers: [],
@@ -395,16 +335,13 @@ export default {
 		},
     exitInterview () {
       this.leaveSession()
-			if (this.isHost) {
-				const body = {companyId: this.myUserName, sessionId: this.sessionId}
-				http.post('/room/deleteInterview', body)
-				.then(() => {
-					this.removeSession()
-				})
-				.catch((err) => {
-					console.log(err)
-				})
-			}
+			http.delete('/session/delete/' + this.sessionId)
+			.then(() => {
+				this.removeSession()
+			})
+			.catch((err) => {
+				console.log(err)
+			})
       this.$router.go(-1)
     },
     // chat_on_scroll() {
