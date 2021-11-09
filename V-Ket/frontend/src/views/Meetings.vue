@@ -284,6 +284,7 @@ export default {
     // ]),
   },
 	created () {
+    this.mySessionId = this.sessionId
 		this.setting.audioSource = this.$store.getters.getAudio;
 		this.setting.videoSource = this.$store.getters.getVideo;
 	},
