@@ -41,6 +41,45 @@
         </button>
       </div>
     </div>
+    <div>
+      <div class="offcanvas offcanvas-end" id="demo1">
+        <div class="offcanvas-header">
+          <h1 class="offcanvas-title">Heading</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+          <p>나의 구매 목록</p>
+          <table>
+            <tr v-for="(buy, i) in buyList"
+            :key="i">
+              <td>{{buy.goodsName}}, </td>
+              <td>{{buy.goodsPrice}}, </td>
+              <td>{{buy.goodsQuantity}}, </td>
+              <td>{{buy.purchaseStatus}}, </td>
+              <td>
+                <button @click="changePurchase(buy.dealId)">
+                  {{buy.purchaseStatus}}
+                  <div v-if="buy.purchaseStatus == 10">결제완료</div>
+                  <div v-else-if="buy.purchaseStatus == 11">배송중</div>
+                  <div v-else-if="buy.purchaseStatus == 12">구매완료</div>
+                  <div v-else>구매취소</div>
+                </button>
+              </td>
+              <td>
+                <button @click="cancelPurchase(buy.dealId)">
+                  구매취소
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="container-fluid mt-3">
+        <button @click="getBuyList" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo1">
+          구매 목록
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -59,6 +98,9 @@ export default {
       meetings2: Array,
       sellerId: String,
       meetingListSize : '',
+      buyList: Array,
+      sellList: Array,
+      dealId: '',
     };
   },
   watch : {
@@ -111,6 +153,26 @@ export default {
     },
     removeDot(){
       document.getElementById('reddot').style.display="none";
+    },
+    getBuyList(){
+      console.log('리스트가져와')
+      http.get('/deal/buylist/' + localStorage.getItem('userId'))
+      .then((res)=>{
+        this.buyList = res.data;
+      })
+    },
+    changePurchase(dealId){
+      console.log('가즈아' + dealId)
+      http.put('/deal/updateDeal/' + dealId)
+      .then(()=>{
+
+      })
+    },
+    cancelPurchase(dealId){
+      http.put('/deal/cancelDeal/' + dealId)
+      .then(()=>{
+
+      })
     }
   },
 };

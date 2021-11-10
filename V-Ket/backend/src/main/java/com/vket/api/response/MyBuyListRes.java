@@ -27,4 +27,10 @@ public class MyBuyListRes {
     @ApiModelProperty(name="구매 수량")
     Long goodsQuantity;
 
+    @ApiModelProperty(name="구매 상태")
+    Long purchaseStatus;
+
+    @ApiModelProperty(name="deal id")
+    Long dealId;
+
 }

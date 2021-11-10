@@ -63,10 +63,13 @@ public class DealServiceImpl implements DealService{
         Deal deal = dealRepository.findByDealId(dealId).get();
 
         if (deal.getPurchase().getPurchaseId() == 10){
+            System.out.println("찾아라ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ");
             deal.updatePurchase(purchaseRepository.findByPurchaseId(11l).get());
+            dealRepository.save(deal);
             return 11l;
         }else{
             deal.updatePurchase(purchaseRepository.findByPurchaseId(12l).get());
+            dealRepository.save(deal);
             return 12l;
         }
 
@@ -78,6 +81,7 @@ public class DealServiceImpl implements DealService{
         Deal deal = dealRepository.findByDealId(dealId).get();
 
         deal.updatePurchase(purchaseRepository.findByPurchaseId(13l).get());
+        dealRepository.save(deal);
 
         return 13l;
     }
@@ -102,6 +106,8 @@ public class DealServiceImpl implements DealService{
                     .goodsName(d.getDealGoodsName())
                     .goodsPrice(d.getDealPrice())
                     .goodsQuantity(d.getDealQuantity())
+                    .purchaseStatus(d.getPurchase().getPurchaseId())
+                    .dealId(d.getDealId())
                     .build());
         }
 
@@ -120,6 +126,8 @@ public class DealServiceImpl implements DealService{
                     .goodsImg(d.getDealImg())
                     .goodsPrice(d.getDealPrice())
                     .goodsQuantity(d.getDealQuantity())
+                    .purchaseStatus(d.getPurchase().getPurchaseId())
+                    .dealId(d.getDealId())
                     .build());
         }
         return myBuyListResList;

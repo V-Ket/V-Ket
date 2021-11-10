@@ -26,4 +26,10 @@ public class MySellListRes {
 
     @ApiModelProperty(name="판매 수량")
     Long goodsQuantity;
+
+    @ApiModelProperty(name="판매 상태")
+    Long purchaseStatus;
+
+    @ApiModelProperty(name="deal id")
+    Long dealId;
 }
