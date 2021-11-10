@@ -37,4 +37,8 @@ public class Deal {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "purchase_id")
     private Purchase purchase;
+
+    public void updatePurchase(Purchase purchase){
+        this.purchase = purchase;
+    }
 }

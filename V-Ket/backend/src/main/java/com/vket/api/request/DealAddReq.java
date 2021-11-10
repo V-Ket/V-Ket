@@ -18,6 +18,9 @@ public class DealAddReq {
     @ApiModelProperty(name="판매자 ID")
     String sellerId;
 
+    @ApiModelProperty(name="상품 ID")
+    Long goodsId;
+
     @ApiModelProperty(name="물건 이름")
     String goodsName;
 
