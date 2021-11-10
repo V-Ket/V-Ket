@@ -36,4 +36,7 @@ public class Goods {
     @JoinColumn(name = "store_id")
     private Store store;
 
+    public void updateQuantity(Long goodsQuantity){
+        this.goodsQuantity = goodsQuantity;
+    }
 }
