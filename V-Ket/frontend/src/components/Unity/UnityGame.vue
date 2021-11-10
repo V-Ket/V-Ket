@@ -18,10 +18,14 @@
             :hideFooter="true"
             ref="hookInstance">
             </unity>
-            <button @click="unityHook">시~작~</button>
+            <!-- <button @click="unityHook">시~작~</button> -->
         </div>
         <div id="unity-school-name" hidden></div>
         <div id="unity-object-name" hidden></div>
+        <!-- 상점 번호 -->
+        <div id="unity-store-id" hidden></div>
+        <!-- 상점 위치 섬번호 + 상점 위치번호 -->
+        <div id="unity-store-pos" hidden></div>
     </div>
 </template>
 
@@ -48,6 +52,9 @@
             userId : '',
             userNickname : '',
             userChar : '',
+            storeId : '',
+            islandPos : '',
+            storePos : '',
         }
     },
     created(){
@@ -102,6 +109,8 @@
                 }
             }.bind(this)
         );
+
+        this.unityHook();
     },
     updated(){
         window.addEventListener('resize', () => {
@@ -159,6 +168,7 @@
 
     },
     methods : {
+        
         startGame(){
             console.log("캐릭터 번호 확인 : " + this.userChar);
             this.$refs.hookInstance.message('PlayerManager', 'SetUserId', this.userId);
@@ -172,21 +182,29 @@
                 this.$router.push({name : "Unity"});
             }
         },
+        //유니티에서 값 보내는거 확인용
         unityHook(){
-            this.objectName = "";
-            this.interval = setInterval(()=>{
-                if(document.getElementById('unity-object-name').innerHTML != this.objectName){
-                    this.objectName = document.getElementById('unity-object-name').innerHTML;
-                    switch (this.objectName) {
-                        case "Whale_R": // 정보공유/코드공유 - blackboard
-                            this.$router.push({name : 'Purchase'});
-                            break;
-                        default:
-                            break;
-                    }
-                    document.getElementById('unity-object-name').innerHTML = "";
-                }
-            })
+            this.storeId = "";
+            this.islandPos = "";
+            this.storePos = "";
+            // 요기 주석풀고 하면됨.
+            // this.interval = setInterval(() => {
+            //     // storeid가 비어있지 않다면
+            //     if(document.getElementById('unity-store-id').innerHTML != this.storeId){
+            //         this.storeId = document.getElementById('unity-store-id').innerHTML;
+            //         // this.$router.push();
+            //     }
+            //     // storePos가 비어있지 않다면
+            //     else if(document.getElementById('unity-store-pos').innerHTML != this.storePos){
+            //         this.islandPos = document.getElementById('unity-store-id').innerHTML.substring(0,4);
+            //         this.storePos = document.getElementById('unity-store-id').innerHTML.substring(4,5);
+            //         // this.$router.push();
+            //     }
+
+            //     document.getElementById('unity-store-id').innerHTML = "";
+            //     document.getElementById('unity-store-pos').innerHTML = "";
+            // });
+
         }
     }
   }

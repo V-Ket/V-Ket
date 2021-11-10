@@ -14,12 +14,14 @@
     <title>V-Ket</title>
   </head>
   <script>
-      function _funcJShook(object){
+      function _funcMShook(storePos){
         //
-        document.getElementById('unity-object-name').innerHTML = object;
+        document.getElementById('unity-store-pos').innerHTML = storePos;
+        // alert(storePos);
       }
-      function _userJShook(users){
-        document.getElementById('unity-users-name').innerHTML = users;
+      function _funcStorehook(storeNum){
+        document.getElementById('unity-store-id').innerHTML = storeNum;
+        // alert(storeNum);
       }
   </script>
   <script src="./unity/Build/UnityLoader.js"></script>

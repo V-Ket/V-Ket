@@ -59,14 +59,14 @@ export default {
     },
     selected4(){
       this.characterNum = 4
-      this.$store.commit('setChracterNum', 3)
+      this.$store.commit('setChracterNum', 4)
       this.selectfalse()
       this.select4 = true
       // alert(this.characterNum)
     },
     selected5(){
       this.characterNum = 5
-      this.$store.commit('setChracterNum', 4)
+      this.$store.commit('setChracterNum', 3)
       this.selectfalse()
       this.select5 = true
       // alert(this.characterNum)
