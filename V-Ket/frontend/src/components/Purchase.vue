@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pp">
     <div class="card-body bg-white mt-0 shadow">
       <p style="font-weight: bold">카카오페이 현재 사용가능</p>
       <label class="box-radio-input"><input type="radio" name="cp_item" value="5000" v-model="picked"><span>5,000원</span></label>
@@ -97,6 +97,8 @@ export default {
   }
 }
 </script>
-<style>
-
+<style scoped>
+.pp{
+  width: 66.6vw;
+}
 </style>

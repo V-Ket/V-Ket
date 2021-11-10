@@ -248,6 +248,7 @@ export default {
 }
 #nav{
   position:absolute;
+  top:0;
   width: 11.8vw;
   height: 100vh;
   left: 66.6vw;

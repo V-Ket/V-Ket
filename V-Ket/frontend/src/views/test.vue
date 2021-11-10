@@ -3,11 +3,11 @@
     <div>
       <SignUp class="signup" v-if="isModalViewed" @close-modal="isModalViewed=false"/>
     </div>
-    <!-- <div id="unity-container">
+    <div id="unity-container">
       <div id="unity-game-container">
         <div id="game-container"></div>
       </div>
-    </div> -->
+    </div>
     <!-- <p>hi</p>
     <div class="btnClass">
       <button class="btn" @click="isModalViewed=true"><b>회원가입</b></button>
@@ -70,5 +70,35 @@ export default {
 .btnClass{
   margin-left: 65vw;
 }
-
+#unity{
+  display: flex;
+  /* height : 100vh; */
+  overflow: hidden;
+  flex-direction: column;
+  -ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+#unity-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  width : 66.6vw;
+  height : 100%;
+  margin : 0 auto;
+  text-align: center;
+  flex : 1;
+}
+#unity-game-container{
+  width : 100%;
+}
+#unity-main{
+  width: 100%;
+  flex-grow: 9;
+  flex-basis: 0;
+}
 </style>
