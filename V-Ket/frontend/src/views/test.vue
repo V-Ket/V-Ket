@@ -1,6 +1,5 @@
 <template>
   <div id="unity">
-    <Nav/>
     <div>
       <SignUp class="signup" v-if="isModalViewed" @close-modal="isModalViewed=false"/>
     </div>
@@ -19,13 +18,11 @@
 
 <script>
 // import UnityGame from '@/components/Unity/UnityGame.vue';
-import Nav from '@/views/Nav.vue'
 import SignUp from '@/components/User/SignUp.vue'
 export default {
 
     components:{
         // UnityGame,
-        Nav,
         SignUp
     },
     data () { 
