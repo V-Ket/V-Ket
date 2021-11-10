@@ -1,5 +1,6 @@
 package com.vket.api.controller;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.vket.api.request.*;
 import com.vket.api.response.StoreInfoRes;
 import com.vket.api.service.StoreService;
@@ -28,7 +29,11 @@ public class StoreController {
     @PostMapping("/regist")
     @ApiOperation(value = "상점 등록", notes = "")
     public ResponseEntity<? extends BaseResponseBody> addStore(@RequestBody StorePostReq storePostReq) {
-
+        System.out.println();System.out.println();System.out.println();
+        System.out.println();
+        System.out.println(storePostReq.getIslandId());
+        System.out.println();
+        System.out.println();System.out.println();System.out.println();
         if (storeService.addStore(storePostReq)){
             return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
         }else{
