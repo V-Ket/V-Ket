@@ -15,6 +15,8 @@ public interface DealService {
 
     Long cancelDeal(Long dealId);
 
+    boolean moveCredit(Long dealId);
+
     boolean deleteDeal(Long dealId);
 
     List<MySellListRes> mySellList(String userId);

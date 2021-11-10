@@ -53,7 +53,11 @@ public class DealServiceImpl implements DealService{
                 .build());
 
         goods.updateQuantity(goods.getGoodsQuantity() - dealAddReq.getQuantity());
+        goodsRepository.save(goods);
+
         buyer.updateUserCredit(buyer.getUserCredit() - (dealAddReq.getEachPrice() * dealAddReq.getQuantity()));
+        userRepository.save(buyer);
+
         return true;
     }
 
@@ -64,22 +68,45 @@ public class DealServiceImpl implements DealService{
 
         if (deal.getPurchase().getPurchaseId() == 10){
             deal.updatePurchase(purchaseRepository.findByPurchaseId(11l).get());
+            dealRepository.save(deal);
             return 11l;
         }else{
             deal.updatePurchase(purchaseRepository.findByPurchaseId(12l).get());
+            dealRepository.save(deal);
             return 12l;
         }
 
     }
 
+
     @Override
     public Long cancelDeal(Long dealId) {
 
         Deal deal = dealRepository.findByDealId(dealId).get();
-
         deal.updatePurchase(purchaseRepository.findByPurchaseId(13l).get());
+        dealRepository.save(deal);
 
+        User buyer = deal.getUser();
+        Long totalCredit = deal.getDealPrice() * deal.getDealQuantity();
+        buyer.updateUserCredit(buyer.getUserCredit() + totalCredit);
+        userRepository.save(buyer);
         return 13l;
+    }
+
+    @Override
+    public boolean moveCredit(Long dealId) {
+
+        Deal deal = dealRepository.findByDealId(dealId).get();
+        deal.updatePurchase(purchaseRepository.findByPurchaseId(12l).get());
+        dealRepository.save(deal);
+
+        Long totalCredit = deal.getDealPrice() * deal.getDealQuantity();
+
+        User seller = userRepository.findByUserId(deal.getDealSeller()).get();
+        seller.updateUserCredit(seller.getUserCredit() + totalCredit);
+        userRepository.save(seller);
+
+        return true;
     }
 
     @Override
@@ -102,6 +129,8 @@ public class DealServiceImpl implements DealService{
                     .goodsName(d.getDealGoodsName())
                     .goodsPrice(d.getDealPrice())
                     .goodsQuantity(d.getDealQuantity())
+                    .purchaseStatus(d.getPurchase().getPurchaseId())
+                    .dealId(d.getDealId())
                     .build());
         }
 
@@ -120,6 +149,8 @@ public class DealServiceImpl implements DealService{
                     .goodsImg(d.getDealImg())
                     .goodsPrice(d.getDealPrice())
                     .goodsQuantity(d.getDealQuantity())
+                    .purchaseStatus(d.getPurchase().getPurchaseId())
+                    .dealId(d.getDealId())
                     .build());
         }
         return myBuyListResList;

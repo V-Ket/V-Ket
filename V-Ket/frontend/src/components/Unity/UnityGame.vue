@@ -1,5 +1,5 @@
 <template>
-<div id="unity-game" :class="{'small-map':!showMap}" @click="goUnity">
+    <div id="unity-game" :class="{'small-map':!showMap}" @click="goUnity">
         <div id="game-container">
             <div id="mini-map-alt" class="map-alt" v-if="!showMap">
                 <div class="mini-alt">
@@ -12,8 +12,8 @@
             </div>
             <unity id="vket-unity" 
             src="./unity/Build/unity.json" 
-            width = "1080"
-            height = "720"
+            :width = width
+            :height = height
             unityLoader="./unity/Build/UnityLoader.js" 
             :hideFooter="true"
             ref="hookInstance">
@@ -42,7 +42,7 @@
             schoolName : '',
             linked : false,
             height : '720',
-            width : '1080',
+            width : '1280',
             interval : '',
             mapHeight : 0,
             mapWidth : 0,
@@ -81,10 +81,11 @@
         const target = document.querySelector('#unity-game-container')
         const targetRect = target.getBoundingClientRect();
         this.width = targetRect.width;
+        console.log('너비'+ this.width)
         // this.height = document.querySelector('#unity').getBoundingClientRect().height-top;
         this.height = window.innerHeight-102;
-        const unity = document.querySelector('#unity-game');
-        unity.style.transform = `translate(${targetRect.left}px,102px)`;
+        // const unity = document.querySelector('#unity-game');
+        // unity.style.transform = `translate(${targetRect.left}px,102px)`;
         document.addEventListener(
             "click",
             function (event) {
@@ -119,9 +120,9 @@
                 const target = document.querySelector('#unity-game-container')
                 const targetRect = target.getBoundingClientRect();
                 this.width = targetRect.width;
-                this.height = window.innerHeight-102;
-                const unity = document.querySelector('#unity-game');
-                unity.style.transform = `translate(${targetRect.left}px,102px)`;
+                this.height = window.innerHeight;
+                // const unity = document.querySelector('#unity-game');
+                // unity.style.transform = `translate(${targetRect.left}px,102px)`;
                 this.mapHeight = document.querySelector('#unity-game-container').getBoundingClientRect().height;
                 this.mapWidth = document.querySelector('#unity-game-container').getBoundingClientRect().width;
             }
@@ -158,8 +159,8 @@
                 const targetRect = target.getBoundingClientRect();
                 this.width = targetRect.width;
                 this.height = window.innerHeight-102;
-                const unity = document.querySelector('#unity-game');
-                unity.style.transform = `translate(${targetRect.left}px,102px)`;
+                // const unity = document.querySelector('#unity-game');
+                // unity.style.transform = `translate(${targetRect.left}px,102px)`;
             }else{
                 this.width = '150';
                 this.height = '100';
