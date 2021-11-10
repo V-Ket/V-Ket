@@ -18,11 +18,10 @@
     <div>
       <div class="offcanvas offcanvas-end" id="demo">
         <div class="offcanvas-header">
-          <h1 class="offcanvas-title">Heading</h1>
+          <h1 class="offcanvas-title">미팅 목록</h1>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
-          <p>ddd</p>
           <table>
             <tr v-for="(meeting, i) in meetings"
             :key="i">
@@ -44,11 +43,10 @@
     <div>
       <div class="offcanvas offcanvas-end" id="demo1">
         <div class="offcanvas-header">
-          <h1 class="offcanvas-title">Heading</h1>
+          <h1 class="offcanvas-title">나의 구매 목록</h1>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
-          <p>나의 구매 목록</p>
           <table>
             <tr v-for="(buy, i) in buyList"
             :key="i">
@@ -57,18 +55,18 @@
               <td>{{buy.goodsQuantity}}, </td>
               <td>{{buy.purchaseStatus}}, </td>
               <td>
-                <button @click="changePurchase(buy.dealId)">
-                  {{buy.purchaseStatus}}
-                  <div v-if="buy.purchaseStatus == 10">결제완료</div>
-                  <div v-else-if="buy.purchaseStatus == 11">배송중</div>
-                  <div v-else-if="buy.purchaseStatus == 12">구매완료</div>
-                  <div v-else>구매취소</div>
-                </button>
+                <div v-if="buy.purchaseStatus == 10">결제완료</div>
+                <div v-else-if="buy.purchaseStatus == 11">배송중</div>
+                <div v-else-if="buy.purchaseStatus == 12">구매완료</div>
+                <div v-else>구매취소</div>
               </td>
               <td>
-                <button @click="cancelPurchase(buy.dealId)">
-                  구매취소
-                </button>
+                <div v-if="buy.purchaseStatus == 12 || buy.purchaseStatus == 13"></div>
+                <div v-else><button @click="moveCredit(buy.dealId)">구매확정</button></div>
+              </td>
+              <td>
+                <div v-if="buy.purchaseStatus == 12 || buy.purchaseStatus == 13"></div>
+                <div v-else><button @click="cancelPurchase(buy.dealId)">구매취소</button></div>
               </td>
             </tr>
           </table>
@@ -77,6 +75,38 @@
       <div class="container-fluid mt-3">
         <button @click="getBuyList" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo1">
           구매 목록
+        </button>
+      </div>
+    </div>
+    <div>
+      <div class="offcanvas offcanvas-end" id="demo2">
+        <div class="offcanvas-header">
+          <h1 class="offcanvas-title">나의 판매 목록</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+          <table>
+            <tr v-for="(sell, i) in sellList"
+            :key="i">
+              <td>{{sell.goodsName}}, </td>
+              <td>{{sell.goodsPrice}}, </td>
+              <td>{{sell.goodsQuantity}}, </td>
+              <td>{{sell.purchaseStatus}}, </td>
+              <td>
+                <button @click="changePurchase(sell.dealId)">
+                  <div v-if="sell.purchaseStatus == 10">결제완료</div>
+                  <div v-else-if="sell.purchaseStatus == 11">배송중</div>
+                  <div v-else-if="sell.purchaseStatus == 12">판매완료</div>
+                  <div v-else>구매취소</div>
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="container-fluid mt-3">
+        <button @click="getSellList" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo2">
+          판매 목록
         </button>
       </div>
     </div>
@@ -155,10 +185,17 @@ export default {
       document.getElementById('reddot').style.display="none";
     },
     getBuyList(){
-      console.log('리스트가져와')
+      console.log('b리스트가져와')
       http.get('/deal/buylist/' + localStorage.getItem('userId'))
       .then((res)=>{
         this.buyList = res.data;
+      })
+    },
+    getSellList(){
+      console.log('s리스트가져와')
+      http.get('/deal/selllist/' + localStorage.getItem('userId'))
+      .then((res)=>{
+        this.sellList = res.data;
       })
     },
     changePurchase(dealId){
@@ -170,6 +207,12 @@ export default {
     },
     cancelPurchase(dealId){
       http.put('/deal/cancelDeal/' + dealId)
+      .then(()=>{
+
+      })
+    },
+    moveCredit(dealId){
+      http.put('/deal/movecredit/' + dealId)
       .then(()=>{
 
       })
@@ -205,9 +248,9 @@ export default {
 }
 #nav{
   position:absolute;
-  width: 15vw;
+  width: 11.8vw;
   height: 100vh;
-  left: 70.3vw;
+  left: 66.6vw;
   z-index:100;
   border-left: 1px solid black;
   border-bottom: 1px solid var(--color-grey-6);

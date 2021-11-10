@@ -1,5 +1,5 @@
 <template>
-<div id="unity-game" :class="{'small-map':!showMap}" @click="goUnity">
+    <div id="unity-game" :class="{'small-map':!showMap}" @click="goUnity">
         <div id="game-container">
             <div id="mini-map-alt" class="map-alt" v-if="!showMap">
                 <div class="mini-alt">
@@ -12,8 +12,8 @@
             </div>
             <unity id="vket-unity" 
             src="./unity/Build/unity.json" 
-            width = "1080"
-            height = "720"
+            width = "1280"
+            height = "970"
             unityLoader="./unity/Build/UnityLoader.js" 
             :hideFooter="true"
             ref="hookInstance">

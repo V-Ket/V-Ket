@@ -46,6 +46,16 @@ public class DealController {
         return new ResponseEntity<Long>(purchaseStatus, HttpStatus.OK);
     }
 
+    @PutMapping("/movecredit/{dealId}")
+    @ApiOperation(value = "구매확정", notes = "")
+    public ResponseEntity<? extends BaseResponseBody> moveCredit(@PathVariable("dealId") Long dealId) {
+        if (dealService.moveCredit(dealId)) {
+            return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
+        }else{
+            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
+        }
+    }
+
     @PutMapping("/cancelDeal/{dealId}")
     @ApiOperation(value = "cancel Deal", notes = "")
     public ResponseEntity<Long> cancelDeal(@PathVariable("dealId") Long dealId) {
