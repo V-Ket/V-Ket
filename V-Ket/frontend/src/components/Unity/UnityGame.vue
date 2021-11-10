@@ -18,6 +18,11 @@
             :hideFooter="true"
             ref="hookInstance">
             </unity>
+            <v-dialog
+                v-model="isOpenStoreModal"
+                max-width="500px"
+                > <OpenStore class="temp" :islandpos="this.islandPos" :storepos="this.storePos" @open="open" @closeStoreModal="closeStoreModal" style="z-index:1000"  />
+            </v-dialog>
             <!-- <button @click="unityHook">시~작~</button> -->
         </div>
         <div id="unity-school-name" hidden></div>
@@ -31,11 +36,15 @@
 
 <script>
   import Unity from 'vue-unity-webgl';
+  import OpenStore from '@/components/store/OpenStore.vue';
   
   export default {
 		name : "UnityGame",
-		components : {Unity},
-    data() {
+		components : {
+            Unity,
+            OpenStore,
+        },
+        data() {
         return {
             user: {},
             objectName : '',
@@ -55,6 +64,7 @@
             storeId : '',
             islandPos : '',
             storePos : '',
+            isOpenStoreModal : false,
         }
     },
     created(){
@@ -151,6 +161,10 @@
                 this.userNickname = localStorage.getItem('userNickname');
                 this.startGame();
             }
+            // else if(from.path == '/openstore'){
+            //     console.log("상점 등록하도 돌아왔습니다.");
+            //     this.setStore();
+            // }
         },
         showMap : function(newVal){
             if(newVal){
@@ -169,13 +183,16 @@
 
     },
     methods : {
-        
+        setStore(){
+            this.$refs.hookInstance.message('Stores', 'ChangeStore');
+        },
         startGame(){
             console.log("캐릭터 번호 확인 : " + this.userChar);
             this.$refs.hookInstance.message('PlayerManager', 'SetUserId', this.userId);
             this.$refs.hookInstance.message('PlayerManager', 'SetUserNickname', this.userNickname);
             this.$refs.hookInstance.message('PlayerManager', 'SetUserChar', this.userChar);
             this.$refs.hookInstance.message('PlayerManager', 'StartGame');
+            this.unityHook();
         },
         goUnity(){
             if(!this.showMap){
@@ -185,30 +202,54 @@
         },
         //유니티에서 값 보내는거 확인용
         unityHook(){
+            console.log("이거 실행되나 확인용!!!!!!!!");
             this.storeId = "";
             this.islandPos = "";
             this.storePos = "";
             // 요기 주석풀고 하면됨.
-            // this.interval = setInterval(() => {
-            //     // storeid가 비어있지 않다면
-            //     if(document.getElementById('unity-store-id').innerHTML != this.storeId){
-            //         this.storeId = document.getElementById('unity-store-id').innerHTML;
-            //         // this.$router.push();
-            //     }
-            //     // storePos가 비어있지 않다면
-            //     else if(document.getElementById('unity-store-pos').innerHTML != this.storePos){
-            //         this.islandPos = document.getElementById('unity-store-id').innerHTML.substring(0,4);
-            //         this.storePos = document.getElementById('unity-store-id').innerHTML.substring(4,5);
-            //         // this.$router.push();
-            //     }
+            this.interval = setInterval(() => {
+                // storeid가 비어있지 않다면
+                if(document.getElementById('unity-store-id').innerHTML != this.storeId){
+                    this.storeId = document.getElementById('unity-store-id').innerHTML;
+                    // this.$router.push();
+                    
+                }
+                // storePos가 비어있지 않다면
+                else if(document.getElementById('unity-store-pos').innerHTML != this.storePos){
+                    console.log("빈상점 클릭했을때 나오는지 확인용");
+                    this.islandPos = document.getElementById('unity-store-pos').innerHTML.substring(0,4);
+                    this.storePos = document.getElementById('unity-store-pos').innerHTML.substring(4,5);
+                    // console.log(this.islandPos);
+                    // console.log(this.storePos);
+                    this.isOpenStoreModal = true;
 
-            //     document.getElementById('unity-store-id').innerHTML = "";
-            //     document.getElementById('unity-store-pos').innerHTML = "";
-            // });
-
+                    // this.$router.push({name:'OpenStore', params:{islandPos:Number(this.islandPos), storePos:Number(this.storePos)} })
+                    document.getElementById('unity-store-id').innerHTML = "";
+                    document.getElementById('unity-store-pos').innerHTML = "";
+                    this.$refs.hookInstance.message('GameManager','focusing',"false");
+                    this.unityFocus = false;
+                }  
+                
+            }, 1000);
+            
+        },
+        closeStoreModal(){
+            this.isOpenStoreModal = false;
+            this.$refs.hookInstance.message('GameManager','focusing',"true");
+                    this.unityFocus = true;
+            
+        },
+        open(){
+            this.isOpenStoreModal = false;
+            this.setStore();
+            this.$refs.hookInstance.message('GameManager','focusing',"true");
+                    this.unityFocus = true;
         }
     }
   }
 </script>
 <style scoped src="../../css/UnityGame.css">
+.temp{
+    /* border: 2px solid black; */
+}
 </style>

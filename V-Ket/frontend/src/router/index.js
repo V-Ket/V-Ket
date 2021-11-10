@@ -10,6 +10,8 @@ import NavTmp from '../views/NavTmp.vue'
 import Meetings from '../views/Meetings.vue'
 import MeetingList from '../components/MeetingList/MeetingList.vue';
 
+import OpenStore from '../components/store/OpenStore.vue';
+
 Vue.use(VueRouter)
 
 const routes = [{
@@ -52,6 +54,11 @@ const routes = [{
         path: '/meetlist',
         name: 'MeetingList',
         component: MeetingList
+    },
+    {
+        path: '/openstore',
+        name: 'OpenStore',
+        component: OpenStore
     }
 ]
 
