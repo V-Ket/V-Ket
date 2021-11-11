@@ -26,7 +26,7 @@ export default {
       // return false;
     },
     showNav : function(){
-      if(this.$route.name === "Main" || this.$route.name === "Select"){
+      if(this.$route.name === "Main" || this.$route.name === "Select" || this.$route.name === "Purchase"){
         return false;
       }
       return true;

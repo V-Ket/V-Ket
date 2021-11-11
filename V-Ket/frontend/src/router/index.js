@@ -9,6 +9,7 @@ import Purchase from '../components/Purchase.vue'
 import NavTmp from '../views/NavTmp.vue'
 import Meetings from '../views/Meetings.vue'
 import MeetingList from '../components/MeetingList/MeetingList.vue';
+import Store from '../views/Store.vue'
 
 import OpenStore from '../components/store/OpenStore.vue';
 
@@ -56,9 +57,9 @@ const routes = [{
         component: MeetingList
     },
     {
-        path: '/openstore',
-        name: 'OpenStore',
-        component: OpenStore
+        path: '/store',
+        name: 'Store',
+        component: Store
     }
 ]
 

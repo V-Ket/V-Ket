@@ -27,6 +27,25 @@ public class StoreServiceImpl implements StoreService{
     private GoodsRepository goodsRepository;
 
     @Override
+    public StoreInfoRes selectStore(Long storeId) {
+
+        Store store = storeRepository.findByStoreId(storeId).get();
+
+        StoreInfoRes storeInfoRes = StoreInfoRes.builder()
+                .storeId(store.getStoreId())
+                .userId(store.getUser().getUserId())
+                .islandId(store.getIsland().getIslandId())
+                .storeIslandNum(store.getStoreIslandNum())
+                .storeName(store.getStoreName())
+                .storeContent(store.getStoreContent())
+                .storeUrl(store.getStoreUrl())
+                .storeStatus(store.getStoreStatus())
+                .build();
+
+        return storeInfoRes;
+    }
+
+    @Override
     public boolean addStore(StorePostReq storePostReq) {
         Optional<Store> isStore = storeRepository.findByUser_UserId(storePostReq.getUserId());
 

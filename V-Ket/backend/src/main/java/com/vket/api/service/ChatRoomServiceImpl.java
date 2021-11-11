@@ -18,7 +18,7 @@ public class ChatRoomServiceImpl implements ChatRoomService {
     @Override
     public boolean addChatRoom(ChatRoomReq chatRoomReq) {
         chatRootRepository.save(ChatRoom.builder()
-            .chatRoomId(chatRoomReq.getChatRoomId())
+//            .chatRoomId(chatRoomReq.getChatRoomId())
             .senderId(chatRoomReq.getSenderId())
             .receiverId(chatRoomReq.getReceiverId())
             .build());
