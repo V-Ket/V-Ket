@@ -40,7 +40,7 @@ public class StoreController {
         if (storeService.addStore(storePostReq)) {
             return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
         } else {
-            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
+            return ResponseEntity.status(202).body(BaseResponseBody.of(202, "Fail"));
         }
 
     }

@@ -17,7 +17,7 @@
       <div class="buttons">
         <button class="btn" style="margin-right: 40px; margin-left: 40px" @click="login"><b>로그인</b></button>
         <button class="btn" @click="isModalViewed=true"><b>회원가입</b></button>
-        <button class="btn" @click="unitytest"><b>유니티</b></button>
+        <!-- <button class="btn" @click="unitytest"><b>유니티</b></button> -->
       </div>
     </div>
         <!-- <Chat class="chat"/> -->
@@ -112,7 +112,7 @@ export default {
   border-radius: 10px;
   left: 50%;
   top: 52%;
-  width: 30vw;
+  width: 25vw;
   height: 20vh;
   transform: translate(-50%, 90%);
   background-color: #eee;

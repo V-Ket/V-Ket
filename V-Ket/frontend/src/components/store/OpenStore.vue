@@ -129,7 +129,19 @@ export default {
             http.post("/store/regist", body)
             .then((res) => {
                 console.log(res);
-                alert("상점 등록 완료")
+                // alert("상점 등록 완료")
+                if(res.status == 201){
+                    this.$swal({
+                        icon: 'success',
+                        title: '상점 등록 완료!',
+                        text: '상점에서 물품을 등록해주세요!'
+                    })
+                }else{
+                    this.$swal({
+                        icon: 'error',
+                        title: '이미 상점이 있습니다!'
+                    })
+                }
             })
             .catch((e) =>{
                 console.log(e);
