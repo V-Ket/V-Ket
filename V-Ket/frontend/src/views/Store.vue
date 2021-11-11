@@ -98,7 +98,7 @@ import http from '@/http.js';
           },
         ],
         goods: Array,
-        storeId: 1, //라우터 푸시로 가져와야함
+        storeId: this.$route.params.storeid, //라우터 푸시로 가져와야함
         hostId:'',
         storeName: '',
         storeContent:'',

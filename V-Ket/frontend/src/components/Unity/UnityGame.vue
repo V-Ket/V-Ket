@@ -211,7 +211,9 @@
                 // storeid가 비어있지 않다면
                 if(document.getElementById('unity-store-id').innerHTML != this.storeId){
                     this.storeId = document.getElementById('unity-store-id').innerHTML;
-                    // this.$router.push();
+                    document.getElementById('unity-store-id').innerHTML = "";
+                    document.getElementById('unity-store-pos').innerHTML = "";
+                    this.$router.push({name: 'Store' , params:{storeid : this.storeId}});
                     
                 }
                 // storePos가 비어있지 않다면
