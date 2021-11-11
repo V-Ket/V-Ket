@@ -247,6 +247,7 @@ export default {
   margin-left: 1vw;
 }
 #nav{
+  top:0;
   position:absolute;
   top:0;
   width: 11.8vw;

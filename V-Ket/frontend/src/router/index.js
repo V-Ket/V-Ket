@@ -11,6 +11,8 @@ import Meetings from '../views/Meetings.vue'
 import MeetingList from '../components/MeetingList/MeetingList.vue';
 import Store from '../views/Store.vue'
 
+import OpenStore from '../components/store/OpenStore.vue';
+
 Vue.use(VueRouter)
 
 const routes = [{
