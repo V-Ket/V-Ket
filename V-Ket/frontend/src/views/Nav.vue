@@ -1,20 +1,22 @@
 <template>
   <div id="nav">
+    <!-- 크레딧 -->
     <div>
       <div class="creditDiv">
-        보유 credit : 10,000
+        보유 credit : {{this.credit}}
       </div>
-      <button class="btnPurchase" @click="purchase">충전하기(새창)</button>
+      <!-- <button class="btnPurchase" @click="purchase">충전하기(새창)</button> -->
+      <button class="btnPurchase" @click="purchase2">충전하기(라우터)</button>
     </div>
+    <!-- 채팅 -->
     <div>
       <Chat class="chat"/>
     </div>
+    <!-- 로그아웃 -->
     <div>
       <button class="btnLogout" @click="logout">로그아웃</button>
     </div>
-    <div>
-      <button class="btnPurchase2" @click="purchase2">충전하기(라우터)</button>
-    </div>
+    <!-- 미팅목록 -->
     <div>
       <div class="offcanvas offcanvas-end" id="demo">
         <div class="offcanvas-header">
@@ -40,6 +42,7 @@
         </button>
       </div>
     </div>
+    <!-- 구매목록 -->
     <div>
       <div class="offcanvas offcanvas-end" id="demo1">
         <div class="offcanvas-header">
@@ -78,6 +81,7 @@
         </button>
       </div>
     </div>
+    <!-- 판매목록 -->
     <div>
       <div class="offcanvas offcanvas-end" id="demo2">
         <div class="offcanvas-header">
@@ -116,11 +120,13 @@
 <script>
 import Chat from '@/components/Chat/Chat.vue'
 import http from '@/http.js';
+import { mapGetters } from 'vuex'
 
 export default {
   name: "Nav",
   components:{
-    Chat
+    Chat,
+
   },
   data() {
     return {
@@ -132,6 +138,9 @@ export default {
       sellList: Array,
       dealId: '',
     };
+  },
+  computed: {
+    ...mapGetters(['credit'])
   },
   watch : {
     meetingListSize (newval, oldval){
@@ -168,6 +177,12 @@ export default {
     
   },
   methods: {
+    aaaa(){
+      this.$store.commit('setCredit', '10')
+    },
+    cccc(){
+      console.log(this.credit)
+    },
     logout(){
       localStorage.removeItem('token')
       localStorage.removeItem('userId')

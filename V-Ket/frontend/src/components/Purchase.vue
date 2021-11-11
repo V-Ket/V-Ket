@@ -24,6 +24,7 @@
 <script>
 // import axios from 'axios'
 import http from '@/http.js'
+// import { mapMutations } from 'vuex'
 
 export default {
   name: 'Purchase',
@@ -41,10 +42,12 @@ export default {
         name : '',
         amount : null,
         buyer_tel : '',
-      }
+      },
+      changedCredit:'',
     }
   },
   methods: {
+    // ...mapMutations(['setCredit']),
     goUni(){
       this.$router.push({name:'Unity'})
     },
@@ -53,7 +56,7 @@ export default {
       IMP.init('imp83028829');
       var money = this.picked
       console.log(money);
-      IMP.request_pay({
+        IMP.request_pay({
           pg: 'kakao',
           merchant_uid: 'merchant_' + new Date().getTime(),
           name: '주문명 : 주문명 설정',
@@ -63,36 +66,52 @@ export default {
           buyer_tel: '010-1234-5678',
           buyer_addr: '인천광역시 부평구',
           buyer_postcode: '123-456'
-      }, function (rsp) {
+      }, async function (rsp) {
           console.log(rsp);
           var msg = '';
+          console.log('4')
           if (rsp.success) {
               msg = '결제가 완료되었습니다.';
               msg += '고유ID : ' + rsp.imp_uid;
               msg += '상점 거래ID : ' + rsp.merchant_uid;
               msg += '결제 금액 : ' + rsp.paid_amount;
               msg += '카드 승인번호 : ' + rsp.apply_num;
+              console.log('3')
               const body = {
                 userId : localStorage.getItem('userId'),
                 credit : money
               }
-              http.post('/user/credit', body)
+              console.log('2')
+              await http.post('/user/credit', body)
               .then((res)=>{
-                if(res.status == 201){
-                  alert('충전이 완료되었습니다.')
-                }else{
-                  alert('충전 오류')
-                }
+                console.log('1')
+                console.log('결제'+res.data)
+                this.changedCredit = res.data
+                // this.$store.commit('setCredit', res.data)
+                // this.setCredit(res.data)
+                // alert('결제완료쓰!!')
+                console.log('0')
               })
+              // setTimeout(function(){
+              // },10000)
           } else {
               msg = '결제에 실패하였습니다.';
               msg += '에러내용 : ' + rsp.error_msg;
           }
-          alert(msg);
-          setTimeout(function(){
-            location.reload()
-          },100)
-      });
+          console.log('-1')
+          console.log('-2')
+          console.log(msg)
+          // alert(msg);
+          // setTimeout(function(){
+            //   location.reload()
+          // },100)
+        console.log('이거'+this.changedCredit)
+        this.$store.commit('setCredit', this.changedCredit)
+        console.log('커밋완료')
+      }.bind(this));
+      
+      // setTimeout(function(){
+      // }.bind(this),100)
     }
   }
 }

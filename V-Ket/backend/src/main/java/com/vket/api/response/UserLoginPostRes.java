@@ -35,8 +35,6 @@ public class UserLoginPostRes {
 	@ApiModelProperty(name="유저 Character", example = "your_character")
 	Long userCharacter;
 
-
-
-//	@ApiModelProperty(name="유저 Credit", example = "your_credit")
-//	Long userCredit;
+	@ApiModelProperty(name="유저 Credit", example = "your_credit")
+	Long userCredit;
 }

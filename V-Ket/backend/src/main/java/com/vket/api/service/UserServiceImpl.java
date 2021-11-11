@@ -36,12 +36,13 @@ public class UserServiceImpl implements UserService{
     public void createUser(UserPostReq userPostReq) {
 
         userRepository.save(User.builder()
-        .userId(userPostReq.getUserId())
-        .userPassword(passwordEncoder.encode(userPostReq.getUserPassword()))
-        .userNickname(userPostReq.getUserNickname())
-        .userPhone(userPostReq.getUserPhone())
-        .userCharacter(-1L)
-        .build());
+                .userId(userPostReq.getUserId())
+                .userPassword(passwordEncoder.encode(userPostReq.getUserPassword()))
+                .userNickname(userPostReq.getUserNickname())
+                .userPhone(userPostReq.getUserPhone())
+                .userCharacter(-1L)
+                .userCredit(0l)
+                .build());
 
         return;
     }
@@ -86,6 +87,7 @@ public class UserServiceImpl implements UserService{
                 .userPhone(user.getUserPhone())
                 .userNickname(user.getUserNickname())
                 .userCharacter(user.getUserCharacter())
+                .userCredit(user.getUserCredit())
                 .build();
 
         return userLoginPostRes;
@@ -166,13 +168,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public boolean addCredit(CreditAddReq creditAddReq) {
+    public Long addCredit(CreditAddReq creditAddReq) {
         User user = userRepository.findByUserId(creditAddReq.getUserId()).get();
-
-        user.updateUserCredit(creditAddReq.getCredit());
+        Long total = user.getUserCredit() + creditAddReq.getCredit();
+        user.updateUserCredit(total);
         userRepository.save(user);
 
-        return true;
+        return userRepository.findByUserId(creditAddReq.getUserId()).get().getUserCredit();
     }
 
 }
