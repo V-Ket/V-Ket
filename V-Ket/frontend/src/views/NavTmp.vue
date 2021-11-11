@@ -92,7 +92,7 @@ export default {
 
 <style scoped src="../css/Nav.css">
 </style>
-<style>
+<style scoped>
   .signup{
   position:absolute;
   border: 2px solid black;

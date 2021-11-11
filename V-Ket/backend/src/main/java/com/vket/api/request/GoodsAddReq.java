@@ -13,8 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 @ApiModel("GoodsAddReq")
 @Data
 public class GoodsAddReq {
-    @ApiModelProperty(name="상품 아이디")
-    private Long goodsId;
+//    @ApiModelProperty(name="상품 아이디")
+//    private Long goodsId;
 
     @ApiModelProperty(name="상품명")
     private String goodsName;

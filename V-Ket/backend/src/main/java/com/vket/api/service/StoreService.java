@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface StoreService {
 
+    StoreInfoRes selectStore(Long storeId);
+
     boolean addStore(StorePostReq storePostReq);
 
     boolean updateStoreAll(StoreUpdateAllReq storeUpdateAllReq);

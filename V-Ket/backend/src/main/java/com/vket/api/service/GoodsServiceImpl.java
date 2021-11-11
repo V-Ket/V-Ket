@@ -151,7 +151,7 @@ public class GoodsServiceImpl implements GoodsService {
 
         if(storeRepository.findByStoreId(goodsAddReq.getStoreId()).isPresent()) {
             goodsRepository.save(Goods.builder()
-                    .goodsId(goodsAddReq.getGoodsId())
+//                    .goodsId(goodsAddReq.getGoodsId())
                     .goodsName(goodsAddReq.getGoodsName())
                     .goodsPrice(goodsAddReq.getGoodsPrice())
                     .goodsImg(imgFile)

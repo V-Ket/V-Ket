@@ -70,7 +70,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .interview-table-box {
   border: solid #eee 1px;
   width: 800px;

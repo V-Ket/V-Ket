@@ -24,7 +24,6 @@ public class SessionServiceImpl implements SessionService{
     public boolean addSession(SessionPostReq sessionPostReq) {
 
         String newSessionName = sessionPostReq.getBuyerId() + sessionPostReq.getSellerId();
-
         Optional<Session> session = sessionRepository.findBySessionName(newSessionName);
 
         if (session.isPresent()){

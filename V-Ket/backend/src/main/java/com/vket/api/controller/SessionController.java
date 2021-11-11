@@ -34,7 +34,7 @@ public class SessionController {
         if (sessionService.addSession(sessionPostReq)) {
             return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
         } else {
-            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
+            return ResponseEntity.status(444).body(BaseResponseBody.of(444, "Fail"));
         }
 
     }

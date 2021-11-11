@@ -24,14 +24,21 @@ public class StoreController {
     @Autowired
     private StoreService storeService;
 
+    @GetMapping("/select/{storeId}")
+    @ApiOperation(value = "상점 하나", notes = "")
+    public ResponseEntity<StoreInfoRes> selectOneStore(@PathVariable("storeId") Long storeId){
+        StoreInfoRes storeInfoRes = storeService.selectStore(storeId);
+        return new ResponseEntity<StoreInfoRes>(storeInfoRes, HttpStatus.OK);
+    }
+
     //상점 등록
     @PostMapping("/regist")
     @ApiOperation(value = "상점 등록", notes = "")
     public ResponseEntity<? extends BaseResponseBody> addStore(@RequestBody StorePostReq storePostReq) {
 
-        if (storeService.addStore(storePostReq)){
+        if (storeService.addStore(storePostReq)) {
             return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
-        }else{
+        } else {
             return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
         }
 
