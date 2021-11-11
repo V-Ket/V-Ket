@@ -8,6 +8,7 @@
 <script>
 import http from '@/http.js';
 // import axios from 'axios';
+// import {mapMutations} from 'vuex'
 
 export default {
   name: 'Login',
@@ -31,10 +32,13 @@ export default {
       http.post('/user/login' , body)
       // axios.post('http://localhost:8877/user/login'+body)
       .then((res) => {
-        console.log('로그인됨')
+        // console.log('로그인됨'+res)
+        // console.log(res)
         localStorage.setItem('token', res.data.accessToken)
         localStorage.setItem('userId', res.data.userId)
         localStorage.setItem('userNickname', res.data.userNickname)
+        this.$store.commit('setCredit', res.data.userCredit)
+        
       });
       setTimeout(function(){
         location.reload()

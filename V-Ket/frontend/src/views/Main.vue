@@ -65,9 +65,11 @@ export default {
       http.post('/user/login' , body)
       .then((res) => {
         console.log('로그인됨')
+        console.log('dd'+res)
         localStorage.setItem('token', res.data.accessToken)
         localStorage.setItem('userId', res.data.userId)
         localStorage.setItem('userNickname', res.data.userNickname)
+        this.$store.commit('setCredit', res.data.userCredit)
         this.$router.push({name:'Select'})
       })
       .catch((err) => {

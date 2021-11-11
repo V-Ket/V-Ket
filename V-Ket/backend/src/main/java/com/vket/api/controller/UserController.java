@@ -133,13 +133,9 @@ public class UserController {
     // 크래딧 충전
     @PostMapping("/credit")
     @ApiOperation(value = "credit 충전", notes = "")
-    public ResponseEntity<? extends BaseResponseBody> addCredit(@RequestBody CreditAddReq creditAddReq){
+    public ResponseEntity<Long> addCredit(@RequestBody CreditAddReq creditAddReq){
 
-        if (userService.addCredit(creditAddReq)) {
-            return ResponseEntity.status(201).body(BaseResponseBody.of(201, "충전완료"));
-        }else{
-            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "충전실패"));
-        }
+        return new ResponseEntity<>(userService.addCredit(creditAddReq), HttpStatus.OK);
 
     }
     // 크래딧 화전
