@@ -4,6 +4,7 @@ import com.vket.api.request.GoodsAddReq;
 import com.vket.api.request.GoodsUpdateReq;
 import com.vket.api.response.GoodsRes;
 import com.vket.api.service.GoodsService;
+import com.vket.api.service.S3Uploader;
 import com.vket.common.response.BaseResponseBody;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -14,7 +15,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @Api(value = "상품 API", tags = {"Goods"})
@@ -25,6 +28,7 @@ import java.util.List;
 public class GoodsController {
     @Autowired
     GoodsService goodsService;
+    private final S3Uploader s3Uploader;
 
     // 상품 전체 정보
     @GetMapping("/allGoods")
@@ -86,5 +90,12 @@ public class GoodsController {
         } else {
             return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
         }
+    }
+
+    @PostMapping("/images")
+    public ResponseEntity<String> upload(@RequestParam("images") MultipartFile multipartFile) throws IOException {
+        System.out.println("들어왔니?");
+        s3Uploader.upload(multipartFile, "static");
+        return new ResponseEntity<>("test",HttpStatus.OK);
     }
 }
