@@ -10,6 +10,7 @@ import NavTmp from '../views/NavTmp.vue'
 import Meetings from '../views/Meetings.vue'
 import MeetingList from '../components/MeetingList/MeetingList.vue';
 import Store from '../views/Store.vue'
+import GoodsList from '../components/store/GoodsList.vue';
 
 Vue.use(VueRouter)
 
@@ -58,6 +59,12 @@ const routes = [{
         path: '/store',
         name: 'Store',
         component: Store
+    },
+    {
+        path: '/goodslist',
+        name: 'GoodsList',
+        component: GoodsList,
+        props: true
     }
 ]
 
