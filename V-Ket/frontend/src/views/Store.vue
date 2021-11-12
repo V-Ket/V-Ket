@@ -73,6 +73,11 @@
         </div>
       </div>
 
+      <v-dialog
+        v-model="isOpenaddGoodsModal"
+        max-width="500px"
+        > <OpenStore class="temp" :islandpos="this.islandPos" :storepos="this.storePos" @open="open" @closeStoreModal="closeStoreModal" style="z-index:1000"  />
+      </v-dialog>
     </div>
   </div>
 </template>
@@ -104,6 +109,7 @@ import http from '@/http.js';
         storeContent:'',
         storeUrl:'',
         sessionId: '',
+        isOpenaddGoodsModal: false,
       }
     },
     mounted(){
@@ -131,6 +137,7 @@ import http from '@/http.js';
       },
       goodsList(){
         //상품 상세보기로 라우터 푸시
+        this.$router.push({name: "GoodsList", params:{storeId : this.storeId, hostId : this.hostId}});
         //this.$router.push({name: ""})
       },
       goSession(){
@@ -166,6 +173,7 @@ import http from '@/http.js';
         //상점 정보 수정 모달 오픈
       },
       updateGoods(){
+        this.isOpenaddGoodsModal = true;
         //상품 등록/수정 모달? 모르겠네
       }
     }
