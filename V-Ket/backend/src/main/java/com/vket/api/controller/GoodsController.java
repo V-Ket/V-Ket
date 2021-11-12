@@ -4,7 +4,6 @@ import com.vket.api.request.GoodsAddReq;
 import com.vket.api.request.GoodsUpdateReq;
 import com.vket.api.response.GoodsRes;
 import com.vket.api.service.GoodsService;
-import com.vket.api.service.S3Uploader;
 import com.vket.common.response.BaseResponseBody;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -15,9 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.List;
 
 @Api(value = "상품 API", tags = {"Goods"})
@@ -28,7 +25,8 @@ import java.util.List;
 public class GoodsController {
     @Autowired
     GoodsService goodsService;
-    private final S3Uploader s3Uploader;
+
+//    private final S3Uploader s3Uploader;
 
     // 상품 전체 정보
     @GetMapping("/allGoods")
@@ -63,22 +61,49 @@ public class GoodsController {
     @PutMapping("")
     @ApiOperation(value = "상품 정보 한꺼번에 수정하기", notes = "")
     public ResponseEntity<? extends BaseResponseBody> updateGoods(@RequestBody @ApiParam(value = "상품 정보", required = true) GoodsUpdateReq goodsUpdateReq){
-        if (goodsService.updateGoodsInfo(goodsUpdateReq)) {
-            return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
-        } else {
+
+        try {
+            if(goodsService.updateGoodsInfo(goodsUpdateReq)){
+                return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
+            }
+            else{
+                return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
+            }
+        }catch (Exception e){
+            System.out.println("상품 등록 오류");
+            System.out.println(e);
             return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
         }
+
+//        if (goodsService.updateGoodsInfo(goodsUpdateReq)) {
+//            return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
+//        } else {
+//            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
+//        }
     }
 
     // 상품 등록하기
     @PostMapping("")
     @ApiOperation(value = "새 상품 등록", notes = "")
     public ResponseEntity<? extends BaseResponseBody> addGoods(@RequestBody @ApiParam(value = "새 상품 정보", required = true) GoodsAddReq goodsAddReq){
-        if (goodsService.addGoods(goodsAddReq)) {
+
+        try{
+            if (goodsService.addGoods(goodsAddReq)) {
+                return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
+            } else {
+                return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
+            }
+        }catch (Exception e){
+            System.out.println("상품 등록 오류");
+            System.out.println(e);
             return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
-        } else {
-            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
         }
+
+//        if (goodsService.addGoods(goodsAddReq)) {
+//            return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
+//        } else {
+//            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
+//        }
     }
 
     // 상품 삭제하기
@@ -92,10 +117,10 @@ public class GoodsController {
         }
     }
 
-    @PostMapping("/images")
-    public ResponseEntity<String> upload(@RequestParam("images") MultipartFile multipartFile) throws IOException {
-        System.out.println("들어왔니?");
-        s3Uploader.upload(multipartFile, "static");
-        return new ResponseEntity<>("test",HttpStatus.OK);
-    }
+//    @PostMapping("/images")
+//    public ResponseEntity<String> upload(@RequestParam("images") MultipartFile multipartFile) throws IOException {
+//        System.out.println("들어왔니?");
+//        s3Uploader.upload(multipartFile, "static");
+//        return new ResponseEntity<>("test",HttpStatus.OK);
+//    }
 }

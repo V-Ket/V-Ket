@@ -10,11 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 import static com.vket.config.DirPathConfig.baseDir;
 
@@ -25,6 +25,9 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Autowired
     StoreRepository storeRepository;
+
+    @Autowired
+    S3Service s3Service;
 
 //    @Override
 //    public List<Goods> findAll() {
@@ -96,31 +99,37 @@ public class GoodsServiceImpl implements GoodsService {
 
     // 상품 정보 수정하기
     @Override
-    public boolean updateGoodsInfo(GoodsUpdateReq goodsUpdateReq) {
+    public boolean updateGoodsInfo(GoodsUpdateReq goodsUpdateReq) throws IOException {
         if (goodsRepository.findByGoodsId(goodsUpdateReq.getGoodsId()).isPresent()) {
 
             Goods goods = goodsRepository.findByGoodsId(goodsUpdateReq.getGoodsId()).get();
+
+            // 기존에 있던 이미지 지우기
+            s3Service.delete(goods.getGoodsImg());
+            // 새로운 이미지로 S3에 등록
+            String fileURL = s3Service.upload(goodsUpdateReq.getGoodsImg(), "static");
+
 //            goods.updateGoodsInfo(goodsUpdateReq);
-            String newPath = "";
-            String newFile = "";
-            if (goodsUpdateReq.getGoodsImg() == null && goodsUpdateReq.getGoodsImg().isEmpty()){
-                newFile = goods.getGoodsImg();
-            }else{
-                Store store = storeRepository.findByStoreId(goodsUpdateReq.getStoreId()).get();
-                Date nowTime = new Date();
-                SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
-                String now = format.format(nowTime);
-                newPath = baseDir + "/goods/" + now + store.getStoreId() + ".jpg";
-                newFile = now + store.getStoreId() + ".jpg";
-                try {
-                    goodsUpdateReq.getGoodsImg().transferTo(new File(newPath));
-                }catch (Exception e){
-                    return false;
-                }
-            }
+//            String newPath = "";
+//            String newFile = "";
+//            if (goodsUpdateReq.getGoodsImg() == null && goodsUpdateReq.getGoodsImg().isEmpty()){
+//                newFile = goods.getGoodsImg();
+//            }else{
+//                Store store = storeRepository.findByStoreId(goodsUpdateReq.getStoreId()).get();
+//                Date nowTime = new Date();
+//                SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+//                String now = format.format(nowTime);
+//                newPath = baseDir + "/goods/" + now + store.getStoreId() + ".jpg";
+//                newFile = now + store.getStoreId() + ".jpg";
+//                try {
+//                    goodsUpdateReq.getGoodsImg().transferTo(new File(newPath));
+//                }catch (Exception e){
+//                    return false;
+//                }
+//            }
             goods.setGoodsName(goodsUpdateReq.getGoodsName());
             goods.setGoodsPrice(goodsUpdateReq.getGoodsPrice());
-            goods.setGoodsImg(newFile);
+            goods.setGoodsImg(fileURL);
             goods.setGoodsQuantity(goodsUpdateReq.getGoodsQuantity());
             goods.setGoodsContent(goodsUpdateReq.getGoodsContent());
 
@@ -133,28 +142,28 @@ public class GoodsServiceImpl implements GoodsService {
 
     // 상품 등록하기
     @Override
-    public boolean addGoods(GoodsAddReq goodsAddReq) {
+    public boolean addGoods(GoodsAddReq goodsAddReq) throws IOException {
         Store store = storeRepository.findByStoreId(goodsAddReq.getStoreId()).get();
 
-        Date nowTime = new Date();
-        SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
-        String now = format.format(nowTime);
+//        Date nowTime = new Date();
+//        SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+//        String now = format.format(nowTime);
 
-        String imgPath = baseDir + "/goods/" + now + store.getStoreId() + ".jpg";
-        String imgFile = now + store.getStoreId() + ".jpg";
+//        String imgPath = baseDir + "/goods/" + now + store.getStoreId() + ".jpg";
+//        String imgFile = now + store.getStoreId() + ".jpg";
 
-        try {
-            goodsAddReq.getGoodsImg().transferTo(new File(imgPath));
-        }catch (Exception e){
-            return false;
-        }
-
+//        try {
+//            goodsAddReq.getGoodsImg().transferTo(new File(imgPath));
+//        }catch (Exception e){
+//            return false;
+//        }
+        String fileURL = s3Service.upload(goodsAddReq.getGoodsImg(), "static");
         if(storeRepository.findByStoreId(goodsAddReq.getStoreId()).isPresent()) {
             goodsRepository.save(Goods.builder()
 //                    .goodsId(goodsAddReq.getGoodsId())
                     .goodsName(goodsAddReq.getGoodsName())
                     .goodsPrice(goodsAddReq.getGoodsPrice())
-                    .goodsImg(imgFile)
+                    .goodsImg(fileURL)
                     .goodsQuantity(goodsAddReq.getGoodsQuantity())
                     .goodsContent(goodsAddReq.getGoodsContent())
                     .store(store)
@@ -175,4 +184,5 @@ public class GoodsServiceImpl implements GoodsService {
             return false;
         }
     }
+
 }
