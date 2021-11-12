@@ -1,7 +1,7 @@
 <template>
   <div id="chat">
     <div id="navBar">  
-      <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" @click="chatOn">채팅</button>
+      <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" @click="chatOn">채팅목록</button>
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
           <h5 id="offcanvasRightLabel">{{userId}}님의 채팅방</h5>
