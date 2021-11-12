@@ -4,6 +4,7 @@ import com.vket.api.request.GoodsAddReq;
 import com.vket.api.request.GoodsUpdateReq;
 import com.vket.api.response.GoodsRes;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,10 +20,10 @@ public interface GoodsService {
     GoodsRes findGoodsByGoodsId(Long goodsId);
 
     // 상품 정보 수정하기
-    boolean updateGoodsInfo(GoodsUpdateReq goodsUpdateReq);
+    boolean updateGoodsInfo(GoodsUpdateReq goodsUpdateReq) throws IOException;
 
     // 상품 등록하기
-    boolean addGoods(GoodsAddReq goodsAddReq);
+    boolean addGoods(GoodsAddReq goodsAddReq) throws IOException;
     
     // 상품 삭제하기
     boolean deleteByGoodsId(Long goodsId);

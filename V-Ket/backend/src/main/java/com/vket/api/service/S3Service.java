@@ -18,7 +18,7 @@ import java.util.UUID;
 @Slf4j
 @RequiredArgsConstructor
 @Component
-public class S3Uploader {
+public class S3Service {
 
     private final AmazonS3Client amazonS3Client;
 
@@ -66,5 +66,15 @@ public class S3Uploader {
         }
 
         return Optional.empty();
+    }
+
+    public void delete(String url){
+        String fileName = url.substring(url.lastIndexOf("/") + 1);
+        System.out.println("fileName : " + fileName);
+        boolean isExistObject = amazonS3Client.doesObjectExist(bucket, fileName);
+
+        if(isExistObject == true){
+            amazonS3Client.deleteObject(bucket, fileName);
+        }
     }
 }
