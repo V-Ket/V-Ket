@@ -37,7 +37,7 @@
 <script>
   import Unity from 'vue-unity-webgl';
   import OpenStore from '@/components/store/OpenStore.vue';
-  
+  import { mapGetters } from 'vuex'
   export default {
 		name : "UnityGame",
 		components : {
@@ -77,33 +77,42 @@
       
     },
     mounted() {
-
+        console.log("마운트는 하냐?1")
         this.enterMap = false;
-        this.schoolName = "";
+        console.log("마운트는 하냐2")
+        // this.schoolName = "";
+        console.log("마운트는 하냐?3")
         // this.$store.commit('setIsSubmit',true);
         // setTimeout(()=>{
-        //   this.$store.commit('setIsSubmit',false);
+            //   this.$store.commit('setIsSubmit',false);
         // },5000)
-        this.mapHeight = document.querySelector('#unity-game-container').getBoundingClientRect().height;
-        this.mapWidth = document.querySelector('#unity-game-container').getBoundingClientRect().width;
-        
+        // this.mapHeight = document.querySelector('#unity-game-container').getBoundingClientRect().height;
+            console.log("마운트는 하냐?4")
+        // this.mapWidth = document.querySelector('#unity-game-container').getBoundingClientRect().width;
+        console.log("마운트는 하냐?5")
         // const top = document.querySelector('#nav').getBoundingClientRect().height + 1;
-        const target = document.querySelector('#unity-game-container')
-        const targetRect = target.getBoundingClientRect();
-        this.width = targetRect.width;
+        // const target = document.querySelector('#unity-game-container')
+        console.log("마운트는 하냐?6")
+        // const targetRect = target.getBoundingClientRect();
+        console.log("마운트는 하냐?7")
+        // this.width = targetRect.width;
+        console.log("마운트는 하냐?8")
         console.log('너비'+ this.width)
         // this.height = document.querySelector('#unity').getBoundingClientRect().height-top;
-        this.height = window.innerHeight-102;
+        // this.height = window.innerHeight-102;
         // const unity = document.querySelector('#unity-game');
         // unity.style.transform = `translate(${targetRect.left}px,102px)`;
+        console.log("마운트는 하냐?9")
         document.addEventListener(
             "click",
             function (event) {
+                console.log('22222211'+this.chat)
                 if (event.target.closest("#game-container")){ // 유니티 가능
                     if(this.$refs.hookInstance !== undefined) this.$refs.hookInstance.message('GameManager','focusing',"true");
                     this.unityFocus = true;
                     this.keydownAlt = false;
-                }else if(this.$store.state.chat){
+                }else if(this.chat){
+                    console.log('포커스11'+this.$store.getters.getChat)
                     if(this.$refs.hookInstance !== undefined)  this.$refs.hookInstance.message('GameManager','focusing',"false");
                     this.unityFocus = false;
                 }else{ // 윈도우 인풋 가능
@@ -120,7 +129,7 @@
                 }
             }.bind(this)
         );
-
+        // const chat = document.getElementById('')
         this.unityHook();
     },
     updated(){
@@ -142,6 +151,7 @@
         clearInterval(this.interval);
     },
     computed : {
+        ...mapGetters(['chat']),
         showMap : function(){
             if(this.$route.name === 'Unity'){
                 return true;
@@ -238,14 +248,14 @@
         closeStoreModal(){
             this.isOpenStoreModal = false;
             this.$refs.hookInstance.message('GameManager','focusing',"true");
-                    this.unityFocus = true;
+            this.unityFocus = true;
             
         },
         open(){
             this.isOpenStoreModal = false;
             this.setStore();
             this.$refs.hookInstance.message('GameManager','focusing',"true");
-                    this.unityFocus = true;
+            this.unityFocus = true;
         }
     }
   }

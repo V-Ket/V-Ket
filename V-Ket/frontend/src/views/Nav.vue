@@ -31,9 +31,9 @@
     </div>
 
     <!-- 채팅 -->
-    <div class="row">
+    <!-- <div class="row">
       <Chat class="chat"/>
-    </div>
+    </div> -->
 
     <div class="row">
       <div class="offcanvas offcanvas-end" id="demo0">
@@ -60,7 +60,7 @@
       </div>
       <div class="container-fluid mt-3">
         <img class="reddot" id="reddot" src="images/alert/reddot.png">
-        <button @click="getChatList" class="btn-meeting" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo0" style="vertical-align:middle">
+        <button @click="getChatList" id="chatList" class="btn-meeting" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo0" style="vertical-align:middle">
           <span>채팅 목록</span>
         </button>
       </div>
@@ -169,15 +169,16 @@
 </template>
 
 <script>
-import Chat from '@/components/Chat/Chat.vue'
+// import Chat from '@/components/Chat/Chat.vue'
 import http from '@/http.js';
+import Offcanvas from 'bootstrap/js/dist/offcanvas'
 import { mapGetters } from 'vuex'
 import ChatModal from '@/components/Chat/ChatModal.vue'
 
 export default {
   name: "Nav",
   components:{
-    Chat,
+    // Chat,
     ChatModal,
   },
   data() {
@@ -219,6 +220,7 @@ export default {
     }
   },
   mounted() {
+    this.bsOffcanvas = new Offcanvas(this.$refs.offcanvasRight)
     document.addEventListener(
       "click",
       function (event) {
