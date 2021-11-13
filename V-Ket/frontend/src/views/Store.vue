@@ -137,7 +137,7 @@ import http from '@/http.js';
           console.log(res)
           if(res.status == 201){
             this.sessionId = localStorage.getItem('userId') + this.hostId;
-            this.$router.push({name: 'Meeting', params:{sessionid: this.sessionId}})
+            this.$router.push({name: 'Meeting', params:{sessionid: this.sessionId, other: this.hostId}})
             console.log('성공')
           }else{
             console.log('실패')

@@ -1,237 +1,95 @@
 <template>
-	<div id="session-background" class="d-flex justify-content-center align-items-center">
-		<div class="elevation-10 session-whole" v-if="session">
-			<div id="session-header">
-				<div>
-					<!-- <img class="header-logo-letter" src="/images/icons/logo_letter.png" alt="IMG-LOGO"> -->
-					<p>이미지</p>
+	<div id="session">
+		<div class="container">
+			<div class="row mt-1">
+				<div class="col-1"></div>
+				<div class="col-9" id="title">
+					{{other}} 님과의 화상 통화
 				</div>
-				<Dialog
-				:buttonText="'나가기'"
-				:dialogTitle="'알림'"
-				:dialogContent="'미팅을 종료하시겠습니까?'"
-				:buttonO="'네'"
-				:buttonX="'아니오'"
-				@clickO="exitInterview"/>
+				<div class="col-2">
+					<Dialog
+						:buttonText="'나가기'"
+						:dialogTitle="'알림'"
+						:dialogContent="'미팅을 종료하시겠습니까?'"
+						:buttonO="'네'"
+						:buttonX="'아니오'"
+						@clickO="exitInterview"
+					/>
+				</div>
 			</div>
-			<div id="session-body">
-
-				<div id="session-video" class="d-inline-flex row">
-					<user-video	:stream-manager="publisher" class="col-6"	@click.native="updateMainVideoStreamManager(publisher)" />
-					<user-video	v-for="pub in publishers"	:key="pub.stream.connection.connectionId + '2'" :stream-manager="pub" class="col-6" />
+			<div class="row">
+				<div class="col-12" style="padding:0px" id="seller-video">
+					<user-video	v-for="pub in publishers"	:key="pub.stream.connection.connectionId + '2'" :stream-manager="pub"/>
 				</div>
-				<button id="btn-camoff" @click="updateStream(0)" >
-					<div v-if="!setting.publishVideo"><v-icon id="unpublish-video">fas fa-video-slash</v-icon></div>
-          <div v-else><v-icon id="publish-video">fas fa-video</v-icon></div>
+			</div>
+			<div class="row">
+				<div class="col-9"></div>
+				<div class="col-3" style="padding:0px" id="my-video">
+					<user-video-2 :stream-manager="publisher" @click.native="updateMainVideoStreamManager(publisher)"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12" id="buttons">
+					<button id="btn-camoff" @click="updateStream(0)">
+						<div v-if="!setting.publishVideo"><v-icon id="unpublish-video" style="color:red; margin-right:1vw;">fas fa-video-slash</v-icon> 비디오 시작 </div>
+						<div v-else><v-icon id="publish-video" style="color:green; margin-right:1vw;">fas fa-video</v-icon> 비디오 끄기 </div>
 					</button>
 					<button id="btn-audiooff" @click="updateStream(1)">
-          <div v-if="!setting.publishAudio"><v-icon id="unpublish-audio">fas fa-microphone-slash</v-icon></div>
-          <div v-else><v-icon id="publish-audio">fas fa-microphone</v-icon></div>
-      </button>
-				<div id="session-message">
-					<div id="session-message-header" class="elevation-2">
-						{{this.sessionId}} 세션아이디
-					</div>
-        </div>
+						<div v-if="!setting.publishAudio"><v-icon id="unpublish-audio" style="color:red; margin-right:1vw;">fas fa-microphone-slash</v-icon> 음소거 해제</div>
+						<div v-else><v-icon id="publish-audio" style="color:green; margin-right:1vw;">fas fa-microphone</v-icon> 음소거 </div>
+					</button>
+				</div>
 			</div>
 		</div>
-		
 	</div>
 </template>
-<style scoped>	
-#btn-camoff{
+<style scoped>
+#title{
+	font-weight: bold;
+	font-size: 20px;
+}
+#seller-video{
+	margin-top: 1vh;
+	position:absolute;
+	margin-left: 4vw;
+}
+#session{
+	width: 66.6vw;
+}
+#my-video{
+	position:absolute;
+	margin-top: 66vh;
+	margin-left: 48vw;
+}
+#buttons{
 	position: absolute;
-	top:90%;
+	margin-top: 75vh;
+}
+#btn-camoff{
+	width: 15vw;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+	padding-left: 3vw;
+	padding-right: 3vw;
+	margin-left: 5vw;
+	font-weight: bold;
+	font-size: 20px;
 }
 #btn-audiooff{
 	position: absolute;
-	top:90%;
-	left: 30%;
-}
-.header-logo-letter {
-    height: 40px;
-    width: 300px; 
-    object-fit: cover;
-    background: none;
-}
-
-#header-company-name {
-	font-size: 2rem;
-}
-
-.icon-box {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: center;
-	color: rgb(49, 49, 49);
-	height: 30px;
-	width: 30px;
-	margin-top: 0px;
-	margin-right: 10px;
-	background: white;
-	border: outset;
-	border-radius: 5px;
-}
-
-.icon-box:hover {
-	cursor: pointer;
-}
-
-.mute {
-	color: rgb(255, 91, 123);
-}
-
-#question-header {
-	display: flex;
-	justify-content: space-between;
-	border-bottom: rgb(82, 82, 82) solid 1px;
-	padding-left: 10px;
-	padding-right: 0px;
-	padding-bottom: 10px;
-}
-
-#question-nickname {
+	width: 15vw;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+	padding-left: 3vw;
+	padding-right: 3vw;
+	margin-left: 5vw;
+	font-weight: bold;
 	font-size: 20px;
-	padding-top: 8px;
 }
-
-#question-content {
-	padding-top: 20px;
-	padding-left: 10px;
-	padding-right: 10px;
-}
-
-.chat-box {
-	padding: 5px;
-	padding-left: 15px;
-	padding-right: 15px;
-  background-color: #eee;
-	border: 1px solid rgb(189, 189, 189);
-  border-radius: 5px;
-}
-
-.my-chat-box {
-  padding: 5px;
-	padding-left: 15px;
-	padding-right: 15px;
-  background-color: #439474;
-	color: white;
-	border: 1px solid rgb(189, 189, 189);
-  border-radius: 5px;
-	text-align: end;
-}
-
-.userInfo {
-  height: 35px;
-  display: flex;
-  align-items: center;
-}
-
-.participant-name {
-  height: 25px;
-  line-height: 25px;
-}
-
-.chat-image-box {
-    height: 25px;
-    width: 25px;
-    border-radius: 70%;
-    overflow: hidden;
-}
-
-.chat-image {
-    width: 100%;
-    height: 100%;   
-    object-fit: cover;
-}
-
-#session-background {
-  background-color: rgb(199, 199, 199);
-  height: 100vh;
-  width: 100vw;
-}
-
-.session-whole {
-  width: 95%;
-  height: 95%;
-  background-color: white;
-  border-radius: 10px;
-  overflow: hidden;
-	border: 1px solid rgb(151, 151, 151);
-}
-
-#session-header {
-	display: flex;
-  justify-content: space-between;
-  height: 15%;
-  padding-left: 30px;
-  padding-right: 50px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  border-bottom: solid rgb(151, 151, 151) 2px;
-	background: linear-gradient( to right, rgb(197, 204, 206), #C0DDD1 );
-}
-
-#session-body {
-  height: 85%;
-  display: flex;
-  position: relative;
-	background: rgb(155, 155, 155);
-}
-
-#session-video {
-  width: 70vw;
-  height: 70vh;
-  position: absolute;
-  margin-left: 1vw;
-  margin-bottom: 0px;
-  margin-right: 2vw;
-  margin-top: 0px;
-}
-
-#session-message {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: absolute;
-  right: 0px;
-  height: 100%;
-  width: 24%;
-  background-color: #C0DDD1;
-  border-left: solid rgb(151, 151, 151) 1px;
-}
-
-#session-message-header {
-	text-align: center;
-	padding: 10px;
-	font-size: 18px;
-	border-bottom: 1px rgb(151, 151, 151) solid;
-	background: rgb(223, 223, 223);
-	border-radius: 5px;
-	margin: 15px;
-	margin-bottom: 5px;
-}
-
-#session-message-box {
-	scroll-behavior: auto;
-	overflow: auto;
-	padding: 10px;
-}
-
-
-#session-message-send {
-	border-top: solid rgb(151, 151, 151) 1px;
-}
-
-#session-message-input {
-  width: 100%;
-}
-video {
-  width: 100%;
-  height: auto;
-}
-
 </style>
 <script>
 import http from '@/http.js';
@@ -239,6 +97,7 @@ import axios from 'axios';
 // import { mapGetters } from 'vuex';
 import { OpenVidu } from 'openvidu-browser';
 import UserVideo from '@/components/live/UserVideo';
+import UserVideo2 from '@/components/live/UserVideo2';
 import Dialog from '@/components/Dialog'
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 const OPENVIDU_SERVER_URL = "https://k5a404.p.ssafy.io:8011";
@@ -247,6 +106,7 @@ export default {
 	name: 'Meetings',
 	components: {
 		UserVideo,
+		UserVideo2,
 		Dialog
 	},
 	data () {
@@ -256,6 +116,7 @@ export default {
 			OV: undefined,
 			session: undefined,
       sessionId: this.$route.params.sessionid,
+			other : this.$route.params.other,
 			// interviewee: this.$route.params.interviewee,
       publisher: undefined,
 			subscribers: [],
@@ -285,8 +146,8 @@ export default {
   },
 	created () {
     this.mySessionId = this.sessionId
-		this.setting.audioSource = this.$store.getters.getAudio;
-		this.setting.videoSource = this.$store.getters.getVideo;
+		// this.setting.audioSource = this.$store.getters.getAudio;
+		// this.setting.videoSource = false;
 	},
 	mounted() {
 		this.joinSession()
@@ -372,8 +233,8 @@ export default {
 						let publisher = this.OV.initPublisher(undefined, {
 								audioSource: undefined, // The source of audio. If undefined default microphone
 								videoSource: undefined, // The source of video. If undefined default webcam
-								publishAudio: true,  	// Whether you want to start publishing with your audio unmuted or not
-								publishVideo: true,  	// Whether you want to start publishing with your video enabled or not
+								publishAudio: false,  	// Whether you want to start publishing with your audio unmuted or not
+								publishVideo: false,  	// Whether you want to start publishing with your video enabled or not
 								resolution: '640x480',  // The resolution of your video
 								frameRate: 30,			// The frame rate of your video
 								insertMode: 'APPEND',	// How the video is inserted in the target element 'video-container'
