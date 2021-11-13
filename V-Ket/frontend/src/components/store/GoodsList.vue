@@ -5,8 +5,8 @@
                 <div class="col-9">
 
                 </div>
-                <div class="col-3">
-                    <button @click="goBack">뒤로가기</button>
+                <div class="col-3" id="back">
+                    <button id="back-btn" @click="goBack">뒤로가기</button>
                 </div>
             </div>
             <div class="row">
@@ -86,4 +86,16 @@ export default {
     background-image: linear-gradient(45deg, rgb(136, 92, 27),rgb(231, 208, 174));
     overflow: auto;
 }
+#back{
+  margin-left: 58.5vw;
+}
+#back-btn{
+  border: 1px solid black;
+  padding: 1vh;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+  background-color: brown;
+}
+
 </style>

@@ -8,12 +8,19 @@
     </div>
     <!-- 유저ID, 로그아웃 -->
     <div class="row">
-      <div class="col-6" id="nickname">
-        {{userId}} 님 
+      <div class="col-6">
       </div>
       <div class="col-6">
       <button class="btnLogout" @click="logout">로그아웃</button>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-12" id="nickname">
+        {{userId}} 님 
+      </div>
+      <!-- <div class="col-6">
+      <button class="btnLogout" @click="logout">로그아웃</button>
+      </div> -->
     </div>
     <!-- 크레딧 -->
     <div class="row" id="credit-box">
@@ -331,12 +338,13 @@ export default {
   font-size: 20px;
 }
 #mycredit{
+  padding-left: 0px;
   font-size: 20px;
-  margin-left: 0px;
+  /* margin-left: 0px; */
   /* color: rgb(69, 69, 231); */
 }
 #nickname{
-  margin-top: 1.5vh;
+  /* margin-top: 1.5vh; */
   text-align: center;
   font-size: 22px;
   font-weight: bold;
@@ -472,7 +480,7 @@ export default {
 }
 .btnLogout{
   float: right;
-  margin-top: 2vh;
+  /* margin-top: 2vh; */
   border: 1px solid black;
   width: 5vw;
   border-radius: 10px;

@@ -1,15 +1,6 @@
 <template>
     <div id="unity-game" :class="{'small-map':!showMap}" @click="goUnity">
         <div id="game-container">
-            <div id="mini-map-alt" class="map-alt" v-if="!showMap">
-                <div class="mini-alt">
-                    <p id="mini-alt-text">학교로 <br> 돌아가기</p>
-                </div>
-            </div>
-            <div id="keydown-map-alt" class="map-alt" v-if="keydownAlt">
-                <v-icon id="keydown-alt-icon">fas fa-exclamation-circle</v-icon>
-                <p id="keydown-alt-text">캐릭터를 움직이기 위해선 게임 화면을 클릭해 주세요.</p>
-            </div>
             <unity id="vket-unity" 
             src="./unity/Build/unity.json" 
             :width = width
@@ -23,7 +14,6 @@
                 max-width="500px"
                 > <OpenStore class="temp" :islandpos="this.islandPos" :storepos="this.storePos" @open="open" @closeStoreModal="closeStoreModal" />
             </v-dialog>
-            <!-- <button @click="unityHook">시~작~</button> -->
         </div>
         <div id="unity-school-name" hidden></div>
         <div id="unity-object-name" hidden></div>
@@ -50,7 +40,7 @@
             objectName : '',
             schoolName : '',
             linked : false,
-            height : '720',
+            height : '970',
             width : '1280',
             interval : '',
             mapHeight : 0,
@@ -67,37 +57,7 @@
             isOpenStoreModal : false,
         }
     },
-    created(){
-      // if(this.$store.state.user===null){
-      //   this.$router.push('/login');
-      // }
-      // this.schoolName=this.$store.state.schoolName;
-      // this.user=this.$store.getters.getUser;
-      // 유저 아이디, 닉네임, 캐릭터 가져와서 data에 저장
-      
-    },
     mounted() {
-        console.log("테스트0");
-        // this.enterMap = false;
-        // this.schoolName = "";
-        // this.$store.commit('setIsSubmit',true);
-        // setTimeout(()=>{
-        //   this.$store.commit('setIsSubmit',false);
-        // },5000)
-        // this.mapHeight = document.querySelector('#unity-game-container').getBoundingClientRect().height;
-        // this.mapWidth = document.querySelector('#unity-game-container').getBoundingClientRect().width;
-        
-        // const top = document.querySelector('#nav').getBoundingClientRect().height + 1;
-        // const target = document.querySelector('#unity-game-container')
-        // const targetRect = target.getBoundingClientRect();
-        // this.width = targetRect.width;
-        console.log('너비'+ this.width)
-        // this.height = document.querySelector('#unity').getBoundingClientRect().height-top;
-        // this.height = window.innerHeight-102;
-        // const unity = document.querySelector('#unity-game');
-        // unity.style.transform = `translate(${targetRect.left}px,102px)`;
-        // window.addEventListener('click', this.onClick());
-        console.log("테스트1");
         document.addEventListener(
             "click",
             function (event) {
