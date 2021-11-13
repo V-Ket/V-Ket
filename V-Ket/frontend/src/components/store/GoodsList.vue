@@ -1,9 +1,24 @@
 <template>
-  <v-row class="row d-flex" style="max-width:80vw; margin:auto;">
-      <Goods v-for="(goods, idx) in goodsList"
-      :key="idx+'goods'"
-      :goods="goods" />
-  </v-row>
+    <div id="goodslist">
+        <div class="container">
+            <div class="row">
+                <div class="col-9">
+
+                </div>
+                <div class="col-3">
+                    <button @click="goBack">뒤로가기</button>
+                </div>
+            </div>
+            <div class="row">
+                <v-row class="row">
+                <Goods v-for="(goods, idx) in goodsList"
+                :key="idx+'goods'"
+                :goods="goods"
+                :hostId="hostId" />
+                </v-row>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -27,19 +42,31 @@ export default {
         console.log("상품 상세보기");
         console.log(this.storeId);
         console.log(this.hostId);
+        // http.get('/goods/store/'+1)
         http.get('/goods/store/'+this.storeId)
         .then((res)=>{
             this.goodsList = res.data;
+            console.log('dddd'+this.goodsList)
         })
         .catch((e) => {
             console.log("오류")
             console.log(e);
         })
+    },
+    methods:{
+        goBack(){
+            this.$router.push({name:'Store', params:{storeid : this.storeId}});
+        }
     }
 
 }
 </script>
 
-<style>
-
+<style scoped>
+#goodslist{
+    width: 66.6vw;
+    height: 100vh;
+    background-image: linear-gradient(45deg, rgb(136, 92, 27),rgb(231, 208, 174));
+    overflow: auto;
+}
 </style>
