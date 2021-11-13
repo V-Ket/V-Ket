@@ -21,7 +21,7 @@
             <v-dialog
                 v-model="isOpenStoreModal"
                 max-width="500px"
-                > <OpenStore class="temp" :islandpos="this.islandPos" :storepos="this.storePos" @open="open" @closeStoreModal="closeStoreModal" style="z-index:1000"  />
+                > <OpenStore class="temp" :islandpos="this.islandPos" :storepos="this.storePos" @open="open" @closeStoreModal="closeStoreModal" />
             </v-dialog>
             <!-- <button @click="unityHook">시~작~</button> -->
         </div>
@@ -37,7 +37,7 @@
 <script>
   import Unity from 'vue-unity-webgl';
   import OpenStore from '@/components/store/OpenStore.vue';
-  import { mapGetters } from 'vuex'
+  
   export default {
 		name : "UnityGame",
 		components : {
@@ -77,42 +77,35 @@
       
     },
     mounted() {
-        console.log("마운트는 하냐?1")
-        this.enterMap = false;
-        console.log("마운트는 하냐2")
+        console.log("테스트0");
+        // this.enterMap = false;
         // this.schoolName = "";
-        console.log("마운트는 하냐?3")
         // this.$store.commit('setIsSubmit',true);
         // setTimeout(()=>{
-            //   this.$store.commit('setIsSubmit',false);
+        //   this.$store.commit('setIsSubmit',false);
         // },5000)
         // this.mapHeight = document.querySelector('#unity-game-container').getBoundingClientRect().height;
-            console.log("마운트는 하냐?4")
         // this.mapWidth = document.querySelector('#unity-game-container').getBoundingClientRect().width;
-        console.log("마운트는 하냐?5")
+        
         // const top = document.querySelector('#nav').getBoundingClientRect().height + 1;
         // const target = document.querySelector('#unity-game-container')
-        console.log("마운트는 하냐?6")
         // const targetRect = target.getBoundingClientRect();
-        console.log("마운트는 하냐?7")
         // this.width = targetRect.width;
-        console.log("마운트는 하냐?8")
         console.log('너비'+ this.width)
         // this.height = document.querySelector('#unity').getBoundingClientRect().height-top;
         // this.height = window.innerHeight-102;
         // const unity = document.querySelector('#unity-game');
         // unity.style.transform = `translate(${targetRect.left}px,102px)`;
-        console.log("마운트는 하냐?9")
+        // window.addEventListener('click', this.onClick());
+        console.log("테스트1");
         document.addEventListener(
             "click",
             function (event) {
-                console.log('22222211'+this.chat)
                 if (event.target.closest("#game-container")){ // 유니티 가능
                     if(this.$refs.hookInstance !== undefined) this.$refs.hookInstance.message('GameManager','focusing',"true");
                     this.unityFocus = true;
                     this.keydownAlt = false;
-                }else if(this.chat){
-                    console.log('포커스11'+this.$store.getters.getChat)
+                }else if(this.$store.state.chat){
                     if(this.$refs.hookInstance !== undefined)  this.$refs.hookInstance.message('GameManager','focusing',"false");
                     this.unityFocus = false;
                 }else{ // 윈도우 인풋 가능
@@ -129,7 +122,7 @@
                 }
             }.bind(this)
         );
-        // const chat = document.getElementById('')
+
         this.unityHook();
     },
     updated(){
@@ -151,7 +144,6 @@
         clearInterval(this.interval);
     },
     computed : {
-        ...mapGetters(['chat']),
         showMap : function(){
             if(this.$route.name === 'Unity'){
                 return true;
@@ -193,6 +185,9 @@
 
     },
     methods : {
+        onClick(){
+            console.log("클릭 이벤트 감지 한거임 제발 나와줘 시부럴");
+        },
         setStore(){
             this.$refs.hookInstance.message('Stores', 'ChangeStore');
         },
@@ -223,7 +218,7 @@
                     this.storeId = document.getElementById('unity-store-id').innerHTML;
                     document.getElementById('unity-store-id').innerHTML = "";
                     document.getElementById('unity-store-pos').innerHTML = "";
-                    this.$router.push({name: 'Store' , params:{storeid : this.storeId}});
+                    this.$router.push({name: 'Store' , params:{storeId : this.storeId}});
                     
                 }
                 // storePos가 비어있지 않다면
@@ -238,8 +233,8 @@
                     // this.$router.push({name:'OpenStore', params:{islandPos:Number(this.islandPos), storePos:Number(this.storePos)} })
                     document.getElementById('unity-store-id').innerHTML = "";
                     document.getElementById('unity-store-pos').innerHTML = "";
-                    this.$refs.hookInstance.message('GameManager','focusing',"false");
                     this.unityFocus = false;
+                    this.$refs.hookInstance.message('GameManager','focusing',"false");
                 }  
                 
             }, 1000);

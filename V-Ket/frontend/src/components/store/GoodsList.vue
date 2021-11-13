@@ -27,7 +27,7 @@ import Goods from '@/components/store/Goods.vue';
 export default {
     name: "GoodsList",
     props:{
-        storeId : Number,
+        storeId : String,
         hostId : String,
     },
     data(){

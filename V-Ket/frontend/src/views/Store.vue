@@ -76,35 +76,47 @@
       <v-dialog
         v-model="isOpenaddGoodsModal"
         max-width="500px"
-        > <OpenStore class="temp" :islandpos="this.islandPos" :storepos="this.storePos" @open="open" @closeStoreModal="closeStoreModal" style="z-index:1000"  />
+        > <GoodsModal class="temp" goodsId="0" :storeid="this.storeId" isUpdate="false" @closeGoodsModal="closeGoodsModal" style="z-index:1000"  />
       </v-dialog>
     </div>
   </div>
 </template>
 <script>
 import http from '@/http.js';
+import GoodsModal from '@/components/store/GoodsModal.vue';
   export default {
     name: "Store",
-
+    components:{
+      GoodsModal
+    },
+    props:{
+      storeId: String,
+    },
     data() {
       return{
         goods: Array,
-        storeId: this.$route.params.storeid, //라우터 푸시로 가져와야함
+        // storeId: this.$route.params.storeid, //라우터 푸시로 가져와야함
         hostId:'',
         storeName: '',
         storeContent:'',
         storeUrl:'',
         sessionId: '',
         isOpenaddGoodsModal: false,
+        isOwner: false,
       }
     },
     mounted(){
+      
+
       http.get('/store/select/'+ this.storeId)
       .then((res)=>{
         this.storeName = res.data.storeName;
         this.storeContent = res.data.storeContent;
         this.storeUrl = res.data.storeUrl;
         this.hostId = res.data.userId;
+        if(localStorage.getItem("userId") == this.hostId){
+          this.isOwner = true;
+        }
         console.log('상점정보가져오기'+res);
         // this.storeName = '테스트상점';
         // this.storeContent = '나는 이런걸 팔고 있는 상점이에요 많이 사주세요';
@@ -161,8 +173,11 @@ import http from '@/http.js';
       updateGoods(){
         this.isOpenaddGoodsModal = true;
         //상품 등록/수정 모달? 모르겠네
+      },
+      closeGoodsModal(){
+        this.isOpenaddGoodsModal = false;
       }
-    }
+    },
 
 
   }

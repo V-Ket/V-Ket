@@ -104,10 +104,15 @@ public class GoodsServiceImpl implements GoodsService {
 
             Goods goods = goodsRepository.findByGoodsId(goodsUpdateReq.getGoodsId()).get();
 
-            // 기존에 있던 이미지 지우기
-            s3Service.delete(goods.getGoodsImg());
-            // 새로운 이미지로 S3에 등록
-            String fileURL = s3Service.upload(goodsUpdateReq.getGoodsImg(), "static");
+            String fileURL;
+            if(goodsUpdateReq.getGoodsImg() != null){
+                // 기존에 있던 이미지 지우기
+                s3Service.delete(goods.getGoodsImg());
+                // 새로운 이미지로 S3에 등록
+                fileURL = s3Service.upload(goodsUpdateReq.getGoodsImg(), "static");
+            }else{
+                fileURL = goods.getGoodsImg();
+            }
 
 //            goods.updateGoodsInfo(goodsUpdateReq);
 //            String newPath = "";
