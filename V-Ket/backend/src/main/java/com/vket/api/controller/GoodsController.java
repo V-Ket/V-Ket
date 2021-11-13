@@ -59,7 +59,7 @@ public class GoodsController {
     // 상품 정보 수정하기
     @Transactional
     @PutMapping("")
-    @ApiOperation(value = "상품 정보 한꺼번에 수정하기", notes = "")
+    @ApiOperation(value = "상품 정보 수정하기", notes = "")
     public ResponseEntity<? extends BaseResponseBody> updateGoods(@RequestBody @ApiParam(value = "상품 정보", required = true) GoodsUpdateReq goodsUpdateReq){
 
         try {
@@ -85,7 +85,7 @@ public class GoodsController {
     // 상품 등록하기
     @PostMapping("")
     @ApiOperation(value = "새 상품 등록", notes = "")
-    public ResponseEntity<? extends BaseResponseBody> addGoods(@RequestBody @ApiParam(value = "새 상품 정보", required = true) GoodsAddReq goodsAddReq){
+    public ResponseEntity<? extends BaseResponseBody> addGoods(@ModelAttribute GoodsAddReq goodsAddReq){
 
         try{
             if (goodsService.addGoods(goodsAddReq)) {
