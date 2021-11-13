@@ -1,8 +1,10 @@
 <template>
   <div id="nav" class="container">
     <!-- 타이틀 -->
-    <div class="row">
-      <div id="titlebox">V - Ket</div>
+    <div class="row" id="titlebox">
+      <!-- <div id="titlebox"> -->
+        <img src="images/logo/navLogo.png">
+      <!-- </div> -->
     </div>
     <!-- 유저ID, 로그아웃 -->
     <div class="row">
@@ -19,13 +21,13 @@
         credit :
       </div>
       <div class="col-6" id="mycredit">
-        ${{this.credit}}
+        <b>$</b>{{this.credit}}
       </div>
       <!-- <button class="btnPurchase" @click="purchase">충전하기(새창)</button> -->
     </div>
     <!-- 충전하기 -->
     <div class="row">
-      <div class="container-fluid mt-3">
+      <div class="container-fluid mt-4">
         <button class="btnPurchase" @click="purchase2" style="vertical-align:middle">충전하기</button>
       </div>
     </div>
@@ -53,7 +55,7 @@
           </div>
         </div>
       </div>
-      <div class="container-fluid mt-3">
+      <div class="container-fluid mt-5">
         <img class="reddot" id="reddot" src="images/alert/reddot.png">
         <button @click="getChatList" id="chatList" class="btn-meeting" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo0" style="vertical-align:middle">
           <span>채팅 목록</span>
@@ -73,13 +75,13 @@
             :key="i">
               <td>{{meeting.buyerId}}</td>
               <td></td>
-              <td><button @click="$router.push({name:'Meeting', params:{sessionid: meeting.sessionName}})">접속하기</button></td>
+              <td><button @click="$router.push({name:'Meeting', params:{sessionid: meeting.sessionName, order: meeting.buyerId}})">접속하기</button></td>
             </tr>
           </table>
           <button @click="$router.push({name:'Meeting', params:{sessionid: 'jwjw2test'}})">jt접속하기</button>
         </div>
       </div>
-      <div class="container-fluid mt-3">
+      <div class="container-fluid mt-4">
         <img class="reddot" id="reddot" src="images/alert/reddot.png">
         <button @click="removeDot" class="btn-meeting" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo" style="vertical-align:middle">
           <span>미팅 목록</span>
@@ -119,7 +121,7 @@
           </table>
         </div>
       </div>
-      <div class="container-fluid mt-3">
+      <div class="container-fluid mt-4">
         <button @click="getBuyList" class="btn-buy" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo1">
           <span>구매 목록</span>
         </button>
@@ -152,7 +154,7 @@
           </table>
         </div>
       </div>
-      <div class="container-fluid mt-3">
+      <div class="container-fluid mt-4">
         <button @click="getSellList" class="btn-sell" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo2">
           <span>판매 목록</span>
         </button>
@@ -318,7 +320,10 @@ export default {
 
 <style scoped>
 #credit-box{
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  /* border-top: 1px solid black; */
+  border-bottom: 1px solid black;
+  /* border-radius: 5px; */
   /* margin-left: 0px; */
 }
 #credit{
@@ -328,6 +333,7 @@ export default {
 #mycredit{
   font-size: 20px;
   margin-left: 0px;
+  /* color: rgb(69, 69, 231); */
 }
 #nickname{
   margin-top: 1.5vh;
@@ -336,7 +342,9 @@ export default {
   font-weight: bold;
 }
 #titlebox{
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  border-bottom: 2px solid black;
+  border-bottom-style: double;
   text-align: center;
   font-size: 50px;
 }
@@ -467,7 +475,15 @@ export default {
   margin-top: 2vh;
   border: 1px solid black;
   width: 5vw;
+  border-radius: 10px;
+  background-image: linear-gradient(200deg,rgb(224, 160, 160),rgb(240, 81, 81),rgb(246, 79, 79),rgb(248, 21, 21));
+  /* box-shadow: 0 0 10px red; */
+  /* background-color: red; */
+  opacity: 0.6;
+  transition: 0.3s;
+  color: white;
 }
+.btnLogout:hover {opacity: 1}
 .btn-mystore{
   border: 1px solid black;
   border-radius: 10px;
@@ -489,7 +505,7 @@ export default {
   border-bottom: 1px solid var(--color-grey-6);
   background-color: #eee;
   /* background-color: saddlebrown; */
-  border: 1px solid black;
+  border: 2px solid black;
 }
 #nav > .nav-container{
   width : 80%;

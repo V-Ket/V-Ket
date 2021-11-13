@@ -3,6 +3,7 @@
     <!-- <v-img id = "background" src="images/Main_Background.png"></v-img> -->
     <!-- <v-img id = "background" src="images/background.gif"></v-img> -->
     <v-img id = "background" src="images/background5.gif"></v-img>
+    <v-img id="logo" src="images/logo/logo2.png"></v-img>
     <!-- <img class="tt" src="images/char1.png" /> -->
     <SignUp class="signup" v-if="isModalViewed" @close-modal="isModalViewed=false"/>
     <div class="login">
@@ -84,6 +85,11 @@ export default {
 </script>
 
 <style scoped>
+#logo{
+  position: absolute;
+  /* left: 4vw; */
+  bottom: 0vh;
+}
 #background {
   width: 100vw;
   height: 100vh;

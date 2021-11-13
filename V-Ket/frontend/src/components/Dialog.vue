@@ -2,12 +2,12 @@
   <v-dialog
     v-model="dialog"
     persistent
-    max-width="290"
+    max-width="400"
   >
     <template v-slot:activator="{ on, attrs }">
       <v-btn
         class="text-white"
-        style="background-color: #439474;"
+        style="background-color: brown;"
         v-bind="attrs"
         v-on="on"
       >
@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
 .primary-color {
-  background: #439474;
+  background: brown;
 }
 .secondary-color {
   color: #7D7D7D;

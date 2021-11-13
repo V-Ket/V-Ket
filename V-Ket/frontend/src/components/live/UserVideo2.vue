@@ -7,7 +7,7 @@
 
 <style scoped>
 #videosize{
-	width: 42vw;
+	width: 16vw;
 	border-radius: 20px;
 	border: 3px solid black;
 }
