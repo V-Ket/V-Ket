@@ -7,8 +7,8 @@
       상품 설명
       상품 담당 상점 아이디 -->
       
-    <v-form v-model="valid">
-    <v-container class="m-t-50" style="max-width: 800px; background: #EAF5F1;">
+    <v-form v-model="valid" id="editModal">
+    <v-container class="m-t-50" style="max-width: 800px;">
       <v-row class="justify-center">
         <!-- <v-col cols="3" align="right"><div id="thumb">썸네일</div> </v-col> -->
         <v-col cols="12">
@@ -75,12 +75,15 @@
       <v-col>
         <v-row class="d-flex justify-content-end">
           <v-col cols="3">
-            <v-btn block text x-large class="primary-color text-white rounded-0" @click="regist">
+            <v-btn v-if="this.isUpdate == false" block text x-large class="btn-add text-white" @click="regist">
               등록
+            </v-btn>
+            <v-btn v-else block text x-large class="btn-add text-white" @click="update">
+              수정
             </v-btn>
           </v-col>
           <v-col cols="3">
-            <v-btn block text x-large class="secondary-color text-white rounded-0" @click="cancel">
+            <v-btn block text x-large class="btn-cancle text-white" @click="cancel">
               취소
             </v-btn>
           </v-col>
@@ -100,7 +103,7 @@ export default {
   name: "GoodsModal",
   props:{
     storeid: String,
-    goodsId: String,
+    goods: Object,
     isUpdate: Boolean,
   },
   data(){
@@ -114,22 +117,18 @@ export default {
     }
   },
   mounted(){
-    // 상품 수정이면 상품을 가져와 인풋에 넣는다.
-    if(this.isUpdate){
-      http.get("/goods/" + this.goodsId)
-      .then((res) => {
-        console.log(res);
-        this.goodsName = res.data.goodname;
-        this.goodsPrice = res.data.goodsPrice;
-        this.goodsQuantity = res.data.goodsQuantity;
-        this.goodsContent = res.data.goodsContent;
-        // 이미지는 어떻게 하지...? ㅋㅋㅋㅋㅋ
-      })
-      .catch((e) => {
-        console.log("상품 정보를 가져오는데 오류났어요~~!")
-        console.log(e);
-      })
 
+    console.log(this.goods)
+    console.log(this.isUpdate)
+
+    // 상품 수정이면 상품을 가져와 인풋에 넣는다.
+    if(this.isUpdate == true){
+      console.log("업데이트로 들어왔습니다.");
+      this.goodsName = this.goods.goodsName;
+      this.goodsPrice = this.goods.goodsPrice;
+      this.goodsImg = null;
+      this.goodsQuantity = this.goods.goodsQuantity;
+      this.goodsContent = this.goods.goodsContent;
     }
 
   },
@@ -138,27 +137,52 @@ export default {
       if(!this.vaild){
         alert("정보를 모두 입력해 주세요")
       }else{
-        let goods = new FormData();
-        goods.append('goodsName', this.goodsName);
-        goods.append('goodsPrice', this.goodsPrice);
-        goods.append('goodsImg', this.goodsImg);
-        goods.append('goodsQuantity', this.goodsQuantity);
-        goods.append('goodsContent', this.goodsContent);
-        goods.append('storeId', this.storeid);
-
-        http.post('/goods', goods, {
+        let goodsInfo = new FormData();
+        goodsInfo.append('goodsName', this.goodsName);
+        goodsInfo.append('goodsPrice', this.goodsPrice);
+        goodsInfo.append('goodsImg', this.goodsImg);
+        goodsInfo.append('goodsQuantity', this.goodsQuantity);
+        goodsInfo.append('goodsContent', this.goodsContent);
+        goodsInfo.append('storeId', this.storeid);
+          http.post('/goods', goodsInfo, {
+            headers: { 'Content-Type': 'multipart/form-data' },
+          })
+          .then((res) => {
+            console.log(res);
+            alert("상품등록 완료!");
+            this.cancel();
+          })
+          .catch((e) => {
+           console.log("상품 등록 에러~!");
+            console.log(e);
+          })
+        
+      }
+    },
+    update(){
+      console.log("상품 수정");
+      let goodsInfo = new FormData();
+        goodsInfo.append('goodsName', this.goodsName);
+        goodsInfo.append('goodsPrice', this.goodsPrice);
+        if(this.goodsImg != null){
+          goodsInfo.append('goodsImg', this.goodsImg);
+        }
+        goodsInfo.append('goodsQuantity', this.goodsQuantity);
+        goodsInfo.append('goodsContent', this.goodsContent);
+        goodsInfo.append('storeId', this.storeid);
+        goodsInfo.append('goodsId', this.goods.goodsId);
+        http.put('/goods', goodsInfo, {
           headers: { 'Content-Type': 'multipart/form-data' },
         })
         .then((res) => {
           console.log(res);
-          alert("상품등록 완료!");
+          alert("상품 수정 완료!");
           this.cancel();
         })
         .catch((e) => {
-          console.log("상품 등록 에러~!");
+          console.log("상품 수정 에러~!");
           console.log(e);
         })
-      }
     },
     cancel(){
       this.$emit('closeGoodsModal');
@@ -171,5 +195,28 @@ export default {
 </script>
 
 <style>
+#editModal{
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: #eee;
+}
+
+.btn-add{
+  background-color: green;
+  border-radius: 10px;
+  width: 5vw;
+  height: 4vh;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-cancle{
+  background-color: brown;
+  border-radius: 10px;
+  width: 5vw;
+  height: 4vh;
+  color: white;
+  font-weight: bold;
+}
 
 </style>

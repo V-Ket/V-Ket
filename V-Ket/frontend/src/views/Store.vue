@@ -67,7 +67,7 @@
               <button id="updateStore" @click="updateStore">상점 정보 수정</button>
             </div>
             <div class="row">
-              <button id="updateGoods" @click="updateGoods">상품 등록/수정</button>
+              <button id="updateGoods" @click="updateGoods">상품 등록</button>
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@
       <v-dialog
         v-model="isOpenaddGoodsModal"
         max-width="500px"
-        > <GoodsModal class="temp" goodsId="0" :storeid="this.storeId" isUpdate="false" @closeGoodsModal="closeGoodsModal" style="z-index:1000"  />
+        > <GoodsModal class="temp" goodsId="0" :storeid="this.storeId" :isUpdate="isUpdate" @closeGoodsModal="closeGoodsModal" style="z-index:1000"  />
       </v-dialog>
     </div>
   </div>
@@ -90,12 +90,12 @@ import GoodsModal from '@/components/store/GoodsModal.vue';
       GoodsModal
     },
     props:{
-      storeId: String,
+      // storeid: String,
     },
     data() {
       return{
         goods: Array,
-        // storeId: this.$route.params.storeid, //라우터 푸시로 가져와야함
+        storeId: this.$route.params.storeId, //라우터 푸시로 가져와야함
         hostId:'',
         storeName: '',
         storeContent:'',
@@ -103,10 +103,10 @@ import GoodsModal from '@/components/store/GoodsModal.vue';
         sessionId: '',
         isOpenaddGoodsModal: false,
         isOwner: false,
+        isUpdate: false
       }
     },
     mounted(){
-      
 
       http.get('/store/select/'+ this.storeId)
       .then((res)=>{

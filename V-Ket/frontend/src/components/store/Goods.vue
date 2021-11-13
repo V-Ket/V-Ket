@@ -40,7 +40,7 @@
                   <div class="col-7" style="padding:0;"></div>
                   <div class="col-5" style="padding:0;">
                     <div v-if="isHost">
-                      <button id="btn">수정하기</button>
+                      <button id="btn" @click="update">수정하기</button>
                     </div>
                     <div v-else>
                       <button id="btn">구매하기</button>
@@ -52,16 +52,29 @@
           </div>
         </div>
       </div>
+
+      <v-dialog
+        v-model="isOpenGoodsModal"
+        max-width="500px"
+        > <GoodsModal class="temp" :goods="this.goods" :storeid="''+this.goods.storeId" :isUpdate="isUpdate" @closeGoodsModal="closeGoodsModal" style="z-index:1000"  />
+      </v-dialog>
+
     </v-col>
 </template>
 
 <script>
+import GoodsModal from '@/components/store/GoodsModal.vue';
 export default {
   name: 'Goods',
   props: ['goods','hostId'],
   data(){
     return{
+      isUpdate: true,
+      isOpenGoodsModal: false,
     }
+  },
+  components:{
+    GoodsModal,
   },
   computed:{
     isHost: function(){
@@ -78,6 +91,14 @@ export default {
       //
       // return this.fileURL + '' + this.goods;
     },
+    update(){
+      this.isOpenGoodsModal = true;
+    },
+    closeGoodsModal(){
+      this.isOpenGoodsModal = false;
+      this.$emit("Refresh");
+      // this.$router.push({name: "GoodsList", params:{storeId : this.goods.storeId, hostId : this.hostId}});
+    }
   }
 }
 </script>
