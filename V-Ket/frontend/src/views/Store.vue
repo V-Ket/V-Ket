@@ -176,6 +176,28 @@ import GoodsModal from '@/components/store/GoodsModal.vue';
       },
       closeGoodsModal(){
         this.isOpenaddGoodsModal = false;
+        console.log("다시 정보 가져오기")
+
+        http.get('/store/select/'+ this.storeId)
+        .then((res)=>{
+          this.storeName = res.data.storeName;
+          this.storeContent = res.data.storeContent;
+          this.storeUrl = res.data.storeUrl;
+          this.hostId = res.data.userId;
+          if(localStorage.getItem("userId") == this.hostId){
+            this.isOwner = true;
+          }
+          console.log('상점정보가져오기'+res);
+        // this.storeName = '테스트상점';
+        // this.storeContent = '나는 이런걸 팔고 있는 상점이에요 많이 사주세요';
+        // this.storeUrl = 'http://localhost:8080/store';
+        // this.hostId = '주인장임';
+        })
+      //상품 정보 가져와서 goods에 담음
+        http.get('/goods/store/'+this.storeId)
+        .then((res)=>{
+          this.goods = res.data;
+        })
       }
     },
 
