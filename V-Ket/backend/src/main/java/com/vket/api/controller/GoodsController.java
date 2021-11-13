@@ -60,19 +60,19 @@ public class GoodsController {
     @Transactional
     @PutMapping("")
     @ApiOperation(value = "상품 정보 수정하기", notes = "")
-    public ResponseEntity<? extends BaseResponseBody> updateGoods(@RequestBody @ApiParam(value = "상품 정보", required = true) GoodsUpdateReq goodsUpdateReq){
+    public ResponseEntity<? extends BaseResponseBody> updateGoods(@ModelAttribute GoodsUpdateReq goodsUpdateReq){
 
         try {
             if(goodsService.updateGoodsInfo(goodsUpdateReq)){
                 return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
             }
             else{
-                return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
+                return ResponseEntity.status(401).body(BaseResponseBody.of(401, "1번 오류"));
             }
         }catch (Exception e){
             System.out.println("상품 등록 오류");
             System.out.println(e);
-            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
+            return ResponseEntity.status(402).body(BaseResponseBody.of(402, "2번 오륲"));
         }
 
 //        if (goodsService.updateGoodsInfo(goodsUpdateReq)) {

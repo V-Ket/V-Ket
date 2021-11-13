@@ -59,13 +59,11 @@ const routes = [{
         path: '/store',
         name: 'Store',
         component: Store,
-        props: true
     },
     {
         path: '/goodslist',
         name: 'GoodsList',
         component: GoodsList,
-        props: true
     }
 ]
 

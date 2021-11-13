@@ -105,7 +105,7 @@ public class GoodsServiceImpl implements GoodsService {
             Goods goods = goodsRepository.findByGoodsId(goodsUpdateReq.getGoodsId()).get();
 
             String fileURL;
-            if(goodsUpdateReq.getGoodsImg() != null){
+            if(goodsUpdateReq.getGoodsImg() != null && !goodsUpdateReq.getGoodsImg().isEmpty()){
                 // 기존에 있던 이미지 지우기
                 s3Service.delete(goods.getGoodsImg());
                 // 새로운 이미지로 S3에 등록
