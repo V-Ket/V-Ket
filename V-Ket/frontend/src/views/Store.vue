@@ -21,9 +21,9 @@
           <div id="storeImg">
             <v-carousel hide-delimiters height="35vh">
               <v-carousel-item
-                v-for="(item,i) in items"
+                v-for="(good,i) in goods"
                 :key="i"
-                :src="item.src"
+                :src="good.goodsImg"
                 active-class="ccc"
               ></v-carousel-item>
             </v-carousel>
@@ -88,20 +88,6 @@ import http from '@/http.js';
 
     data() {
       return{
-        items: [
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-          },
-        ],
         goods: Array,
         storeId: this.$route.params.storeid, //라우터 푸시로 가져와야함
         hostId:'',

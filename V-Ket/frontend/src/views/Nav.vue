@@ -1,9 +1,10 @@
 <template>
   <div id="nav" class="container">
+    <!-- 타이틀 -->
     <div class="row">
       <div id="titlebox">V - Ket</div>
     </div>
-    <!-- 로그아웃 -->
+    <!-- 유저ID, 로그아웃 -->
     <div class="row">
       <div class="col-6" id="nickname">
         {{userId}} 님 
@@ -22,19 +23,13 @@
       </div>
       <!-- <button class="btnPurchase" @click="purchase">충전하기(새창)</button> -->
     </div>
-
     <!-- 충전하기 -->
     <div class="row">
       <div class="container-fluid mt-3">
         <button class="btnPurchase" @click="purchase2" style="vertical-align:middle">충전하기</button>
       </div>
     </div>
-
     <!-- 채팅 -->
-    <!-- <div class="row">
-      <Chat class="chat"/>
-    </div> -->
-
     <div class="row">
       <div class="offcanvas offcanvas-end" id="demo0">
         <div class="offcanvas-header">
@@ -65,7 +60,6 @@
         </button>
       </div>
     </div>
-
     <!-- 미팅목록 -->
     <div class="row">
       <div class="offcanvas offcanvas-end" id="demo">
@@ -92,7 +86,6 @@
         </button>
       </div>
     </div>
-
     <!-- 구매목록 -->
     <div class="row">
       <div class="offcanvas offcanvas-end" id="demo1">
@@ -165,6 +158,12 @@
         </button>
       </div>
     </div>
+    <!-- 내 상점 -->
+    <!-- <div class="row">
+      <div class="col-12">
+        <button class="btn-mystore" @click="goMyStore">나의 상점</button>
+      </div>
+    </div> -->
   </div>
 </template>
 
@@ -220,7 +219,6 @@ export default {
     }
   },
   mounted() {
-    this.bsOffcanvas = new Offcanvas(this.$refs.offcanvasRight)
     document.addEventListener(
       "click",
       function (event) {
@@ -239,6 +237,7 @@ export default {
         // console.log('뒤'+this.meetingListSize)
       })
     }, 1000);
+    this.bsOffcanvas = new Offcanvas(this.$refs.offcanvasRight)
     
   },
   methods: {
@@ -468,6 +467,15 @@ export default {
   margin-top: 2vh;
   border: 1px solid black;
   width: 5vw;
+}
+.btn-mystore{
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 10vw;
+  height: 5vh;
+  background-image: linear-gradient(190deg,#eee, gray);
+  font-size: 20px;
+  font-weight: bold;
 }
 #nav{
   top:0;
