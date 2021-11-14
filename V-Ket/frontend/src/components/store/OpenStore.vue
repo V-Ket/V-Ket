@@ -52,10 +52,11 @@
             <input v-model="storeURL" class="input" style="margin-left: 30px"/><br>
             <br>
             <b>상점 설명</b>
-            <textarea v-model="storeContent" class="input" style="margin-left: 30px"/><br>
+            <textarea v-model="storeContent" class="input" style="margin-left: 30px; width:200px; height:100px"/><br>
         </div>
         <div class="buttons">
-            <button class="btn" style="margin-right: 40px; margin-left: 40px" @click="setStore"><b>등록</b></button>
+            <button v-if="isUpdate" class="btn" style="margin-right: 40px; margin-left: 40px" @click="updateStore"><b>수정</b></button>
+            <button v-else class="btn" style="margin-right: 40px; margin-left: 40px" @click="setStore"><b>등록</b></button>
             <button class="btn" @click="cancle"><b>취소</b></button>
       </div>
     </div>
@@ -68,6 +69,7 @@ export default {
     props:{
         islandpos:String,
         storepos:String,
+        storeid:String,
     },
     data(){
         return{
@@ -77,17 +79,38 @@ export default {
             storeContent: "",
             islandPos : "",
             storePos : "",
+            storeId: "",
+            isUpdate: false,
         }
     },
     mounted(){
         if(this.islandpos != null){
+            console.log(this.islandpos);
             this.islandPos = this.islandpos
         }
         if(this.storepos != null){
+            console.log(this.storepos);
             this.storePos = this.storepos
         }
-        console.log(this.islandpos);
-        console.log(this.storepos);
+        if(this.islandpos == null && this.storepos == null){
+            console.log("상점 수정으로 들어왔습니다.")
+            console.log(this.storeid);
+            this.storeId = this.storeid;
+            this.isUpdate = true;
+            // 상점 정보 받아와서 그래도 뿌려주기
+            http.get("/store/select/" + this.storeId)
+            .then((res) => {
+                console.log(res);
+                this.storeName = res.data.storeName;
+                this.storeContent = res.data.storeContent;
+                this.storeUrl = res.data.storeUrl;
+            })
+            .catch((e) => {
+                console.log("상점 가져오는데 오류 났어요~")
+                console.log(e);
+            })
+
+        }
         // const body = {
         //     islandId : 1001,
         //     storeIslandNum : 2,
@@ -108,7 +131,6 @@ export default {
     },
     methods:{
         setStore(){
-
             console.log("상점 등록합니다.@@@@@@@@@@@@@@");
             console.log(this.islandPos);
             console.log(this.storePos);
@@ -152,6 +174,24 @@ export default {
                 this.$emit('open');
             }, 100);
         },
+        updateStore(){
+            const body = {
+                storeId : this.storeId,
+                storeName : this.storeName,
+                storeContent : this.storeContent,
+                storeUrl : this.URL,
+            }
+
+            http.put("/store/storeUpdateAll", body)
+            .then((res) => {
+                console.log(res)
+                this.cancle();
+            })
+            .catch((e) => {
+                console.log("상점 수정 오류")
+                console.log(e)
+            })
+        },
         cancle(){
             this.$emit('closeStoreModal');
         }
@@ -187,7 +227,7 @@ export default {
 }
 .buttons{
   margin-left: 10vw;
-  margin-top: 10vh;
+  margin-top: 13vh;
 }
 .btn{
   border: 1px solid black;
