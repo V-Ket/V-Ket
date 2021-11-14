@@ -72,22 +72,30 @@
           </div>
         </div>
       </div>
-
+      <!-- 상품 등록 -->
       <v-dialog
         v-model="isOpenaddGoodsModal"
         max-width="500px"
         > <GoodsModal class="temp" goodsId="0" :storeid="this.storeId" :isUpdate="isUpdate" @closeGoodsModal="closeGoodsModal" style="z-index:1000"  />
+      </v-dialog>
+      <!-- 상점 정보 수정 -->
+      <v-dialog
+        v-model="isOpenUpdateModal"
+        max-width="500px"
+        > <OpenStore class="temp" :storeid="this.storeId" @closeStoreModal="closeStoreModal" style="z-index:1000" />
       </v-dialog>
     </div>
   </div>
 </template>
 <script>
 import http from '@/http.js';
+import OpenStore from '@/components/store/OpenStore.vue';
 import GoodsModal from '@/components/store/GoodsModal.vue';
   export default {
     name: "Store",
     components:{
-      GoodsModal
+      GoodsModal,
+      OpenStore,
     },
     props:{
       // storeid: String,
@@ -103,7 +111,10 @@ import GoodsModal from '@/components/store/GoodsModal.vue';
         sessionId: '',
         isOpenaddGoodsModal: false,
         isOwner: false,
-        isUpdate: false
+        isUpdate: false,
+        isOpenUpdateModal: false,
+        islandpos: null,
+        storepos: null,
       }
     },
     mounted(){
@@ -130,6 +141,19 @@ import GoodsModal from '@/components/store/GoodsModal.vue';
       })
     },
     methods: {
+      setStore(){
+        http.get('/store/select/'+ this.storeId)
+        .then((res)=>{
+          this.storeName = res.data.storeName;
+          this.storeContent = res.data.storeContent;
+          this.storeUrl = res.data.storeUrl;
+          this.hostId = res.data.userId;
+          if(localStorage.getItem("userId") == this.hostId){
+            this.isOwner = true;
+          }
+          console.log('상점정보가져오기'+res);
+        })
+      },
       storeOut(){
         this.$router.push({name:"Unity"});
       },
@@ -169,6 +193,7 @@ import GoodsModal from '@/components/store/GoodsModal.vue';
       },
       updateStore(){
         //상점 정보 수정 모달 오픈
+        this.isOpenUpdateModal = true;
       },
       updateGoods(){
         this.isOpenaddGoodsModal = true;
@@ -198,6 +223,11 @@ import GoodsModal from '@/components/store/GoodsModal.vue';
         .then((res)=>{
           this.goods = res.data;
         })
+      },
+      closeStoreModal(){
+        this.isOpenUpdateModal = false;
+        // 상점 다시 가져오기
+        this.setStore();
       }
     },
 
