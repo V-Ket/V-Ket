@@ -41,23 +41,25 @@
     <!-- 채팅 -->
     <div class="row">
       <div class="offcanvas offcanvas-end" id="demo0">
-        <div class="offcanvas-header">
-          <h1 class="offcanvas-title">채팅 목록</h1>
+        <div class="offcanvas-header" id="chat-header">
+          <h1 class="offcanvas-title" style="font-weight:bold;">채팅</h1>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
-        <div class="offcanvas-body">
+        <div class="offcanvas-body" style="padding:0px;">
           <div v-for="(chatRoom, idx) in roomList" :key="idx">
-            <div id="show-modal" @click="showModal = true, enterRoom(chatRoom.chatRoomId)">
-              <span>{{chatRoom.chatRoomId}}번 채팅방</span>
-              <span v-if="chatRoom.senderId !== userId">
-                {{chatRoom.senderId}}
-              </span>
-              <span v-else>
-                {{chatRoom.receiverId}}
-              </span>
+            <div id="show-modal" @click="showModal = true, enterRoom(chatRoom.chatRoomId, chatRoom.senderId, chatRoom.receiverId)">
+              <!-- <span>{{chatRoom.chatRoomId}}번 채팅방</span> -->
+              <button v-if="chatRoom.senderId !== userId">
+                {{chatRoom.senderId}} 님과의 채팅방
+              </button>
+              <button v-else>
+                {{chatRoom.receiverId}} 님과의 채팅방
+              </button>
             </div>
-            <ChatModal :chatRoomId="selectedChatRoomId" v-if="showModal" @close="showModal = false">
-              <h3 slot="header">채팅보여줄거임</h3>
+            <ChatModal :chatRoomId="selectedChatRoomId" :receiver="selectedReceiverId" v-if="showModal" @close="showModal = false">
+              <h3 slot="header">{{selectedReceiverId}} 님과의 채팅방</h3>
+              <!-- <h3 v-if="chatRoom.senderId !== userId" slot="header">{{chatRoom.senderId}} 님과의 채팅방</h3>
+              <h3 v-else slot="header">{{chatRoom.receiverId}} 님과의 채팅방</h3> -->
             </ChatModal>
           </div>
         </div>
@@ -72,20 +74,31 @@
     <!-- 미팅목록 -->
     <div class="row">
       <div class="offcanvas offcanvas-end" id="demo">
-        <div class="offcanvas-header">
-          <h1 class="offcanvas-title">미팅 목록</h1>
+        <div class="offcanvas-header" id="meet-header">
+          <h1 class="offcanvas-title" style="font-weight:bold;">미팅 목록</h1>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
-        <div class="offcanvas-body">
-          <table>
+        <div class="offcanvas-body container" id="meet-body">
+          <div class="row" id="meet-row" v-for="(meeting, i) in meetings"
+            :key="i">
+            <div id="meet-buyer-id" class="col-6">
+              {{meeting.buyerId}}
+            </div>
+            <div class="col-6">
+
+              <button id="meet-btn" @click="$router.push({name:'Meeting', params:{sessionid: meeting.sessionName, order: meeting.buyerId}})">접속하기</button>
+            </div>
+          </div>
+
+          <!-- <table id="meet-table">
             <tr v-for="(meeting, i) in meetings"
             :key="i">
               <td>{{meeting.buyerId}}</td>
               <td></td>
               <td><button @click="$router.push({name:'Meeting', params:{sessionid: meeting.sessionName, order: meeting.buyerId}})">접속하기</button></td>
             </tr>
-          </table>
-          <button @click="$router.push({name:'Meeting', params:{sessionid: 'jwjw2test'}})">jt접속하기</button>
+          </table> -->
+          <!-- <button @click="$router.push({name:'Meeting', params:{sessionid: 'jwjw2test'}})">jt접속하기</button> -->
         </div>
       </div>
       <div class="container-fluid mt-4">
@@ -98,34 +111,61 @@
     <!-- 구매목록 -->
     <div class="row">
       <div class="offcanvas offcanvas-end" id="demo1">
-        <div class="offcanvas-header">
-          <h1 class="offcanvas-title">나의 구매 목록</h1>
+        <div class="offcanvas-header" id="buylist-header">
+          <h1 class="offcanvas-title" style="font-weight:bold;">구매 목록</h1>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
-        <div class="offcanvas-body">
-          <table>
-            <tr v-for="(buy, i) in buyList"
+        <div class="offcanvas-body container" style="padding:0px;">
+          <div class="container" style="border-bottom:1px solid black">
+            <div class="row">
+              <div class="col-3">
+                상품 이름
+              </div>
+              <div class="col-3">
+                상품 가격
+              </div>
+              <div class="col-3">
+                수량
+              </div>
+              <div class="col-3">
+                상태
+              </div>
+            </div>
+          </div>
+          <div class="row" v-for="(buy, i) in buyList"
             :key="i">
-              <td>{{buy.goodsName}}, </td>
-              <td>{{buy.goodsPrice}}, </td>
-              <td>{{buy.goodsQuantity}}, </td>
-              <td>{{buy.purchaseStatus}}, </td>
-              <td>
-                <div v-if="buy.purchaseStatus == 10">결제완료</div>
-                <div v-else-if="buy.purchaseStatus == 11">배송중</div>
-                <div v-else-if="buy.purchaseStatus == 12">구매완료</div>
-                <div v-else>구매취소</div>
-              </td>
-              <td>
-                <div v-if="buy.purchaseStatus == 12 || buy.purchaseStatus == 13"></div>
-                <div v-else><button @click="moveCredit(buy.dealId)">구매확정</button></div>
-              </td>
-              <td>
-                <div v-if="buy.purchaseStatus == 12 || buy.purchaseStatus == 13"></div>
-                <div v-else><button @click="cancelPurchase(buy.dealId)">구매취소</button></div>
-              </td>
-            </tr>
-          </table>
+            <div class="container" style="border-bottom:1px solid gray">
+              <div class="row">
+                <div class="col-3" style="padding:20px;">
+                  {{buy.goodsName}}
+                </div>
+                <div class="col-3" style="padding:20px;">
+                  {{buy.goodsPrice}}
+                </div>
+                <div class="col-3" style="padding:20px;">
+                  {{buy.goodsQuantity}}
+                </div>
+                <div class="col-3" style="padding:20px 20px 20px 0;">
+                  <div v-if="buy.purchaseStatus == 10">결제완료</div>
+                  <div v-else-if="buy.purchaseStatus == 11">배송중</div>
+                  <div v-else-if="buy.purchaseStatus == 12">구매완료</div>
+                  <div v-else>구매취소</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                </div>
+                <div class="col-3">
+                  <div v-if="buy.purchaseStatus == 12 || buy.purchaseStatus == 13"></div>
+                  <div v-else><button style="border:1px solid black; padding:2px; border-radius:10px;" @click="moveCredit(buy.dealId)">구매확정</button></div>
+                </div>
+                <div class="col-3">
+                  <div v-if="buy.purchaseStatus == 12 || buy.purchaseStatus == 13"></div>
+                  <div v-else><button style="border:1px solid black; padding:2px; border-radius:10px;" @click="cancelPurchase(buy.dealId)">구매취소</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="container-fluid mt-4">
@@ -137,28 +177,45 @@
     <!-- 판매목록 -->
     <div class="row">
       <div class="offcanvas offcanvas-end" id="demo2">
-        <div class="offcanvas-header">
-          <h1 class="offcanvas-title">나의 판매 목록</h1>
+        <div class="offcanvas-header" id="selllist-header">
+          <h1 class="offcanvas-title" style="font-weight:bold;">판매 목록</h1>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
-        <div class="offcanvas-body">
-          <table>
-            <tr v-for="(sell, i) in sellList"
-            :key="i">
-              <td>{{sell.goodsName}}, </td>
-              <td>{{sell.goodsPrice}}, </td>
-              <td>{{sell.goodsQuantity}}, </td>
-              <td>{{sell.purchaseStatus}}, </td>
-              <td>
-                <button @click="changePurchase(sell.dealId)">
-                  <div v-if="sell.purchaseStatus == 10">결제완료</div>
-                  <div v-else-if="sell.purchaseStatus == 11">배송중</div>
-                  <div v-else-if="sell.purchaseStatus == 12">판매완료</div>
-                  <div v-else>구매취소</div>
-                </button>
-              </td>
-            </tr>
-          </table>
+        <div class="offcanvas-body container">
+          <div class="row" style="border-bottom:1px solid black">
+            <div class="col-3">
+              상품 이름
+            </div>
+            <div class="col-3">
+              상품 가격
+            </div>
+            <div class="col-3">
+              수량
+            </div>
+            <div class="col-3">
+              상태
+            </div>
+          </div>
+          <div class="row" v-for="(sell, i) in sellList"
+            :key="i" style="border-bottom:1px solid gray">
+            <div class="col-3">
+              {{sell.goodsName}}
+            </div>
+            <div class="col-3">
+              {{sell.goodsPrice}}
+            </div>
+            <div class="col-3">
+              {{sell.goodsQuantity}}
+            </div>
+            <div class="col-3">
+              <button @click="changePurchase(sell.dealId)">
+                <div v-if="sell.purchaseStatus == 10">결제완료</div>
+                <div v-else-if="sell.purchaseStatus == 11">배송중</div>
+                <div v-else-if="sell.purchaseStatus == 12">판매완료</div>
+                <div v-else>구매취소</div>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div class="container-fluid mt-4">
@@ -167,12 +224,6 @@
         </button>
       </div>
     </div>
-    <!-- 내 상점 -->
-    <!-- <div class="row">
-      <div class="col-12">
-        <button class="btn-mystore" @click="goMyStore">나의 상점</button>
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -206,6 +257,7 @@ export default {
       roomList:[],
       bsOffcanvas: '',
       content:'',
+      selectedReceiverId:'',
     };
   },
   created(){
@@ -265,9 +317,15 @@ export default {
       });
       this.$store.commit('setChat', true)
     },
-    enterRoom(inputChatRoomId) {
+    enterRoom(inputChatRoomId, inputSenderId, inputReceiverId) {
+      // chatRoom.senderId, chatRoom.receiverId
       alert(inputChatRoomId + '번 채팅 방 입장!!');
       this.selectedChatRoomId = inputChatRoomId;
+      if(inputSenderId == this.userId){
+        this.selectedReceiverId = inputReceiverId;
+      }else{
+        this.selectedReceiverId = inputSenderId;
+      }
     },
     chatOn(){
       this.$store.commit('setChat', true)
@@ -326,6 +384,78 @@ export default {
 </script>
 
 <style scoped>
+#demo2{
+  background-color: #eee;
+  padding:0px;
+}
+#selllist-header{
+  padding-top: 4.5vh;
+  border-bottom: 1px solid black;
+}
+#demo1{
+  background-color: #eee;
+  padding:0px;
+}
+#buylist-header{
+  padding-top: 4.5vh;
+  border-bottom: 1px solid black;
+}
+#meet-row{
+  border-bottom: 1px solid gray;
+}
+#meet-body{
+  font-weight: bold;
+  font-size: 20px;
+}
+#meet-buyer-id{
+  margin-top: 0.5vh;
+  text-align: center;
+}
+#meet-btn{
+  /* margin-left: 10vw; */
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+}
+#meet-btn:hover{
+  background-color: rgb(200, 200, 200);
+}
+#demo{
+  background-color: #eee;
+  padding:0px;
+}
+#meet-header{
+  padding-top: 4.5vh;
+  border-bottom: 1px solid black;
+}
+#meet-table{
+  border-collapse: collapse;
+}
+table, td, th {
+  border: 1px solid black;
+}
+#demo0{
+  background-color: #eee;
+  padding:0px;
+}
+#show-modal{
+  padding-left: 1.5vw;
+  padding-bottom: 2vh;
+  padding-top: 2vh;
+  font-size: 20px;
+  /* border: 1px solid red; */
+  border-bottom: 1px solid gray;
+  margin-left: 0px;
+  /* margin-bottom: 1vh; */
+}
+#show-modal:hover{
+  background-color: rgb(211, 207, 207);
+}
+#chat-header{
+  padding-top: 4.5vh;
+  /* padding-bottom: 4.5vh; */
+  border-bottom: 1px solid black;
+}
 #credit-box{
   /* border: 1px solid black; */
   /* border-top: 1px solid black; */
