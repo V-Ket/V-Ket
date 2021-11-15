@@ -123,6 +123,11 @@
                 this.userNickname = localStorage.getItem('userNickname');
                 this.startGame();
             }
+            else if(to.path.includes('/meeting')){
+                this.$refs.hookInstance.message('SoundManager', 'stopBGM')
+            }else if(from.path.includes('/meeting')){
+                this.$refs.hookInstance.message('SoundManager', 'playBGM')
+            }
             // else if(from.path == '/openstore'){
             //     console.log("상점 등록하도 돌아왔습니다.");
             //     this.setStore();
@@ -134,7 +139,7 @@
                 const target = document.querySelector('#unity-game-container')
                 const targetRect = target.getBoundingClientRect();
                 this.width = targetRect.width;
-                this.height = window.innerHeight-102;
+                this.height = window.innerHeight;
                 // const unity = document.querySelector('#unity-game');
                 // unity.style.transform = `translate(${targetRect.left}px,102px)`;
             }else{
