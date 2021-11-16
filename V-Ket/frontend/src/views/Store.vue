@@ -2,7 +2,7 @@
   <div id="store">
     <img src="images/store/storeContent.png" class="contents">
     <!-- <img src="images/store/storeImg.png" class="storeImg"> -->
-    <img src="images/store/storeBack.png" class="storeBack">
+    <!-- <img src="images/store/storeBack.png" class="storeBack"> -->
     <img src="images/store/storeName.png" class="storeName">
     <img src="images/store/storeHost.png" class="storeHost">
     <div class="container">
@@ -59,20 +59,20 @@
       </div>
 
       <div class="row" id="storeBtn">
-        <div class="col-3">
+        <div class="col-2">
         </div>
-        <div class="col-2" id="btn1">
+        <div class="col-3" id="btn1">
           <button id="goodsListBtn" @click="goodsList">상품 상세보기</button>
         </div>
-        <div class="col-2" id="btn2">
+        <div class="col-3" id="btn2">
           <button id="updateStore" v-if="isOwner" @click="updateStore">상점 정보 수정</button>
           <button id="sessionBtn" v-else @click="goSession">화상연결</button>
         </div>
-        <div class="col-2" id="btn3">
+        <div class="col-3" id="btn3">
           <button id="updateGoods" v-if="isOwner" @click="updateGoods">상품 등록</button>
           <button id="chatBtn" v-else @click="goChat">채팅하기</button>
         </div>
-        <div class="col-3">
+        <div class="col-1">
         </div>
       </div>
       <!-- 상품 등록 -->
@@ -373,14 +373,22 @@ import {eventBus} from '@/main.js';
 }
 #storeBtn{
   margin-top: 10.5vh;
+  margin-left: 3vw;
+  padding-top: 2vh;
+  background-image: url('/images/store/storeBack.png');
+  background-size: 100%;
+  background-repeat: round;
+  width: 60vw;
+  height: 15vh;
+  /* padding:0px; */
 }
 #btn1{
 }
 #btn2{
-  margin-left: 2vw;
+  /* margin-left: 2vw; */
 }
 #btn3{
-  margin-left: 2vw;
+  /* margin-left: 2vw; */
 }
 #goodsListBtn{
   /* border: 1px solid black; */
@@ -389,7 +397,7 @@ import {eventBus} from '@/main.js';
   padding: 20px;
   /* margin-left: 10vw; */
   font-weight: bold;
-  font-size: 22px;
+  font-size: 20px;
   color: white;
   /* #983C34 #812F38 */
   /* background-color: #812F38; */
@@ -402,11 +410,11 @@ import {eventBus} from '@/main.js';
   border-color: #812F38;
   background-image: linear-gradient(290deg,#812F38,#983C34);
   border-radius: 10px;
-  width: 10vw;
+  /* width: 10vw; */
   padding: 20px;
   /* margin-left: 14vw; */
   font-weight: bold;
-  font-size: 22px;
+  font-size: 20px;
   color: white;
 }
 #chatBtn{
@@ -414,11 +422,11 @@ import {eventBus} from '@/main.js';
   border-color: #812F38;
   background-image: linear-gradient(290deg,#812F38,#983C34);
   border-radius: 10px;
-  width: 10vw;
+  /* width: 10vw; */
   padding: 20px;
   /* margin-left: 18vw; */
   font-weight: bold;
-  font-size: 22px;
+  font-size: 20px;
   color: white;
 }
 #updateStore{
@@ -426,11 +434,11 @@ import {eventBus} from '@/main.js';
   border-color: #812F38;
   background-image: linear-gradient(290deg,#812F38,#983C34);
   border-radius: 10px;
-  width: 10vw;
+  /* width: 10vw; */
   padding: 20px;
   /* margin-left: 14vw; */
   font-weight: bold;
-  font-size: 22px;
+  font-size: 20px;
   color: white;
 }
 #updateGoods{
@@ -438,11 +446,11 @@ import {eventBus} from '@/main.js';
   border-color: #812F38;
   background-image: linear-gradient(290deg,#812F38,#983C34);
   border-radius: 10px;
-  width: 10vw;
+  /* width: 10vw; */
   padding: 20px;
   /* margin-left: 18vw; */
   font-weight: bold;
-  font-size: 22px;
+  font-size: 20px;
   color: white;
 }
 </style>
