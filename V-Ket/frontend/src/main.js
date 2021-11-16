@@ -14,6 +14,8 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 Vue.use(VueSweetalert2);
 Vue.config.productionTip = false;
 
+export const eventBus = new Vue()
+
 new Vue({
     router,
     vuetify,

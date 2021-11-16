@@ -97,6 +97,8 @@
 import http from '@/http.js';
 import OpenStore from '@/components/store/OpenStore.vue';
 import GoodsModal from '@/components/store/GoodsModal.vue';
+import {eventBus} from '@/main.js';
+
   export default {
     name: "Store",
     components:{
@@ -191,6 +193,15 @@ import GoodsModal from '@/components/store/GoodsModal.vue';
         http.post('/chatRooms', body)
         .then((res)=>{
           console.log('채팅방개설'+res.data.status)
+          alert("채팅방이 열렸습니다.");
+          // eventBus.$emit('openChat', true)
+        })
+        .catch((e) => {
+          console.log("오류" + e);
+          alert("이미 채팅방이 개설되어 있습니다.");
+        })
+        .finally(function() {
+          eventBus.$emit('openChat', true)
         })
       },
       updateStore(){

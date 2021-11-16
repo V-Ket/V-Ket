@@ -15,8 +15,8 @@
             </button>
           </div>
 
-          <div class="modal-body">
-            <slot name="body">
+          <div class="modal-body" ref="messages">
+            <slot name="body" >
               <div id="bodyIn">
                 <div v-for="(msg, idx) in msgArr" :key="idx">
                     <!-- <div v-if="isMyMsg" class="chatDiv2"> 
@@ -37,8 +37,8 @@
             </slot>
           </div>
           <div id="chat-send">
-            <input id="send-msg" type="text" v-model="content" placeholder="보낼 메세지" size="28" />
-            <button id="send-btn" @click="sendMessage()">SEND</button>
+            <input id="send-msg" type="text" v-model="content" @keyup.enter="sendMessage" placeholder="보낼 메세지" size="28" />
+            <button id="send-btn" @click="sendMessage()" >SEND</button>
           </div>
 <!-- 
           <div class="modal-footer">
@@ -96,6 +96,15 @@ export default {
                 this.msgArr.push(msg);
             });
         });
+    },
+    watch:{
+      msgArr() {
+        this.$nextTick(() => {
+          let messages = this.$refs.messages;
+
+          messages.scrollTo({top: messages.scrollHeight, behavior: 'smooth'})
+        })
+      }
     },
     computed:{
       isMyMsg : function(){
