@@ -66,7 +66,7 @@
       </div>
       <div class="container-fluid mt-5">
         <img class="reddot" id="reddot" src="images/alert/reddot.png">
-        <button @click="getChatList" id="chatList" class="btn-meeting" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo0" style="vertical-align:middle">
+        <button ref="chatList" @click="getChatList" id="chatList" class="btn-meeting" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo0" style="vertical-align:middle">
           <span>채팅 목록</span>
         </button>
       </div>
@@ -233,6 +233,7 @@ import http from '@/http.js';
 import Offcanvas from 'bootstrap/js/dist/offcanvas'
 import { mapGetters } from 'vuex'
 import ChatModal from '@/components/Chat/ChatModal.vue'
+import {eventBus} from '@/main.js';
 
 export default {
   name: "Nav",
@@ -261,7 +262,11 @@ export default {
     };
   },
   created(){
-    
+    eventBus.$on('openChat', (temp) => {
+      console.log(temp)
+      // 함수실행
+      this.openChat();
+    })
   },
   computed: {
     ...mapGetters(['credit'])
@@ -302,6 +307,10 @@ export default {
     
   },
   methods: {
+    openChat(){
+      // 클릭이벤트 줘서 오프캠버스 열기
+      this.$refs.chatList.click();
+    },
     getChatList(){
       http.get('chatRooms/' + this.userId)
       .then((res) => {

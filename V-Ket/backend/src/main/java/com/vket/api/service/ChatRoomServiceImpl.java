@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ChatRoomServiceImpl implements ChatRoomService {
@@ -17,6 +18,14 @@ public class ChatRoomServiceImpl implements ChatRoomService {
 
     @Override
     public boolean addChatRoom(ChatRoomReq chatRoomReq) {
+
+        Optional<ChatRoom> chatRoom = chatRootRepository.findBySenderIdAndReceiverId(chatRoomReq.getSenderId(), chatRoomReq.getReceiverId());
+
+        // 이미 방이 존제하면
+        if(chatRoom.isPresent()){
+            return false;
+        }
+
         chatRootRepository.save(ChatRoom.builder()
 //            .chatRoomId(chatRoomReq.getChatRoomId())
             .senderId(chatRoomReq.getSenderId())
