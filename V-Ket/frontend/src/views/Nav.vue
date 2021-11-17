@@ -278,8 +278,8 @@ export default {
       this.getChatList2();
     }, 1000);
     
-    // let socket = new SockJS("https://k5a404.p.ssafy.io:8877/ws");
-    let socket = new SockJS("http://localhost:8877/ws");
+    let socket = new SockJS("https://k5a404.p.ssafy.io:8877/ws");
+    // let socket = new SockJS("http://localhost:8877/ws");
     this.stompClient = Stomp.over(socket);
       this.stompClient.connect({}, () => {
         setInterval(() => {
@@ -349,8 +349,8 @@ export default {
       localStorage.removeItem('token')
       localStorage.removeItem('userId')
       localStorage.removeItem('userNickname')
-      window.location.href="http://localhost:8080/"
-      // window.location.href="https://k5a404.p.ssafy.io/"
+      // window.location.href="http://localhost:8080/"
+      window.location.href="https://k5a404.p.ssafy.io/"
     },
     purchase2(){
       this.$router.push({name:'Purchase'})

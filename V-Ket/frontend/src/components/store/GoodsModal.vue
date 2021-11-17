@@ -116,13 +116,8 @@ export default {
     }
   },
   mounted(){
-
-    console.log(this.goods)
-    console.log(this.isUpdate)
-
     // 상품 수정이면 상품을 가져와 인풋에 넣는다.
     if(this.isUpdate == true){
-      console.log("업데이트로 들어왔습니다.");
       this.goodsName = this.goods.goodsName;
       this.goodsPrice = this.goods.goodsPrice;
       this.goodsImg = null;

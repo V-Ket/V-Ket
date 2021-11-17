@@ -79,7 +79,6 @@ export default {
 
             http.post("/store/regist", body)
             .then((res) => {
-                console.log(res);
                 if(res.status == 201){
                     this.$swal({
                         icon: 'success',

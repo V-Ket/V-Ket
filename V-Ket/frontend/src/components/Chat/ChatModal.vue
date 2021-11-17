@@ -56,8 +56,8 @@ export default {
     },
     created(){
         this.getMessage();
-        // let socket = new SockJS("https://k5a404.p.ssafy.io:8877/ws");
-        let socket = new SockJS("http://localhost:8877/ws");
+        let socket = new SockJS("https://k5a404.p.ssafy.io:8877/ws");
+        // let socket = new SockJS("http://localhost:8877/ws");
         this.stompClient = Stomp.over(socket);
         this.stompClient.connect({}, () => {
             this.stompClient.subscribe('/sub/' + this.chatRoomId, res => { // 메시지 받기
