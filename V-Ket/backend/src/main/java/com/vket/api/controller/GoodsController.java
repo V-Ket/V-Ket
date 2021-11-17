@@ -26,8 +26,6 @@ public class GoodsController {
     @Autowired
     GoodsService goodsService;
 
-//    private final S3Uploader s3Uploader;
-
     // 상품 전체 정보
     @GetMapping("/allGoods")
     @ApiOperation(value = "상품 전체 가져오기", notes = "")
@@ -70,16 +68,8 @@ public class GoodsController {
                 return ResponseEntity.status(401).body(BaseResponseBody.of(401, "1번 오류"));
             }
         }catch (Exception e){
-            System.out.println("상품 등록 오류");
-            System.out.println(e);
             return ResponseEntity.status(402).body(BaseResponseBody.of(402, "2번 오륲"));
         }
-
-//        if (goodsService.updateGoodsInfo(goodsUpdateReq)) {
-//            return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
-//        } else {
-//            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
-//        }
     }
 
     // 상품 등록하기
@@ -94,16 +84,8 @@ public class GoodsController {
                 return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
             }
         }catch (Exception e){
-            System.out.println("상품 등록 오류");
-            System.out.println(e);
             return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
         }
-
-//        if (goodsService.addGoods(goodsAddReq)) {
-//            return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
-//        } else {
-//            return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
-//        }
     }
 
     // 상품 삭제하기
@@ -116,11 +98,4 @@ public class GoodsController {
             return ResponseEntity.status(400).body(BaseResponseBody.of(400, "Fail"));
         }
     }
-
-//    @PostMapping("/images")
-//    public ResponseEntity<String> upload(@RequestParam("images") MultipartFile multipartFile) throws IOException {
-//        System.out.println("들어왔니?");
-//        s3Uploader.upload(multipartFile, "static");
-//        return new ResponseEntity<>("test",HttpStatus.OK);
-//    }
 }

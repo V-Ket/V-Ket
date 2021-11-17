@@ -49,27 +49,20 @@ export default {
       this.selectfalse()
       this.select1 = true
       this.isSelect = true
-      // alert(this.characterNum)
-      // alert(this.$store.getters.getCharacterNum)
     },
     selected2(){
       this.characterNum = 2
       this.$store.commit('setChracterNum', 1)
-      console.log(this.$store.getters.getCharacterNum)
       this.selectfalse()
       this.select2 = true
       this.isSelect = true
-      // alert(this.characterNum)
-      // alert(this.$store.getters.getCharacterNum)
     },
     selected3(){
-      // alert(this.$store.getters.getCharacterNum)
       this.characterNum = 3
       this.$store.commit('setChracterNum', 2)
       this.selectfalse()
       this.select3 = true
       this.isSelect = true
-      // alert(this.characterNum)
     },
     selected4(){
       this.characterNum = 4
@@ -77,7 +70,6 @@ export default {
       this.selectfalse()
       this.select4 = true
       this.isSelect = true
-      // alert(this.characterNum)
     },
     selected5(){
       this.characterNum = 5
@@ -85,7 +77,6 @@ export default {
       this.selectfalse()
       this.select5 = true
       this.isSelect = true
-      // alert(this.characterNum)
     },
     selected6(){
       this.characterNum = 6
@@ -93,7 +84,6 @@ export default {
       this.selectfalse()
       this.select6 = true
       this.isSelect = true
-      // alert(this.characterNum)
     },
     selectfalse(){
       this.select1 = false
@@ -112,7 +102,6 @@ export default {
   position:absolute;
   top: 25%;
   left: 35%;
-  /* float: center; */
   font-size: 50px;
   color: white;
   font-weight: bold;
@@ -139,11 +128,9 @@ export default {
   box-shadow: 5px 3px 10px rgb(1, 8, 32);
 }
 button:hover{
-  /* box-shadow: 0 0 15px yellow; */
   filter: drop-shadow(0px 0px 10px rgb(243, 243, 243));
 }
 img:hover{
-  /* box-shadow: 0 0 15px yellow; */
   filter: drop-shadow(0px 0px 15px rgba(255, 255, 0));
 }
 .char1{
@@ -153,7 +140,6 @@ img:hover{
   top: 65.5%;
   width: 8vw;
   height: auto;
-  /* transform: translate(-400%,300%); */
 }
 .char2{
   position:absolute;
@@ -162,7 +148,6 @@ img:hover{
   top: 65%;
   width: 8vw;
   height: auto;
-  /* transform: translate(-270%,300%); */
 }
 .char3{
   position:absolute;
@@ -171,7 +156,6 @@ img:hover{
   top: 64.8%;
   width: 8vw;
   height: auto;
-  /* transform: translate(-120%,300%); */
 }
 .char4{
   position:absolute;
@@ -180,7 +164,6 @@ img:hover{
   top: 64%;
   width: 8vw;
   height: auto;
-  /* transform: translate(10%,300%); */
 }
 .char5{
   position:absolute;
@@ -189,7 +172,6 @@ img:hover{
   top: 66.5%;
   width: 8vw;
   height: auto;
-  /* transform: translate(140%,228%); */
 }
 .char6{
   position:absolute;
@@ -198,7 +180,6 @@ img:hover{
   top: 65.5%;
   width: 8vw;
   height: auto;
-  /* transform: translate(270%,208%); */
 }
 
 </style>

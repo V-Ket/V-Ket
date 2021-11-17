@@ -25,7 +25,6 @@ public class MessageController {
 
     @MessageMapping("/")
     public void sendMessage(@Payload MessageReq message) {
-        System.out.println(">>>>> 전달 주소 " + "/sub/" + message.getChatRoomId() + ", 전달 메시지 " + message);
         chatRoomController.addMessage(message);
         template.convertAndSend("/sub/" + message.getChatRoomId(), message);
     }

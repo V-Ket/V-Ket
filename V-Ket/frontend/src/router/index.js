@@ -1,13 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Main from '../views/Main.vue'
-import Home from '../views/Home.vue'
 import Unity from '../views/Unity.vue'
-// import Unity from '../components/Unity/UnityGame.vue'
 import SelectCH from '../views/SelectCH.vue'
 import Purchase from '../components/Purchase.vue'
 import Meetings from '../views/Meetings.vue'
-import MeetingList from '../components/MeetingList/MeetingList.vue';
 import Store from '../views/Store.vue'
 import GoodsList from '../components/store/GoodsList.vue';
 
@@ -17,11 +14,6 @@ const routes = [{
         path: '/',
         name: 'Main',
         component: Main
-    },
-    {
-        path: '/home',
-        name: 'Home',
-        component: Home
     },
     {
         path: '/unity',
@@ -42,12 +34,6 @@ const routes = [{
         path: '/meeting/:sessionid',
         name: 'Meeting',
         component: Meetings
-    }
-    ,
-    {
-        path: '/meetlist',
-        name: 'MeetingList',
-        component: MeetingList
     },
     {
         path: '/store',

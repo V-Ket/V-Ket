@@ -70,7 +70,6 @@ public class S3Service {
 
     public void delete(String url){
         String fileName = url.substring(url.lastIndexOf("/") + 1);
-        System.out.println("fileName : " + fileName);
         boolean isExistObject = amazonS3Client.doesObjectExist(bucket, fileName);
 
         if(isExistObject == true){

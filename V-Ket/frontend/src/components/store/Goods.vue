@@ -88,18 +88,12 @@ export default {
     }
   },
   methods:{
-    // S3 서버에서 
-    getImgPath: function() {
-      //
-      // return this.fileURL + '' + this.goods;
-    },
     update(){
       this.isOpenGoodsModal = true;
     },
     closeGoodsModal(){
       this.isOpenGoodsModal = false;
       this.$emit("Refresh");
-      // this.$router.push({name: "GoodsList", params:{storeId : this.goods.storeId, hostId : this.hostId}});
     },
     buy(goods){
       if(this.$props.goods.goodsQuantity==0 || this.$props.goods.goodsPrice>this.$store.getters.credit){
@@ -147,7 +141,6 @@ export default {
 
 <style scoped>
 #up{
-  /* background-color: red; */
   border-radius: 100px;
 }
 #goods{
@@ -165,7 +158,6 @@ export default {
 }
 #goodsName{
   padding: 1px;
-  /* width: 17.5vw; */
   border: 1.5px solid black;
   border-style: dotted;
   border-radius: 10px;
@@ -201,7 +193,6 @@ export default {
 #btn{
   padding: 5px;
   margin-top: 1vh;
-  /* border: 1px solid black; */
   border-radius: 10px;
   background-color: rgb(238, 144, 57);
   color: white;

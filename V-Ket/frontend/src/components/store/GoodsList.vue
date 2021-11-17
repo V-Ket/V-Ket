@@ -43,35 +43,25 @@ export default {
         Goods,
     },
     mounted(){
-        console.log("상품 상세보기");
-        console.log(this.storeId);
-        console.log(this.hostId);
-        // http.get('/goods/store/'+1)
         http.get('/goods/store/'+this.storeId)
         .then((res)=>{
             this.goodsList = res.data;
-            console.log('dddd'+this.goodsList)
         })
         .catch((e) => {
-            console.log("오류")
             console.log(e);
         })
     },
     methods:{
         Refresh(){
-            console.log("새로고침");
             http.get('/goods/store/'+this.storeId)
             .then((res)=>{
                 this.goodsList = res.data;
-                console.log('dddd'+this.goodsList)
             })
             .catch((e) => {
-                console.log("오류")
                 console.log(e);
             })
         },
         goBack(){
-            console.log(this.storeId);
             this.$router.push({name:'Store', params:{storeId : this.storeId}});
         }
     }

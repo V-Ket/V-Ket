@@ -2,9 +2,7 @@
   <div id="nav" class="container">
     <!-- 타이틀 -->
     <div class="row" id="titlebox">
-      <!-- <div id="titlebox"> -->
         <img src="images/logo/navLogo.png">
-      <!-- </div> -->
     </div>
     <!-- 유저ID, 로그아웃 -->
     <div class="row">
@@ -50,7 +48,6 @@
               <button v-else>
                 {{chatRoom.receiverId}} 님과의 채팅방
               </button>
-              <!-- <span class="badge" id="reddot-chat-in" v-if="chatRoom.reddot==0">&nbsp;</span> -->
             </div>
             <ChatModal :chatRoomId="selectedChatRoomId" :receiver="selectedReceiverId" v-if="showModal" @close="showModal = false" @reddotChat="reddotChat">
               <h3 slot="header">{{selectedReceiverId}} 님과의 채팅방</h3>
@@ -251,8 +248,7 @@ export default {
     };
   },
   created(){
-    eventBus.$on('openChat', (temp) => {
-      console.log(temp)
+    eventBus.$on('openChat', () => {
       // 함수실행
       this.openChat();
     })
@@ -262,42 +258,15 @@ export default {
   },
   watch : {
     meetingListSize (newval, oldval){
-      // console.log('new'+newval)
-      // console.log('old'+oldval)
       var con = document.getElementById('reddot');
       if(newval > oldval){
         con.style.display = "block"
       }else{
-        // con.style.display = "block"
         con.style.display = "none"
       }
     },
-    // chatListSize(newval,oldval){
-    //   // var con = document.getElementById('reddot-chat');
-    //   if(newval > oldval){
-    //     // con.style.display = "block"
-    //     let socket = new SockJS("https://k5a404.p.ssafy.io:8877/ws");
-    // // let socket = new SockJS("http://localhost:8877/ws");
-    // this.stompClient = Stomp.over(socket);
-    //   this.getChatList2();
-    //   this.stompClient.connect({}, frame => {
-    //   console.log('>>>> success ', this.roomList.length, '번 방 연결 성공', frame);
-    //   for(let i=0; i<this.roomList.length; i++){
-    //     this.stompClient.subscribe('/sub/' + this.roomList[i].chatRoomId, () => { // 메시지 받기
-    //     console.log('왔다!우효!')
-    //       document.getElementById('reddot-chat').style.display="block";
-    //     });
-    //   }
-    // });
-    //   }else{
-    //     // con.style.display = "none"
-    //   }
-    // }
   },
   mounted() {
-    // let socket = new SockJS("https://k5a404.p.ssafy.io:8877/ws");
-    // let socket = new SockJS("http://localhost:8877/ws");
-    // this.stompClient = Stomp.over(socket);
     this.sellerId = localStorage.getItem('userId')
     setInterval(() => {
       http.get('/session/getlist/' + this.sellerId)
@@ -306,47 +275,20 @@ export default {
         this.$store.commit('setMeetingListSize', this.meetings.length)
         this.meetingListSize = this.$store.getters.getMeetingListSize
       })
-      // http.get('chatRooms/' + this.userId)
-      // .then((res) => {
-      //   this.roomList = [];
-      //   for(let i=0; i<res.data.length; i++) {
-      //     let chatRoom = {
-      //       'chatRoomId': res.data[i].chatRoomId,
-      //       'senderId': res.data[i].senderId,
-      //       'receiverId': res.data[i].receiverId
-      //     }
-      //     this.roomList.push(chatRoom);
-      //     this.$store.commit('setChatListSize',this.roomList.length)
-      //     this.chatListSize = this.$store.getters.getChatListSize
-      //   }
-      // });
-      // for(let i=0; i<this.roomList.length; i++){
-      //   this.stompClient.subscribe('/sub/' + this.roomList[i].chatRoomId, () => { // 메시지 받기
-      //     console.log('왔다!우효!')
-      //     document.getElementById('reddot-chat').style.display="block";
-      //   });
-      // }
-      // this.stompClient.connect({}, frame => {
-      //   console.log('>>>> success ', this.roomList.length, '번 방 연결 성공', frame);
-      // });
       this.getChatList2();
     }, 1000);
     
     // let socket = new SockJS("https://k5a404.p.ssafy.io:8877/ws");
     let socket = new SockJS("http://localhost:8877/ws");
     this.stompClient = Stomp.over(socket);
-      this.stompClient.connect({}, frame => {
-        console.log('>>>> success ', this.roomList.length, '번 방 연결 성공', frame);
+      this.stompClient.connect({}, () => {
         setInterval(() => {
           for(let i=0; i<this.roomList.length; i++){
             this.stompClient.subscribe('/sub/' + this.roomList[i].chatRoomId, (res) => { // 메시지 받기
-            console.log('왔다!우효!')
             let jsonBody = JSON.parse(res.body);
             if(jsonBody.userId != this.userId && jsonBody.userId != this.selectedReceiverId){
               document.getElementById('reddot-chat').style.display="block";
-              // this.roomList[i].reddot = 1;
             }
-            // || jsonBody.userId != this.selectedReceiverId
             });
           }
           }, 1000);
@@ -355,7 +297,6 @@ export default {
   },
   methods: {
     reddotChat(){
-      console.log('실행됬다!!!!!!!!!!!!!!!!!!!')
       document.getElementById('reddot-chat').style.display="block";
     },
     openChat(){
@@ -370,8 +311,7 @@ export default {
           let chatRoom = {
             'chatRoomId': res.data[i].chatRoomId,
             'senderId': res.data[i].senderId,
-            'receiverId': res.data[i].receiverId,
-            // 'reddot' : 0
+            'receiverId': res.data[i].receiverId
           }
           this.roomList.push(chatRoom);
         }
@@ -387,8 +327,7 @@ export default {
           let chatRoom = {
             'chatRoomId': res.data[i].chatRoomId,
             'senderId': res.data[i].senderId,
-            'receiverId': res.data[i].receiverId,
-            // 'reddot' : 0
+            'receiverId': res.data[i].receiverId
           }
           this.roomList.push(chatRoom);
         }
@@ -396,7 +335,6 @@ export default {
       this.$store.commit('setChat', true)
     },
     enterRoom(inputChatRoomId, inputSenderId, inputReceiverId) {
-      alert(inputChatRoomId + '번 채팅 방 입장!!');
       this.selectedChatRoomId = inputChatRoomId;
       if(inputSenderId == this.userId){
         this.selectedReceiverId = inputReceiverId;
@@ -421,21 +359,18 @@ export default {
       document.getElementById('reddot').style.display="none";
     },
     getBuyList(){
-      console.log('b리스트가져와')
       http.get('/deal/buylist/' + localStorage.getItem('userId'))
       .then((res)=>{
         this.buyList = res.data;
       })
     },
     getSellList(){
-      console.log('s리스트가져와')
       http.get('/deal/selllist/' + localStorage.getItem('userId'))
       .then((res)=>{
         this.sellList = res.data;
       })
     },
     changePurchase(dealId){
-      console.log('가즈아' + dealId)
       http.put('/deal/updateDeal/' + dealId)
       .then(()=>{
 

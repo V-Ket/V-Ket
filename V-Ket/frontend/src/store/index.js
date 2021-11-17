@@ -6,7 +6,6 @@ Vue.use(Vuex)
 // 개발모드면 true 배포모드면 false
 const DEVELOPMODE = true;
 let baseURL = DEVELOPMODE ? 'http://localhost:8877/' : 'https://k5a404.p.ssafy.io/';
-// const chatRoomNumber = -1;
 
 export default new Vuex.Store({
     state: {
@@ -26,9 +25,6 @@ export default new Vuex.Store({
         baseURL: function() {
             return baseURL;
         },
-        // chatRoomNumber: function() {
-        //     return chatRoomNumber;
-        // }
         getChat(state) {
             return state.chat;
         },

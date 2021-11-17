@@ -6,9 +6,6 @@
 
           <div class="modal-header">
             <slot name="header">
-              <!-- <h3>{{receiver}} 님과의 채팅방</h3> -->
-              <!-- <h3 v-if="chatRoom.senderId !== userId" slot="header">{{chatRoom.senderId}} 님과의 채팅방</h3>
-              <h3 v-else slot="header">{{chatRoom.receiverId}} 님과의 채팅방</h3> -->
             </slot>
             <button class="modal-default-button" v-on:click="$emit('close')">
                 X
@@ -19,15 +16,6 @@
             <slot name="body" >
               <div id="bodyIn">
                 <div v-for="(msg, idx) in msgArr" :key="idx">
-                    <!-- <div v-if="isMyMsg" class="chatDiv2"> 
-                      같아요
-                      <div class="chatContent"> {{ msg.content }}</div>
-                    </div>
-                    <div v-else class="chatDiv"> 
-                      달라요
-                      <span>{{ msg.userId }} : </span> 
-                      <div class="chatContent"> {{ msg.content }}</div>
-                    </div> -->
                     <div class="chatDiv" :class="msg.style"> 
                       <span>{{ msg.userId }} : </span> 
                       <span class="chatContent"> {{ msg.content }}</span>
@@ -40,15 +28,6 @@
             <input id="send-msg" type="text" v-model="content" @keyup.enter="sendMessage" placeholder="보낼 메세지" size="28" />
             <button id="send-btn" @click="sendMessage()" >SEND</button>
           </div>
-<!-- 
-          <div class="modal-footer">
-            <slot name="footer">
-              default footer
-              <button class="modal-default-button" v-on:click="$emit('close')">
-                OK
-              </button>
-            </slot>
-          </div> -->
         </div>
       </div>
     </div>
@@ -57,7 +36,6 @@
 
 <script>
 import http from '@/http.js';
-// import store from '../../store/index';
 import Stomp from 'webstomp-client'
 import SockJS from 'sockjs-client'
 
@@ -78,13 +56,10 @@ export default {
     },
     created(){
         this.getMessage();
-        console.log('dddddd'+this.receiver);
         // let socket = new SockJS("https://k5a404.p.ssafy.io:8877/ws");
         let socket = new SockJS("http://localhost:8877/ws");
         this.stompClient = Stomp.over(socket);
-        console.log(this.chatRoomId,'번 방 연결');
-        this.stompClient.connect({}, frame => {
-            console.log('>>>> success ', this.chatRoomId, '번 방 연결 성공', frame);
+        this.stompClient.connect({}, () => {
             this.stompClient.subscribe('/sub/' + this.chatRoomId, res => { // 메시지 받기
                 let jsonBody = JSON.parse(res.body);
                 let msg = {
@@ -93,9 +68,6 @@ export default {
                     'style': jsonBody.userId === this.userId ? 'myMsg' : 'otherMsg' 
                 };
                 this.msgArr.push(msg);
-                console.log('메시지 새로 옴222')
-                // this.$emit("reddotChat")
-                // console.log('에밋')
             });
         });
     },
@@ -105,7 +77,6 @@ export default {
           let messages = this.$refs.messages;
           messages.scrollTo({top: messages.scrollHeight, behavior: 'smooth'})
         })
-        console.log('메시지 새로 옴')
         this.$emit("msgAlert");
       }
     },
@@ -151,7 +122,6 @@ export default {
 .modal-footer{
   margin-left: 0px;
   padding: 0px;
-  /* text-align: start; */
 }
 .chatDiv{
   white-space: pre-line;
@@ -171,44 +141,15 @@ export default {
   float: right;
   border-radius: 6px 0 0 6px;
   color: gray;
-  /* text-align: right; */
 }
 
-/* .chatDiv2{
-  float: right;
-  white-space: pre-line;
-  background-color: white;
-  margin-bottom: 8px;
-  display: flex;
-  padding: 10px 10px 5px 10px;
-  border-radius: 6px 0 0 6px;
-  max-width: 60%;
-  width: auto;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: column;
-  width: calc(100% - 50px);
-} */
-/* .chatDiv{
-  text-align: start;
-  font-size: 11pt;
-  line-height: 13pt;
-  margin: 0 0 10px;
-} */
 .chatContent {
-  /* width: 100px; */
-  /* white-space: pre-line; */
   word-break: break-all;
   text-align: start;
   font-size: 11pt;
   line-height: 13pt;
   margin: 0 0 10px;
 }
-/* .chatDiv > span {
-  font-size: 8pt;
-  margin-bottom: 10px;
-} */
 .myMsg {
   float: right;
   border-radius: 6px 0 0 6px;
@@ -216,8 +157,6 @@ export default {
   text-align: right;
 }
 #chat-send{
-  /* margin-top: 30vh; */
-  /* border: 1px solid blue; */
   border-top: 1px solid gray;
 }
 #send-msg{
@@ -226,9 +165,6 @@ export default {
   border-right: 1px solid gray;
   border-radius: 10px;
   background-color: white;
-  /* float: left; */
-  /* text-align: start; */
-  /* border: 1px solid red; */
   width: 15vw;
   height: 8vh;
 }
@@ -282,16 +218,6 @@ export default {
   height: 36vh;
   padding-bottom: 0px;
 }
-/* .modal-body::-webkit-scrollbar {
-  width: 10px;
-}
-.modal-body::-webkit-scrollbar-thumb {
-  background-color: grey;
-  border-radius: 10px;
-  background-clip: padding-box;
-  border: 2px solid transparent;
-  visibility: hidden;
-} */
 
 .modal-default-button {
   float: right;

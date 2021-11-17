@@ -29,11 +29,6 @@ public class GoodsServiceImpl implements GoodsService {
     @Autowired
     S3Service s3Service;
 
-//    @Override
-//    public List<Goods> findAll() {
-//        return goodsRepository.findAll();
-//    }
-
     // 상품 전체 정보
     @Override
     public List<GoodsRes> findAllGoods() {
@@ -114,24 +109,6 @@ public class GoodsServiceImpl implements GoodsService {
                 fileURL = goods.getGoodsImg();
             }
 
-//            goods.updateGoodsInfo(goodsUpdateReq);
-//            String newPath = "";
-//            String newFile = "";
-//            if (goodsUpdateReq.getGoodsImg() == null && goodsUpdateReq.getGoodsImg().isEmpty()){
-//                newFile = goods.getGoodsImg();
-//            }else{
-//                Store store = storeRepository.findByStoreId(goodsUpdateReq.getStoreId()).get();
-//                Date nowTime = new Date();
-//                SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
-//                String now = format.format(nowTime);
-//                newPath = baseDir + "/goods/" + now + store.getStoreId() + ".jpg";
-//                newFile = now + store.getStoreId() + ".jpg";
-//                try {
-//                    goodsUpdateReq.getGoodsImg().transferTo(new File(newPath));
-//                }catch (Exception e){
-//                    return false;
-//                }
-//            }
             goods.setGoodsName(goodsUpdateReq.getGoodsName());
             goods.setGoodsPrice(goodsUpdateReq.getGoodsPrice());
             goods.setGoodsImg(fileURL);
@@ -150,18 +127,6 @@ public class GoodsServiceImpl implements GoodsService {
     public boolean addGoods(GoodsAddReq goodsAddReq) throws IOException {
         Store store = storeRepository.findByStoreId(goodsAddReq.getStoreId()).get();
 
-//        Date nowTime = new Date();
-//        SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
-//        String now = format.format(nowTime);
-
-//        String imgPath = baseDir + "/goods/" + now + store.getStoreId() + ".jpg";
-//        String imgFile = now + store.getStoreId() + ".jpg";
-
-//        try {
-//            goodsAddReq.getGoodsImg().transferTo(new File(imgPath));
-//        }catch (Exception e){
-//            return false;
-//        }
         String fileURL = s3Service.upload(goodsAddReq.getGoodsImg(), "static");
         if(storeRepository.findByStoreId(goodsAddReq.getStoreId()).isPresent()) {
             goodsRepository.save(Goods.builder()

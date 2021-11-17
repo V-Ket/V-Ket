@@ -1,7 +1,6 @@
 <template>
 <div v-if="streamManager" id="video-box">
 	<ov-video :stream-manager="streamManager" id="videosize"/>
-	<!-- <div id="video-info">{{ clientData }}</div> -->
 </div>
 </template>
 
@@ -12,7 +11,6 @@
 	border: 3px solid black;
 }
 #video-box {
-	/* position: relative; */
 	padding: 0px;
 	margin: 0px;
 }
