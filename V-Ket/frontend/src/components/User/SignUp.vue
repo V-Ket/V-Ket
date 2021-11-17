@@ -5,7 +5,7 @@
     <button class="btn" style="margin-left:1.5vw" @click="idValid()"><b>중복확인</b></button><br>
     </div>
     <div class="pw">
-    <b>비밀번호: </b><input class="pwInput" v-model="userPassword"/><br>
+    <b>비밀번호: </b><input class="pwInput" type="password" v-model="userPassword"/><br>
     </div>
     <div class="ni">
     <b>닉네임: </b><input class="niInput" v-model="userNickname"/>

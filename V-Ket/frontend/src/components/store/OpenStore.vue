@@ -145,7 +145,7 @@ export default {
                 userId : localStorage.getItem("userId"),
                 storeName : this.storeName,
                 storeContent : this.storeContent,
-                storeUrl : this.URL,
+                storeUrl : this.storeURL,
             }
 
             http.post("/store/regist", body)

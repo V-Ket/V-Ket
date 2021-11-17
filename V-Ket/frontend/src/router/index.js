@@ -6,7 +6,6 @@ import Unity from '../views/Unity.vue'
 // import Unity from '../components/Unity/UnityGame.vue'
 import SelectCH from '../views/SelectCH.vue'
 import Purchase from '../components/Purchase.vue'
-import NavTmp from '../views/NavTmp.vue'
 import Meetings from '../views/Meetings.vue'
 import MeetingList from '../components/MeetingList/MeetingList.vue';
 import Store from '../views/Store.vue'
@@ -38,11 +37,6 @@ const routes = [{
         path: '/purchase',
         name: 'Purchase',
         component: Purchase
-    },
-    {
-        path: '/navtmp',
-        name: 'Navtmp',
-        component: NavTmp
     },
     {
         path: '/meeting/:sessionid',
