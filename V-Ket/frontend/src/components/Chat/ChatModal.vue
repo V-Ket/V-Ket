@@ -92,8 +92,8 @@ export default {
                     'content': jsonBody.content,
                     'style': jsonBody.userId === this.userId ? 'myMsg' : 'otherMsg' 
                 };
-
                 this.msgArr.push(msg);
+                console.log('메시지 새로 옴222')
             });
         });
     },
@@ -101,9 +101,10 @@ export default {
       msgArr() {
         this.$nextTick(() => {
           let messages = this.$refs.messages;
-
           messages.scrollTo({top: messages.scrollHeight, behavior: 'smooth'})
         })
+        console.log('메시지 새로 옴')
+        this.$emit("msgAlert");
       }
     },
     computed:{
@@ -130,7 +131,6 @@ export default {
         getMessage() {
           http.get('chatRooms/message/' + this.chatRoomId)
           .then((res) => {
-
             for(let i=0; i<res.data.length; i++) {
               let msg = {
                 'userId': res.data[i].userId,
