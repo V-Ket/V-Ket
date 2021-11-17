@@ -20,9 +20,9 @@
                         {{chatRoom.receiverId}}
                     </span>
                 </div>
-                <ChatModal :chatRoomId="selectedChatRoomId" v-if="showModal" @close="showModal = false">
+                <!-- <ChatModal :chatRoomId="selectedChatRoomId" v-if="showModal" @close="showModal = false">
                     <h3 slot="header">채팅보여줄거임</h3>
-                </ChatModal>
+                </ChatModal> -->
             </div>
         </div>
         </div>
@@ -33,12 +33,12 @@
 <script>
 import http from '@/http.js';
 import Offcanvas from 'bootstrap/js/dist/offcanvas'
-import ChatModal from './ChatModal.vue'
+// import ChatModal from './ChatModal.vue'
 
 export default {
     name: 'Chat',
     components: {
-        ChatModal,
+        // ChatModal,
     },
     data() {
         return {

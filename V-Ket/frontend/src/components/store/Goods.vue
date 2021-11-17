@@ -43,7 +43,7 @@
                       <button id="btn" @click="update">수정하기</button>
                     </div>
                     <div v-else>
-                      <button id="btn">구매하기</button>
+                      <button id="btn" @click="buy(goods)">구매하기</button>
                     </div>
                   </div>
                 </div>
@@ -64,6 +64,8 @@
 
 <script>
 import GoodsModal from '@/components/store/GoodsModal.vue';
+import http from '@/http.js';
+
 export default {
   name: 'Goods',
   props: ['goods','hostId'],
@@ -98,7 +100,47 @@ export default {
       this.isOpenGoodsModal = false;
       this.$emit("Refresh");
       // this.$router.push({name: "GoodsList", params:{storeId : this.goods.storeId, hostId : this.hostId}});
-    }
+    },
+    buy(goods){
+      if(this.$props.goods.goodsQuantity==0 || this.$props.goods.goodsPrice>this.$store.getters.credit){
+        this.$swal({
+          icon: 'error',
+          title: '구매할 수 없습니다'
+        })
+      }else{
+        this.$swal({
+          icon: 'warning',
+          title: '정말 구매하시겠습니까?',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: '네',
+          cancelButtonText:' 아니오'
+        })
+        .then((result)=>{
+          if(result.isConfirmed){
+            const body = {
+              buyerId : localStorage.getItem('userId'),
+              sellerId : this.$props.hostId,
+              goodsId: goods.goodsId,
+              goodsName : goods.goodsName,
+              eachPrice : goods.goodsPrice,
+              quantity : 1,
+              goodsImg : goods.goodsImg
+            }
+            http.post('/deal/regist',body)
+            .then(()=>{
+              this.$props.goods.goodsQuantity--;
+              this.$store.commit('setCredit', this.$store.getters.credit - this.$props.goods.goodsPrice)
+            })
+            this.$swal({
+              icon: 'success',
+              title: '구매가 완료되었습니다.',
+            })
+          }
+        })
+      }
+    },
   }
 }
 </script>

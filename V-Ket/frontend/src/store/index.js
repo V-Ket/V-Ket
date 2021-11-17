@@ -14,6 +14,7 @@ export default new Vuex.Store({
         characterNum: null,
         meetingListSize: null,
         credit: null,
+        chatListSize: null,
     },
     getters: {
         fileURL: function() {
@@ -43,6 +44,12 @@ export default new Vuex.Store({
             }
             return state.meetingListSize;
         },
+        getChatListSize(state) {
+            if (state.chatListSize == null) {
+                return null;
+            }
+            return state.chatListSize;
+        },
         credit: state => state.credit
     },
     mutations: {
@@ -54,6 +61,9 @@ export default new Vuex.Store({
         },
         setMeetingListSize(state, meetingListSize) {
             state.meetingListSize = meetingListSize;
+        },
+        setChatListSize(state, chatListSize) {
+            state.chatListSize = chatListSize;
         },
         setCredit(state, credit) {
             state.credit=credit
