@@ -117,6 +117,7 @@ export default {
 			session: undefined,
       sessionId: this.$route.params.sessionid,
 			other : this.$route.params.other,
+			storeId: this.$route.params.storeid,
 			// interviewee: this.$route.params.interviewee,
       publisher: undefined,
 			subscribers: [],
@@ -188,7 +189,7 @@ export default {
 			.catch((err) => {
 				console.log(err)
 			})
-      this.$router.go(-1)
+      this.$router.push({name:'Store', params:{storeId : this.storeId}});
     },
 		joinSession () {
 			// --- Get an OpenVidu object ---

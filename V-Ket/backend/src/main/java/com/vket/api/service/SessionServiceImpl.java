@@ -3,7 +3,9 @@ package com.vket.api.service;
 import com.vket.api.request.SessionPostReq;
 import com.vket.api.response.SessionGetRes;
 import com.vket.db.entity.Session;
+import com.vket.db.entity.User;
 import com.vket.db.repository.SessionRepository;
+import com.vket.db.repository.StoreRepository;
 import com.vket.db.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +21,8 @@ public class SessionServiceImpl implements SessionService{
     private UserRepository userRepository;
     @Autowired
     private SessionRepository sessionRepository;
-
+    @Autowired
+    private StoreRepository storeRepository;
     @Override
     public boolean addSession(SessionPostReq sessionPostReq) {
 
@@ -29,11 +32,12 @@ public class SessionServiceImpl implements SessionService{
         if (session.isPresent()){
             return false;
         }else{
-
+            User user = userRepository.findByUserId(sessionPostReq.getSellerId()).get();
             sessionRepository.save(Session.builder()
                     .buyerId(sessionPostReq.getBuyerId())
-                    .user(userRepository.findByUserId(sessionPostReq.getSellerId()).get())
+                    .user(user)
                     .sessionName(newSessionName)
+                    .storeId(storeRepository.findByUser_UserId(user.getUserId()).get().getStoreId())
                     .build());
             return true;
         }
@@ -49,6 +53,7 @@ public class SessionServiceImpl implements SessionService{
                     .sessionName(s.getSessionName())
                     .buyerId(s.getBuyerId())
                     .sellerId(s.getUser().getUserId())
+                    .storeId(s.getStoreId())
                     .build());
         }
         return sessionGetResList;

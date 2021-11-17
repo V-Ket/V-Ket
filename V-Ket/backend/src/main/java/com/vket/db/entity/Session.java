@@ -30,4 +30,7 @@ public class Session {
     @Column(name = "session_name")
     private String sessionName;
 
+    @Column(name = "store_id")
+    private Long storeId;
+
 }

@@ -177,7 +177,7 @@ import {eventBus} from '@/main.js';
           console.log(res)
           if(res.status == 201){
             this.sessionId = localStorage.getItem('userId') + this.hostId;
-            this.$router.push({name: 'Meeting', params:{sessionid: this.sessionId, other: this.hostId}})
+            this.$router.push({name: 'Meeting', params:{sessionid: this.sessionId, other: this.hostId, storeid: this.storeId}})
             console.log('성공')
           }else{
             console.log('실패')

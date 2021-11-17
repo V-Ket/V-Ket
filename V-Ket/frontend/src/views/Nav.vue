@@ -79,7 +79,7 @@
             </div>
             <div class="col-6">
 
-              <button id="meet-btn" @click="$router.push({name:'Meeting', params:{sessionid: meeting.sessionName, order: meeting.buyerId}})">접속하기</button>
+              <button id="meet-btn" @click="$router.push({name:'Meeting', params:{sessionid: meeting.sessionName, order: meeting.buyerId, storeid: meeting.storeId}})">접속하기</button>
             </div>
           </div>
         </div>
@@ -282,7 +282,8 @@ export default {
       })
     }, 1000);
     this.getChatList();
-    let socket = new SockJS("http://localhost:8877/ws");
+    let socket = new SockJS("https://k5a404.p.ssafy.io:8877/ws");
+    // let socket = new SockJS("http://localhost:8877/ws");
     this.stompClient = Stomp.over(socket);
     this.stompClient.connect({}, frame => {
       console.log('>>>> success ', this.roomList.length, '번 방 연결 성공', frame);
@@ -331,8 +332,8 @@ export default {
       localStorage.removeItem('token')
       localStorage.removeItem('userId')
       localStorage.removeItem('userNickname')
-      window.location.href="http://localhost:8080/"
-      // window.location.href="https://k5a404.p.ssafy.io/"
+      // window.location.href="http://localhost:8080/"
+      window.location.href="https://k5a404.p.ssafy.io/"
     },
     purchase2(){
       this.$router.push({name:'Purchase'})

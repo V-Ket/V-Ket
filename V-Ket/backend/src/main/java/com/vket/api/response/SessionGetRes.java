@@ -19,4 +19,7 @@ public class SessionGetRes {
 
     @ApiModelProperty(name="구매자 id")
     String buyerId;
+
+    @ApiModelProperty(name="상점 id")
+    Long storeId;
 }
