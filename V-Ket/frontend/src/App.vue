@@ -20,10 +20,6 @@ export default {
         return false;
       }
       return true;
-      // if(this.$route.name == "Unity"){
-      //   return true;
-      // }
-      // return false;
     },
     showNav : function(){
       if(this.$route.name === "Main" || this.$route.name === "Select"){

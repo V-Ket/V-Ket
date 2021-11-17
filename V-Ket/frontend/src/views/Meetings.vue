@@ -94,7 +94,6 @@
 <script>
 import http from '@/http.js';
 import axios from 'axios';
-// import { mapGetters } from 'vuex';
 import { OpenVidu } from 'openvidu-browser';
 import UserVideo from '@/components/live/UserVideo';
 import UserVideo2 from '@/components/live/UserVideo2';
@@ -119,7 +118,6 @@ export default {
 			other : this.$route.params.other,
 			storeId: this.$route.params.storeid,
 			isSeller : this.$route.params.isseller,
-			// interviewee: this.$route.params.interviewee,
       publisher: undefined,
 			subscribers: [],
       publishers: [],
@@ -142,14 +140,9 @@ export default {
     changedPublishers: function () {
       return this.publishers
     },
-		// ...mapGetters([
-    //   'fileURL',
-    // ]),
   },
 	created () {
     this.mySessionId = this.sessionId
-		// this.setting.audioSource = this.$store.getters.getAudio;
-		// this.setting.videoSource = false;
 	},
 	mounted() {
 		this.joinSession()
@@ -174,8 +167,7 @@ export default {
 				password: OPENVIDU_SERVER_SECRET,
 			},
 			})
-			.then((res) => {
-				console.log(res)
+			.then(() => {
 			})
 			.catch((err) => {
 				console.log(err)

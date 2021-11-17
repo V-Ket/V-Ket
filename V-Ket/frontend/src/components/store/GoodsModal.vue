@@ -10,7 +10,6 @@
     <v-form v-model="valid" id="editModal">
     <v-container class="m-t-50" style="max-width: 800px;">
       <v-row class="justify-center">
-        <!-- <v-col cols="3" align="right"><div id="thumb">썸네일</div> </v-col> -->
         <v-col cols="12">
           <v-row class="justify-center">
             <v-col cols="6">
@@ -135,7 +134,10 @@ export default {
   methods:{
     regist(){
       if(!this.vaild){
-        alert("정보를 모두 입력해 주세요")
+        this.$swal({
+          icon: 'warning',
+          title: '정보를 모두 입력해 주세요',
+        })
       }else{
         let goodsInfo = new FormData();
         goodsInfo.append('goodsName', this.goodsName);
@@ -147,20 +149,23 @@ export default {
           http.post('/goods', goodsInfo, {
             headers: { 'Content-Type': 'multipart/form-data' },
           })
-          .then((res) => {
-            console.log(res);
-            alert("상품등록 완료!");
+          .then(() => {
+            this.$swal({
+              icon: 'success',
+              title: '상품등록 완료!',
+            })
             this.cancel();
           })
-          .catch((e) => {
-           console.log("상품 등록 에러~!");
-            console.log(e);
+          .catch(() => {
+            this.$swal({
+              icon: 'error',
+              title: '상품 등록 에러~!',
+            })
           })
         
       }
     },
     update(){
-      console.log("상품 수정");
       let goodsInfo = new FormData();
         goodsInfo.append('goodsName', this.goodsName);
         goodsInfo.append('goodsPrice', this.goodsPrice);
@@ -174,14 +179,18 @@ export default {
         http.put('/goods', goodsInfo, {
           headers: { 'Content-Type': 'multipart/form-data' },
         })
-        .then((res) => {
-          console.log(res);
-          alert("상품 수정 완료!");
+        .then(() => {
+          this.$swal({
+              icon: 'success',
+              title: '상품등록 완료!',
+            })
           this.cancel();
         })
-        .catch((e) => {
-          console.log("상품 수정 에러~!");
-          console.log(e);
+        .catch(() => {
+          this.$swal({
+              icon: 'error',
+              title: '상품 등록 에러~!',
+            })
         })
     },
     cancel(){

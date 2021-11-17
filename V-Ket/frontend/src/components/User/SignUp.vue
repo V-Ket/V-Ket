@@ -55,7 +55,6 @@ export default {
             text: '환영합니다! 로그인해 주세요 :)'
           })
           this.$emit('close-modal')
-          // alert(res+"가입성공!")
         })
       }else{
         this.$swal({
@@ -67,7 +66,6 @@ export default {
     idValid(){
       http.get('/user/userId/' + this.userId)
       .then((res)=>{
-        console.log(res.status)
         if(res.status==201){
           this.valid_id = true;
           this.$swal({
@@ -93,7 +91,6 @@ export default {
             icon: 'success',
             title: '사용가능한 닉네임입니다.'
           })
-          // alert('사용가능한 닉네임입니다.')
         }else{
           this.valid_nickname = false;
           this.$swal({
@@ -101,7 +98,6 @@ export default {
             title: '사용중인 닉네임입니다.',
             text: '다른 닉네임을 입력해주세요.'
           })
-          // alert('닉네임이 중복입니다.')
         }
       })
     }

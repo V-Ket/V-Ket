@@ -71,12 +71,10 @@ public class UserController {
     public ResponseEntity<UserLoginPostRes> userNicknameDuplicate(@RequestBody UserLoginPostReq userLoginPostReq){
         try{
             UserLoginPostRes userLoginPostRes = userService.userLogin(userLoginPostReq);
-            System.out.println("로그인성공!!");
             return new ResponseEntity<UserLoginPostRes>(userLoginPostRes, HttpStatus.OK);
         }
         catch (IllegalArgumentException e){
             UserLoginPostRes userLoginPostRes = null;
-            System.out.println("로그인실패!!");
             return new ResponseEntity<UserLoginPostRes>(userLoginPostRes, HttpStatus.BAD_REQUEST);
         }
 
@@ -138,10 +136,5 @@ public class UserController {
         return new ResponseEntity<>(userService.addCredit(creditAddReq), HttpStatus.OK);
 
     }
-    // 크래딧 화전
-    
-    // 구매 내역 조회
-    
-    // 판매 내역 조회
 
 }

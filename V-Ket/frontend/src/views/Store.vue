@@ -1,8 +1,6 @@
 <template>
   <div id="store">
     <img src="images/store/storeContent.png" class="contents">
-    <!-- <img src="images/store/storeImg.png" class="storeImg"> -->
-    <!-- <img src="images/store/storeBack.png" class="storeBack"> -->
     <img src="images/store/storeName.png" class="storeName">
     <img src="images/store/storeHost.png" class="storeHost">
     <div class="container">
@@ -23,7 +21,6 @@
         </div>
         <div class="col-3" id="storeOut">
           <img src="images/store/storeOut.png" @click="storeOut" style="width:4vw">
-          <!-- <button @click="storeOut" id="storeOutBtn">나가기</button> -->
         </div>
       </div>
 
@@ -132,11 +129,6 @@ import {eventBus} from '@/main.js';
         if(localStorage.getItem("userId") == this.hostId){
           this.isOwner = true;
         }
-        console.log('상점정보가져오기'+res);
-        // this.storeName = '테스트상점';
-        // this.storeContent = '나는 이런걸 팔고 있는 상점이에요 많이 사주세요';
-        // this.storeUrl = 'http://localhost:8080/store';
-        // this.hostId = '주인장임';
       })
       //상품 정보 가져와서 goods에 담음
       http.get('/goods/store/'+this.storeId)
@@ -155,7 +147,6 @@ import {eventBus} from '@/main.js';
           if(localStorage.getItem("userId") == this.hostId){
             this.isOwner = true;
           }
-          console.log('상점정보가져오기'+res);
         })
       },
       storeOut(){
@@ -164,7 +155,6 @@ import {eventBus} from '@/main.js';
       goodsList(){
         //상품 상세보기로 라우터 푸시
         this.$router.push({name: "GoodsList", params:{storeId : this.storeId, hostId : this.hostId}});
-        //this.$router.push({name: ""})
       },
       goSession(){
         //판매자와 화상연결
@@ -174,13 +164,9 @@ import {eventBus} from '@/main.js';
         }
         http.post('/session/regist', body)
         .then((res)=>{
-          console.log(res)
           if(res.status == 201){
             this.sessionId = localStorage.getItem('userId') + this.hostId;
             this.$router.push({name: 'Meeting', params:{sessionid: this.sessionId, other: this.hostId, storeid: this.storeId}})
-            console.log('성공')
-          }else{
-            console.log('실패')
           }
         })
       },
@@ -191,14 +177,17 @@ import {eventBus} from '@/main.js';
           receiverId : this.hostId
         }
         http.post('/chatRooms', body)
-        .then((res)=>{
-          console.log('채팅방개설'+res.data.status)
-          alert("채팅방이 열렸습니다.");
-          // eventBus.$emit('openChat', true)
+        .then(()=>{
+          this.$swal({
+            icon: 'success',
+            text: '채팅방이 열렸습니다.'
+          })
         })
         .catch((e) => {
-          console.log("오류" + e);
-          alert("이미 채팅방이 개설되어 있습니다.");
+          this.$swal({
+            icon: 'error',
+            text: e
+          })
         })
         .finally(function() {
           eventBus.$emit('openChat', true)
@@ -214,7 +203,6 @@ import {eventBus} from '@/main.js';
       },
       closeGoodsModal(){
         this.isOpenaddGoodsModal = false;
-        console.log("다시 정보 가져오기")
 
         http.get('/store/select/'+ this.storeId)
         .then((res)=>{
@@ -225,11 +213,6 @@ import {eventBus} from '@/main.js';
           if(localStorage.getItem("userId") == this.hostId){
             this.isOwner = true;
           }
-          console.log('상점정보가져오기'+res);
-        // this.storeName = '테스트상점';
-        // this.storeContent = '나는 이런걸 팔고 있는 상점이에요 많이 사주세요';
-        // this.storeUrl = 'http://localhost:8080/store';
-        // this.hostId = '주인장임';
         })
       //상품 정보 가져와서 goods에 담음
         http.get('/goods/store/'+this.storeId)
@@ -287,28 +270,17 @@ import {eventBus} from '@/main.js';
   height: 100vh;
 }
 .storeHeader{
-  /* border: 1px solid red; */
   text-align: center;
   margin-top:3vh;
-  /* background-color: rgb(114, 64, 35); */
 }
 #storeName{
-  /* border: 1px solid red; */
   font-size: 40px;
   font-weight: bold;
 }
 #storeName-box{
-  /* border: 2px solid black; */
   padding: 5px;
   border-radius: 10px;
-  /* background-color: rgb(165, 87, 42); */
   color: white;
-  /* border-color: black;
-  border-style: outset; */
-}
-#storeOut{
-  /* border: 1px solid red; */
-  /* margin-top: 3vh; */
 }
 #storeOutBtn{
   background-color: brown;
@@ -319,10 +291,7 @@ import {eventBus} from '@/main.js';
   font-weight: bold;
 }
 #hostName{
-  /* border-style: outset; */
   color: white;
-  /* background-color: rgb(165, 87, 42); */
-  /* border: 1px solid red; */
   margin-top: 13vh;
   margin-left: 6vw;
   font-size: 23px;
@@ -334,7 +303,6 @@ import {eventBus} from '@/main.js';
 #storeUrl{
   border: 1px solid black;
   margin-top: 8vh;
-  /* margin-left: 2vw; */
   font-size: 20px;
   text-align: center;
   padding: 5px;
@@ -345,7 +313,6 @@ import {eventBus} from '@/main.js';
   visibility: hidden;
   border: 1px solid black;
   margin-top: 8vh;
-  /* margin-left: 2vw; */
   font-size: 20px;
   text-align: center;
   padding: 5px;
@@ -354,14 +321,12 @@ import {eventBus} from '@/main.js';
 }
 #contentBox{
   margin-top: 1vh;
-  /* margin-left: 2vw; */
   width: 25vw;
   border: 1px solid black;
   height: 30vh;
 }
 #contentBox2{
   margin-top: 8vh;
-  /* margin-left: 2vw; */
   width: 25vw;
   border: 1px solid black;
   height: 35vh;
@@ -380,27 +345,13 @@ import {eventBus} from '@/main.js';
   background-repeat: round;
   width: 60vw;
   height: 15vh;
-  /* padding:0px; */
-}
-#btn1{
-}
-#btn2{
-  /* margin-left: 2vw; */
-}
-#btn3{
-  /* margin-left: 2vw; */
 }
 #goodsListBtn{
-  /* border: 1px solid black; */
   border-radius: 10px;
-  /* width: 10vw; */
   padding: 20px;
-  /* margin-left: 10vw; */
   font-weight: bold;
   font-size: 20px;
   color: white;
-  /* #983C34 #812F38 */
-  /* background-color: #812F38; */
   border-style: outset;
   border-color: #812F38;
   background-image: linear-gradient(290deg,#812F38,#983C34);
@@ -410,9 +361,7 @@ import {eventBus} from '@/main.js';
   border-color: #812F38;
   background-image: linear-gradient(290deg,#812F38,#983C34);
   border-radius: 10px;
-  /* width: 10vw; */
   padding: 20px;
-  /* margin-left: 14vw; */
   font-weight: bold;
   font-size: 20px;
   color: white;
@@ -422,9 +371,7 @@ import {eventBus} from '@/main.js';
   border-color: #812F38;
   background-image: linear-gradient(290deg,#812F38,#983C34);
   border-radius: 10px;
-  /* width: 10vw; */
   padding: 20px;
-  /* margin-left: 18vw; */
   font-weight: bold;
   font-size: 20px;
   color: white;
@@ -434,9 +381,7 @@ import {eventBus} from '@/main.js';
   border-color: #812F38;
   background-image: linear-gradient(290deg,#812F38,#983C34);
   border-radius: 10px;
-  /* width: 10vw; */
   padding: 20px;
-  /* margin-left: 14vw; */
   font-weight: bold;
   font-size: 20px;
   color: white;
@@ -446,9 +391,7 @@ import {eventBus} from '@/main.js';
   border-color: #812F38;
   background-image: linear-gradient(290deg,#812F38,#983C34);
   border-radius: 10px;
-  /* width: 10vw; */
   padding: 20px;
-  /* margin-left: 18vw; */
   font-weight: bold;
   font-size: 20px;
   color: white;

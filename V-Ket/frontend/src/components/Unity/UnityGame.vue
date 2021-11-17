@@ -15,8 +15,6 @@
                 > <OpenStore class="temp" :islandpos="this.islandPos" :storepos="this.storePos" @open="open" @closeStoreModal="closeStoreModal" />
             </v-dialog>
         </div>
-        <div id="unity-school-name" hidden></div>
-        <div id="unity-object-name" hidden></div>
         <!-- 상점 번호 -->
         <div id="unity-store-id" hidden></div>
         <!-- 상점 위치 섬번호 + 상점 위치번호 -->
@@ -88,13 +86,10 @@
     updated(){
         window.addEventListener('resize', () => {
             if(this.showMap && (this.mapHeight !== document.querySelector('#unity-game-container').getBoundingClientRect().height || this.mapWidth !== document.querySelector('#unity-game-container').getBoundingClientRect().width)){
-                // const top = document.querySelector('#nav').getBoundingClientRect().height + 1;
                 const target = document.querySelector('#unity-game-container')
                 const targetRect = target.getBoundingClientRect();
                 this.width = targetRect.width;
                 this.height = window.innerHeight;
-                // const unity = document.querySelector('#unity-game');
-                // unity.style.transform = `translate(${targetRect.left}px,102px)`;
                 this.mapHeight = document.querySelector('#unity-game-container').getBoundingClientRect().height;
                 this.mapWidth = document.querySelector('#unity-game-container').getBoundingClientRect().width;
             }
@@ -114,10 +109,7 @@
     },
     watch : {
         $route(to, from){
-            console.log(to.path);
-            console.log(from.path);
             if(from.path == '/select'){
-                console.log("이게 나올거에요 제발요 안나오면 안되여");
                 this.userChar = this.$store.getters.getCharacterNum;
                 this.userId = localStorage.getItem('userId');
                 this.userNickname = localStorage.getItem('userNickname');
@@ -128,20 +120,13 @@
             }else if(from.path.includes('/meeting')){
                 this.$refs.hookInstance.message('SoundManager', 'playBGM')
             }
-            // else if(from.path == '/openstore'){
-            //     console.log("상점 등록하도 돌아왔습니다.");
-            //     this.setStore();
-            // }
         },
         showMap : function(newVal){
             if(newVal){
-                // const top = document.querySelector('#nav').getBoundingClientRect().height + 1;
                 const target = document.querySelector('#unity-game-container')
                 const targetRect = target.getBoundingClientRect();
                 this.width = targetRect.width;
                 this.height = window.innerHeight;
-                // const unity = document.querySelector('#unity-game');
-                // unity.style.transform = `translate(${targetRect.left}px,102px)`;
             }else{
                 this.width = '150';
                 this.height = '100';
@@ -150,14 +135,10 @@
 
     },
     methods : {
-        onClick(){
-            console.log("클릭 이벤트 감지 한거임 제발 나와줘 시부럴");
-        },
         setStore(){
             this.$refs.hookInstance.message('Stores', 'ChangeStore');
         },
         startGame(){
-            console.log("캐릭터 번호 확인 : " + this.userChar);
             this.$refs.hookInstance.message('PlayerManager', 'SetUserId', this.userId);
             this.$refs.hookInstance.message('PlayerManager', 'SetUserNickname', this.userNickname);
             this.$refs.hookInstance.message('PlayerManager', 'SetUserChar', this.userChar);
@@ -166,13 +147,11 @@
         },
         goUnity(){
             if(!this.showMap){
-              console.log('두번실행')
                 this.$router.push({name : "Unity"});
             }
         },
         //유니티에서 값 보내는거 확인용
         unityHook(){
-            console.log("이거 실행되나 확인용!!!!!!!!");
             this.storeId = "";
             this.islandPos = "";
             this.storePos = "";
@@ -188,20 +167,14 @@
                 }
                 // storePos가 비어있지 않다면
                 else if(document.getElementById('unity-store-pos').innerHTML != this.storePos){
-                    console.log("빈상점 클릭했을때 나오는지 확인용");
                     this.islandPos = document.getElementById('unity-store-pos').innerHTML.substring(0,4);
                     this.storePos = document.getElementById('unity-store-pos').innerHTML.substring(4,5);
-                    // console.log(this.islandPos);
-                    // console.log(this.storePos);
                     this.isOpenStoreModal = true;
-
-                    // this.$router.push({name:'OpenStore', params:{islandPos:Number(this.islandPos), storePos:Number(this.storePos)} })
                     document.getElementById('unity-store-id').innerHTML = "";
                     document.getElementById('unity-store-pos').innerHTML = "";
                     this.unityFocus = false;
                     this.$refs.hookInstance.message('GameManager','focusing',"false");
                 }  
-                
             }, 1000);
             
         },
@@ -221,7 +194,4 @@
   }
 </script>
 <style scoped src="../../css/UnityGame.css">
-.temp{
-    /* border: 2px solid black; */
-}
 </style>

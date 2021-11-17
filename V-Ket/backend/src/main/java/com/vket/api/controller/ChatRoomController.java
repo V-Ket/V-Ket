@@ -44,7 +44,6 @@ public class ChatRoomController {
     @PostMapping("")
     @ApiOperation(value = "새 채팅방 만들기 (상점 주인과 대화 시작)", notes = "")
     public ResponseEntity<? extends BaseResponseBody> addChatRoom(@RequestBody ChatRoomReq chatRoomReq) {
-//        System.out.println(">>>>>> "+chatRoomReq.getChatRoomId() + " " + chatRoomReq.getSenderId() + " " + chatRoomReq.getReceiverId());
         if(chatRoomService.addChatRoom(chatRoomReq)) {
             return ResponseEntity.status(201).body(BaseResponseBody.of(201, "Success"));
         } else {

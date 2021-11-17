@@ -1,66 +1,23 @@
 <template>
-    <!-- <v-card class="px-5 py-3">
-        <div class="d-flex justify-content-center py-3">
-            <v-card-title>
-                <span>상점 열기</span>
-            </v-card-title>
+    <div>
+        <div id="box">
+            <div class="divbox">
+                <b>상점 이름</b>
+                <input v-model="storeName" class="input" style="margin-left: 30px"/><br>
+                <br>
+                <b>상점 URL</b>
+                <input v-model="storeURL" class="input" style="margin-left: 30px"/><br>
+                <br>
+                <b>상점 설명</b>
+                <textarea v-model="storeContent" class="input" style="margin-left: 30px; width:200px; height:100px"/><br>
+            </div>
+            <div class="buttons">
+                <button v-if="isUpdate" class="btn" style="margin-right: 40px; margin-left: 40px" @click="updateStore"><b>수정</b></button>
+                <button v-else class="btn" style="margin-right: 40px; margin-left: 40px" @click="setStore"><b>등록</b></button>
+                <button class="btn" @click="cancle"><b>취소</b></button>
+            </div>
         </div>
-        <v-form>
-            <v-container>
-                <v-row justify="start">
-                    <v-col cols="2" align="right">상점 이름</v-col>
-                    <v-col>
-                        <v-text-field
-                            v-model="storeName"
-                            required
-                            filled
-                            ></v-text-field>
-                        </v-col>
-                </v-row>
-                <v-row justify="start">
-                    <v-col cols="2" align="right">상점 URL</v-col>
-                    <v-col>
-                        <v-text-field
-                            v-model="storeURL"
-                            required
-                            filled
-                            ></v-text-field>
-                        </v-col>
-                </v-row>
-                <v-row justify="start">
-                    <v-col cols="2" align="right">상점 간단 설명</v-col>
-                    <v-col>
-                        <v-textarea
-                            v-model="storeContent"
-                            required
-                            filled
-                            height="200"
-                        ></v-textarea>
-                    </v-col>
-                </v-row>
-            </v-container>
-        </v-form>
-    </v-card> -->
-
-  <div>
-    <div id="box">
-        <div class="divbox">
-            <b>상점 이름</b>
-            <input v-model="storeName" class="input" style="margin-left: 30px"/><br>
-            <br>
-            <b>상점 URL</b>
-            <input v-model="storeURL" class="input" style="margin-left: 30px"/><br>
-            <br>
-            <b>상점 설명</b>
-            <textarea v-model="storeContent" class="input" style="margin-left: 30px; width:200px; height:100px"/><br>
-        </div>
-        <div class="buttons">
-            <button v-if="isUpdate" class="btn" style="margin-right: 40px; margin-left: 40px" @click="updateStore"><b>수정</b></button>
-            <button v-else class="btn" style="margin-right: 40px; margin-left: 40px" @click="setStore"><b>등록</b></button>
-            <button class="btn" @click="cancle"><b>취소</b></button>
-      </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -85,60 +42,32 @@ export default {
     },
     mounted(){
         if(this.islandpos != null){
-            console.log(this.islandpos);
             this.islandPos = this.islandpos
         }
         if(this.storepos != null){
-            console.log(this.storepos);
             this.storePos = this.storepos
         }
         if(this.islandpos == null && this.storepos == null){
-            console.log("상점 수정으로 들어왔습니다.")
-            console.log(this.storeid);
             this.storeId = this.storeid;
             this.isUpdate = true;
             // 상점 정보 받아와서 그래도 뿌려주기
             http.get("/store/select/" + this.storeId)
             .then((res) => {
-                console.log(res);
                 this.storeName = res.data.storeName;
                 this.storeContent = res.data.storeContent;
                 this.storeUrl = res.data.storeUrl;
             })
             .catch((e) => {
-                console.log("상점 가져오는데 오류 났어요~")
-                console.log(e);
+                this.$swal({
+                    icon: 'warning',
+                    title: '중복확인을 해주세요.',
+                    text: e
+                })
             })
-
         }
-        // const body = {
-        //     islandId : 1001,
-        //     storeIslandNum : 2,
-        //     userId : "test",
-        //     storeName : "testGetNewStore",
-        //     storeContent : "testGetNewStoreContent",
-        //     storeUrl : "testURL",
-        // }
-
-        // http.post("/store/regist", body)
-        // .then((res) => {
-        //     console.log(res);
-        //     alert("상점 등록 완료")
-        // })
-        // .catch((e) =>{
-        //     console.log(e);
-        // })
     },
     methods:{
         setStore(){
-            console.log("상점 등록합니다.@@@@@@@@@@@@@@");
-            console.log(this.islandPos);
-            console.log(this.storePos);
-            console.log(this.userId);
-            console.log(this.storeName);
-            console.log(this.storeContent);
-            console.log(this.storeURL);
-
             const body = {
                 islandId : Number(this.islandPos),
                 storeIslandNum : Number(this.storePos),
@@ -151,7 +80,6 @@ export default {
             http.post("/store/regist", body)
             .then((res) => {
                 console.log(res);
-                // alert("상점 등록 완료")
                 if(res.status == 201){
                     this.$swal({
                         icon: 'success',
@@ -170,7 +98,6 @@ export default {
             })
             
             setTimeout(() => {
-                // this.$router.push({name:'Unity'})
                 this.$emit('open');
             }, 100);
         },
@@ -183,12 +110,10 @@ export default {
             }
 
             http.put("/store/storeUpdateAll", body)
-            .then((res) => {
-                console.log(res)
+            .then(() => {
                 this.cancle();
             })
             .catch((e) => {
-                console.log("상점 수정 오류")
                 console.log(e)
             })
         },
