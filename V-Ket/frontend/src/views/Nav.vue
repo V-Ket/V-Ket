@@ -18,9 +18,6 @@
       <div class="col-12" id="nickname">
         {{userId}} 님 
       </div>
-      <!-- <div class="col-6">
-      <button class="btnLogout" @click="logout">로그아웃</button>
-      </div> -->
     </div>
     <!-- 크레딧 -->
     <div class="row" id="credit-box">
@@ -30,11 +27,10 @@
       <div class="col-6" id="mycredit">
         <b>$</b>{{this.credit}}
       </div>
-      <!-- <button class="btnPurchase" @click="purchase">충전하기(새창)</button> -->
     </div>
     <!-- 충전하기 -->
     <div class="row">
-      <div class="container-fluid mt-4">
+      <div class="container-fluid" style="margin-top:3vh;">
         <button class="btnPurchase" @click="purchase2" style="vertical-align:middle">충전하기</button>
       </div>
     </div>
@@ -48,7 +44,6 @@
         <div class="offcanvas-body" style="padding:0px;">
           <div v-for="(chatRoom, idx) in roomList" :key="idx">
             <div id="show-modal" @click="showModal = true, enterRoom(chatRoom.chatRoomId, chatRoom.senderId, chatRoom.receiverId)">
-              <!-- <span>{{chatRoom.chatRoomId}}번 채팅방</span> -->
               <button v-if="chatRoom.senderId !== userId">
                 {{chatRoom.senderId}} 님과의 채팅방
               </button>
@@ -58,16 +53,14 @@
             </div>
             <ChatModal :chatRoomId="selectedChatRoomId" :receiver="selectedReceiverId" v-if="showModal" @close="showModal = false">
               <h3 slot="header">{{selectedReceiverId}} 님과의 채팅방</h3>
-              <!-- <h3 v-if="chatRoom.senderId !== userId" slot="header">{{chatRoom.senderId}} 님과의 채팅방</h3>
-              <h3 v-else slot="header">{{chatRoom.receiverId}} 님과의 채팅방</h3> -->
             </ChatModal>
           </div>
         </div>
       </div>
-      <div class="container-fluid mt-5">
-        <img class="reddot" id="reddot" src="images/alert/reddot.png">
-        <button ref="chatList" @click="getChatList" id="chatList" class="btn-meeting" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo0" style="vertical-align:middle">
+      <div class="container-fluid" style="margin-top:4vh;">
+        <button ref="chatList" @click="getChatList" id="chatList" class="chat" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo0">
           <span>채팅 목록</span>
+          <span class="badge" id="reddot-chat">&nbsp;</span>
         </button>
       </div>
     </div>
@@ -89,22 +82,12 @@
               <button id="meet-btn" @click="$router.push({name:'Meeting', params:{sessionid: meeting.sessionName, order: meeting.buyerId}})">접속하기</button>
             </div>
           </div>
-
-          <!-- <table id="meet-table">
-            <tr v-for="(meeting, i) in meetings"
-            :key="i">
-              <td>{{meeting.buyerId}}</td>
-              <td></td>
-              <td><button @click="$router.push({name:'Meeting', params:{sessionid: meeting.sessionName, order: meeting.buyerId}})">접속하기</button></td>
-            </tr>
-          </table> -->
-          <!-- <button @click="$router.push({name:'Meeting', params:{sessionid: 'jwjw2test'}})">jt접속하기</button> -->
         </div>
       </div>
-      <div class="container-fluid mt-4">
-        <img class="reddot" id="reddot" src="images/alert/reddot.png">
-        <button @click="removeDot" class="btn-meeting" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo" style="vertical-align:middle">
-          <span>미팅 목록</span>
+      <div class="container-fluid" style="margin-top:3vh;">
+        <button @click="removeDot" class="btn-meeting" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+          <span class="text">미팅 목록</span>
+          <span class="badge" id="reddot">&nbsp;</span>
         </button>
       </div>
     </div>
@@ -168,7 +151,7 @@
           </div>
         </div>
       </div>
-      <div class="container-fluid mt-4">
+      <div class="container-fluid" style="margin-top:3vh;">
         <button @click="getBuyList" class="btn-buy" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo1">
           <span>구매 목록</span>
         </button>
@@ -218,7 +201,7 @@
           </div>
         </div>
       </div>
-      <div class="container-fluid mt-4">
+      <div class="container-fluid" style="margin-top:3vh;">
         <button @click="getSellList" class="btn-sell" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo2">
           <span>판매 목록</span>
         </button>
@@ -228,17 +211,17 @@
 </template>
 
 <script>
-// import Chat from '@/components/Chat/Chat.vue'
 import http from '@/http.js';
 import Offcanvas from 'bootstrap/js/dist/offcanvas'
 import { mapGetters } from 'vuex'
 import ChatModal from '@/components/Chat/ChatModal.vue'
 import {eventBus} from '@/main.js';
+import Stomp from 'webstomp-client'
+import SockJS from 'sockjs-client'
 
 export default {
   name: "Nav",
   components:{
-    // Chat,
     ChatModal,
   },
   data() {
@@ -259,6 +242,10 @@ export default {
       bsOffcanvas: '',
       content:'',
       selectedReceiverId:'',
+      mapHeight : 0,
+      mapWidth : 0,
+      height : '970',
+      width : '1280',
     };
   },
   created(){
@@ -279,32 +266,33 @@ export default {
       if(newval > oldval){
         con.style.display = "block"
       }else{
-
+        // con.style.display = "block"
         con.style.display = "none"
       }
     }
   },
   mounted() {
-    document.addEventListener(
-      "click",
-      function (event) {
-        if (event.target.closest("#menu-container")) return;
-        this.showMenu = false;
-      }.bind(this)
-    );
     this.sellerId = localStorage.getItem('userId')
     setInterval(() => {
       http.get('/session/getlist/' + this.sellerId)
       .then((res)=>{
-        // console.log('앞'+this.meetingListSize)
         this.meetings = res.data
         this.$store.commit('setMeetingListSize', this.meetings.length)
         this.meetingListSize = this.$store.getters.getMeetingListSize
-        // console.log('뒤'+this.meetingListSize)
       })
     }, 1000);
+    this.getChatList();
+    let socket = new SockJS("http://localhost:8877/ws");
+    this.stompClient = Stomp.over(socket);
+    this.stompClient.connect({}, frame => {
+      console.log('>>>> success ', this.roomList.length, '번 방 연결 성공', frame);
+      for(let i=0; i<this.roomList.length; i++){
+        this.stompClient.subscribe('/sub/' + this.roomList[i].chatRoomId, () => { // 메시지 받기
+          document.getElementById('reddot-chat').style.display="block";
+        });
+      }
+    });
     this.bsOffcanvas = new Offcanvas(this.$refs.offcanvasRight)
-    
   },
   methods: {
     openChat(){
@@ -325,9 +313,9 @@ export default {
         }
       });
       this.$store.commit('setChat', true)
+      document.getElementById('reddot-chat').style.display="none";
     },
     enterRoom(inputChatRoomId, inputSenderId, inputReceiverId) {
-      // chatRoom.senderId, chatRoom.receiverId
       alert(inputChatRoomId + '번 채팅 방 입장!!');
       this.selectedChatRoomId = inputChatRoomId;
       if(inputSenderId == this.userId){
@@ -343,11 +331,8 @@ export default {
       localStorage.removeItem('token')
       localStorage.removeItem('userId')
       localStorage.removeItem('userNickname')
-      // this.$router.push({name:'Main'})
       window.location.href="http://localhost:8080/"
-    },
-    purchase(){
-      window.open("http://localhost:8080/purchase", "충전하기", "width=800, height=700")
+      // window.location.href="https://k5a404.p.ssafy.io/"
     },
     purchase2(){
       this.$router.push({name:'Purchase'})
@@ -393,6 +378,26 @@ export default {
 </script>
 
 <style scoped>
+.chat .badge{
+  display: none;
+  position: absolute;
+  top: 41.5vh;
+  left: 9.5vw;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+.btn-meeting .badge {
+  display: none;
+  position: absolute;
+  top: 49.5vh;
+  left: 9.5vw;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
 #demo2{
   background-color: #eee;
   padding:0px;
@@ -421,7 +426,6 @@ export default {
   text-align: center;
 }
 #meet-btn{
-  /* margin-left: 10vw; */
   border: 1px solid black;
   border-radius: 10px;
   padding: 5px;
@@ -440,9 +444,6 @@ export default {
 #meet-table{
   border-collapse: collapse;
 }
-table, td, th {
-  border: 1px solid black;
-}
 #demo0{
   background-color: #eee;
   padding:0px;
@@ -452,25 +453,18 @@ table, td, th {
   padding-bottom: 2vh;
   padding-top: 2vh;
   font-size: 20px;
-  /* border: 1px solid red; */
   border-bottom: 1px solid gray;
   margin-left: 0px;
-  /* margin-bottom: 1vh; */
 }
 #show-modal:hover{
   background-color: rgb(211, 207, 207);
 }
 #chat-header{
   padding-top: 4.5vh;
-  /* padding-bottom: 4.5vh; */
   border-bottom: 1px solid black;
 }
 #credit-box{
-  /* border: 1px solid black; */
-  /* border-top: 1px solid black; */
   border-bottom: 1px solid black;
-  /* border-radius: 5px; */
-  /* margin-left: 0px; */
 }
 #credit{
   text-align: center;
@@ -479,28 +473,17 @@ table, td, th {
 #mycredit{
   padding-left: 0px;
   font-size: 20px;
-  /* margin-left: 0px; */
-  /* color: rgb(69, 69, 231); */
 }
 #nickname{
-  /* margin-top: 1.5vh; */
   text-align: center;
   font-size: 22px;
   font-weight: bold;
 }
 #titlebox{
-  /* border: 1px solid black; */
   border-bottom: 2px solid black;
   border-bottom-style: double;
   text-align: center;
   font-size: 50px;
-}
-.reddot{
-  display: none;
-  position: absolute;
-  width: 1.2vw;
-  top: 47.8vh;
-  left: 6.2vw;
 }
 .creditDiv{
   margin-top: 10vh;
@@ -509,9 +492,6 @@ table, td, th {
 .btnPurchase{
   border: 1px solid black;
   border-radius: 10px;
-  /* margin: 0.3vw; */
-  /* margin-top: 4vh; */
-  /* margin-left: 1vw; */
   width: 10vw;
   height: 5vh;
   background-image: linear-gradient(200deg,rgb(243, 243, 122),rgb(238, 241, 59),rgb(194, 194, 59));
@@ -519,6 +499,7 @@ table, td, th {
   font-weight: bold;
 }
 .chat{
+  display: inline-block;
   border: 1px solid black;
   border-radius: 10px;
   width: 10vw;
@@ -528,6 +509,7 @@ table, td, th {
   font-weight: bold;
 }
 .btn-meeting{
+  display: inline-block;
   border: 1px solid black;
   border-radius: 10px;
   width: 10vw;
@@ -536,13 +518,13 @@ table, td, th {
   font-size: 20px;
   font-weight: bold;
 }
-.btn-meeting span {
+.btn-meeting .text {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
-.btn-meeting span:after {
+.btn-meeting .text:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -550,10 +532,10 @@ table, td, th {
   right: -20px;
   transition: 0.5s;
 }
-.btn-meeting:hover span {
+.btn-meeting:hover .text {
   padding-right: 25px;
 }
-.btn-meeting:hover span:after {
+.btn-meeting:hover .text:after {
   opacity: 1;
   right: 0;
 }
@@ -619,13 +601,10 @@ table, td, th {
 }
 .btnLogout{
   float: right;
-  /* margin-top: 2vh; */
   border: 1px solid black;
   width: 5vw;
   border-radius: 10px;
   background-image: linear-gradient(200deg,rgb(224, 160, 160),rgb(240, 81, 81),rgb(246, 79, 79),rgb(248, 21, 21));
-  /* box-shadow: 0 0 10px red; */
-  /* background-color: red; */
   opacity: 0.6;
   transition: 0.3s;
   color: white;
@@ -643,7 +622,6 @@ table, td, th {
 #nav{
   top:0;
   position:absolute;
-  top:0;
   width: 11.8vw;
   height: 100vh;
   left: 66.6vw;
@@ -651,7 +629,6 @@ table, td, th {
   border-left: 1px solid black;
   border-bottom: 1px solid var(--color-grey-6);
   background-color: #eee;
-  /* background-color: saddlebrown; */
   border: 2px solid black;
 }
 #nav > .nav-container{
