@@ -94,6 +94,8 @@ export default {
                 };
                 this.msgArr.push(msg);
                 console.log('메시지 새로 옴222')
+                // this.$emit("reddotChat")
+                // console.log('에밋')
             });
         });
     },

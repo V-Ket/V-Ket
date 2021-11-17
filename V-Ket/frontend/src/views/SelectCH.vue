@@ -1,6 +1,9 @@
 <template>
   <div>
     <v-img id = "background" src="images/background5.gif"></v-img>
+    <div class="text">
+      캐릭터를 선택해주세요.
+    </div>
     <div>
       <img class="char1" v-bind:style="[select1?{'filter':'drop-shadow(0px 0px 15px rgba(255, 255, 0))'}:{}]" @click="selected1" src="images/character/char1.png" />
       <img class="char2" v-bind:style="[select2?{'filter':'drop-shadow(0px 0px 15px rgba(255, 255, 0))'}:{}]" @click="selected2" src="images/character/char2.png" />
@@ -19,6 +22,7 @@ export default {
   name: "SelectCH",
   data (){
     return{
+      isSelect:false,
       characterNum: '',
       select1:false,
       select2:false,
@@ -30,13 +34,21 @@ export default {
   },
   methods: {
     joinUnity(){
-      this.$router.push({name:'Unity'})
+      if(this.isSelect){
+        this.$router.push({name:'Unity'})
+      }else{
+        this.$swal({
+          icon: 'warning',
+          title: '캐릭터를 선택해주세요.'
+        })
+      }
     },
     selected1(){
       this.characterNum = 1
       this.$store.commit('setChracterNum', 0)
       this.selectfalse()
       this.select1 = true
+      this.isSelect = true
       // alert(this.characterNum)
       // alert(this.$store.getters.getCharacterNum)
     },
@@ -46,6 +58,7 @@ export default {
       console.log(this.$store.getters.getCharacterNum)
       this.selectfalse()
       this.select2 = true
+      this.isSelect = true
       // alert(this.characterNum)
       // alert(this.$store.getters.getCharacterNum)
     },
@@ -55,6 +68,7 @@ export default {
       this.$store.commit('setChracterNum', 2)
       this.selectfalse()
       this.select3 = true
+      this.isSelect = true
       // alert(this.characterNum)
     },
     selected4(){
@@ -62,6 +76,7 @@ export default {
       this.$store.commit('setChracterNum', 4)
       this.selectfalse()
       this.select4 = true
+      this.isSelect = true
       // alert(this.characterNum)
     },
     selected5(){
@@ -69,6 +84,7 @@ export default {
       this.$store.commit('setChracterNum', 3)
       this.selectfalse()
       this.select5 = true
+      this.isSelect = true
       // alert(this.characterNum)
     },
     selected6(){
@@ -76,6 +92,7 @@ export default {
       this.$store.commit('setChracterNum', 5)
       this.selectfalse()
       this.select6 = true
+      this.isSelect = true
       // alert(this.characterNum)
     },
     selectfalse(){
@@ -85,11 +102,22 @@ export default {
       this.select4 = false
       this.select5 = false
       this.select6 = false
+      this.isSelect = false
     }
   },
 }
 </script>
 <style scoped>
+.text{
+  position:absolute;
+  top: 25%;
+  left: 35%;
+  /* float: center; */
+  font-size: 50px;
+  color: white;
+  font-weight: bold;
+
+}
 #background {
   width: 100vw;
   height: 100vh;
@@ -121,56 +149,56 @@ img:hover{
 .char1{
   position:absolute;
   border-radius: 10px;
-  left: 50%;
-  top: 10%;
-  width: 10vw;
+  left: 20%;
+  top: 65.5%;
+  width: 8vw;
   height: auto;
-  transform: translate(-400%,220%);
+  /* transform: translate(-400%,300%); */
 }
 .char2{
   position:absolute;
   border-radius: 10px;
-  left: 50%;
-  top: 10%;
-  width: 10vw;
+  left: 30%;
+  top: 65%;
+  width: 8vw;
   height: auto;
-  transform: translate(-270%,210%);
+  /* transform: translate(-270%,300%); */
 }
 .char3{
   position:absolute;
   border-radius: 10px;
-  left: 50%;
-  top: 10%;
-  width: 10vw;
+  left: 40%;
+  top: 64.8%;
+  width: 8vw;
   height: auto;
-  transform: translate(-120%,205%);
+  /* transform: translate(-120%,300%); */
 }
 .char4{
   position:absolute;
   border-radius: 10px;
   left: 50%;
-  top: 10%;
-  width: 10vw;
+  top: 64%;
+  width: 8vw;
   height: auto;
-  transform: translate(10%,190%);
+  /* transform: translate(10%,300%); */
 }
 .char5{
   position:absolute;
   border-radius: 10px;
-  left: 50%;
-  top: 10%;
-  width: 10vw;
+  left: 60%;
+  top: 66.5%;
+  width: 8vw;
   height: auto;
-  transform: translate(140%,228%);
+  /* transform: translate(140%,228%); */
 }
 .char6{
   position:absolute;
   border-radius: 10px;
-  left: 50%;
-  top: 10%;
-  width: 10vw;
+  left: 70%;
+  top: 65.5%;
+  width: 8vw;
   height: auto;
-  transform: translate(270%,208%);
+  /* transform: translate(270%,208%); */
 }
 
 </style>
