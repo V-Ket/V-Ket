@@ -1,0 +1,75 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.vket'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+	//aws s3
+//	maven { url 'https://repo.spring.io/libs-milestone'}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testImplementation 'org.springframework.security:spring-security-test'
+
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+
+	implementation("io.springfox:springfox-swagger2:3.0.0")
+	implementation("io.springfox:springfox-swagger-ui:3.0.0")
+	implementation("io.springfox:springfox-data-rest:3.0.0")
+	implementation("io.springfox:springfox-bean-validators:3.0.0")
+	implementation("io.springfox:springfox-boot-starter:3.0.0")
+
+	implementation("com.google.guava:guava:29.0-jre")
+	annotationProcessor("com.google.guava:guava:29.0-jre")
+
+	implementation 'commons-io:commons-io:2.8.0'
+	implementation 'commons-fileupload:commons-fileupload:1.4'
+
+	// WebSocket
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+	// STOMP 관련 프론트 라이브러리
+	implementation('org.webjars.bower:jquery:3.3.1')
+	implementation('org.webjars:sockjs-client:1.1.2')
+	implementation('org.webjars:stomp-websocket:2.3.3-1')
+	implementation('org.webjars:webjars-locator:0.30')
+
+	implementation('org.springframework.cloud:spring-cloud-starter-aws:2.0.1.RELEASE')
+	// AWS S3
+//	implementation('org.springframework.cloud:spring-cloud-starter-aws')
+//
+//	// handlebars
+//	implementation 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0'
+}
+//aws s3
+//dependencyManagement {
+//	imports {
+//		mavenBom 'org.springframework.cloud:spring-cloud-aws:2.0.0.RC2'
+//	}
+//}
+//aws s3
+test {
+	useJUnitPlatform()
+}

@@ -1,0 +1,77 @@
+{
+    "name": "frontend",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint"
+    },
+    "dependencies": {
+        "bootstrap-vue": "^2.21.2",
+        "core-js": "^3.6.5",
+        "jquery": "^3.6.0",
+        "moment": "^2.24.0",
+        "openvidu-browser": "2.19.0",
+        "sockjs-client": "^1.5.2",
+        "swiper": "^5.3.7",
+        "vue": "^2.6.14",
+        "vue-awesome-swiper": "^4.1.1",
+        "vue-carousel-3d": "^1.0.1",
+        "vue-google-login": "^2.0.5",
+        "vue-quick-menu": "^1.0.7",
+        "vue-router": "^3.5.2",
+        "vue-slick": "^1.1.16",
+        "vue-sweetalert2": "^5.0.2",
+        "vue-tasty-burgers": "^1.2.3",
+        "vue-unity-webgl": "git+https://github.com/votetake/vue-unity-webgl.git",
+        "vue-video-player": "^5.0.2",
+        "vuetify": "^2.5.14",
+        "vuex": "^3.6.2",
+        "vuex-persistedstate": "^4.1.0",
+        "webstomp-client": "^1.2.6"
+    },
+    "devDependencies": {
+        "@babel/polyfill": "^7.7.0",
+        "@vue/cli-plugin-babel": "~4.5.0",
+        "@vue/cli-plugin-eslint": "~4.5.0",
+        "@vue/cli-plugin-router": "^4.5.13",
+        "@vue/cli-plugin-vuex": "^4.5.13",
+        "@vue/cli-service": "~4.5.0",
+        "axios": "^0.21.4",
+        "babel-eslint": "^10.1.0",
+        "bootstrap": "^5.0.0",
+        "deepmerge": "^4.2.2",
+        "eslint": "^6.7.2",
+        "eslint-plugin-vue": "^6.2.2",
+        "mutationobserver-shim": "^0.3.3",
+        "popper.js": "^1.16.0",
+        "portal-vue": "^2.1.6",
+        "sass": "^1.32.13",
+        "sass-loader": "^10.2.0",
+        "vue-cli-plugin-axios": "0.0.4",
+        "vue-cli-plugin-bootstrap": "~0.4.0",
+        "vue-cli-plugin-vuetify": "~2.4.2",
+        "vue-template-compiler": "^2.6.11",
+        "vuetify-loader": "^1.7.0"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "parserOptions": {
+            "parser": "babel-eslint"
+        },
+        "rules": {}
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ]
+}
