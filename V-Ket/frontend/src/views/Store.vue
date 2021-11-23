@@ -183,10 +183,10 @@ import {eventBus} from '@/main.js';
             text: '채팅방이 열렸습니다.'
           })
         })
-        .catch((e) => {
+        .catch(() => {
           this.$swal({
-            icon: 'error',
-            text: e
+            icon: 'warning',
+            text: '이미 채팅방이 개설되어있습니다.'
           })
         })
         .finally(function() {
