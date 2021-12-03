@@ -1,0 +1,3194 @@
+fileFormatVersion: 2
+guid: 47a58b39aad917f428cb4c03716e7387
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: ExtraObjectsColor3@64x64_0
+  - first:
+      213: 21300002
+    second: ExtraObjectsColor3@64x64_1
+  - first:
+      213: 21300004
+    second: ExtraObjectsColor3@64x64_2
+  - first:
+      213: 21300006
+    second: ExtraObjectsColor3@64x64_3
+  - first:
+      213: 21300008
+    second: ExtraObjectsColor3@64x64_4
+  - first:
+      213: 21300010
+    second: ExtraObjectsColor3@64x64_5
+  - first:
+      213: 21300012
+    second: ExtraObjectsColor3@64x64_6
+  - first:
+      213: 21300014
+    second: ExtraObjectsColor3@64x64_7
+  - first:
+      213: 21300016
+    second: ExtraObjectsColor3@64x64_8
+  - first:
+      213: 21300018
+    second: ExtraObjectsColor3@64x64_9
+  - first:
+      213: 21300020
+    second: ExtraObjectsColor3@64x64_10
+  - first:
+      213: 21300022
+    second: ExtraObjectsColor3@64x64_11
+  - first:
+      213: 21300024
+    second: ExtraObjectsColor3@64x64_12
+  - first:
+      213: 21300026
+    second: ExtraObjectsColor3@64x64_13
+  - first:
+      213: 21300028
+    second: ExtraObjectsColor3@64x64_14
+  - first:
+      213: 21300030
+    second: ExtraObjectsColor3@64x64_15
+  - first:
+      213: 21300032
+    second: ExtraObjectsColor3@64x64_16
+  - first:
+      213: 21300034
+    second: ExtraObjectsColor3@64x64_17
+  - first:
+      213: 21300036
+    second: ExtraObjectsColor3@64x64_18
+  - first:
+      213: 21300038
+    second: ExtraObjectsColor3@64x64_19
+  - first:
+      213: 21300040
+    second: ExtraObjectsColor3@64x64_20
+  - first:
+      213: 21300042
+    second: ExtraObjectsColor3@64x64_21
+  - first:
+      213: 21300044
+    second: ExtraObjectsColor3@64x64_22
+  - first:
+      213: 21300046
+    second: ExtraObjectsColor3@64x64_23
+  - first:
+      213: 21300048
+    second: ExtraObjectsColor3@64x64_24
+  - first:
+      213: 21300050
+    second: ExtraObjectsColor3@64x64_25
+  - first:
+      213: 21300052
+    second: ExtraObjectsColor3@64x64_26
+  - first:
+      213: 21300054
+    second: ExtraObjectsColor3@64x64_27
+  - first:
+      213: 21300056
+    second: ExtraObjectsColor3@64x64_28
+  - first:
+      213: 21300058
+    second: ExtraObjectsColor3@64x64_29
+  - first:
+      213: 21300060
+    second: ExtraObjectsColor3@64x64_30
+  - first:
+      213: 21300062
+    second: ExtraObjectsColor3@64x64_31
+  - first:
+      213: 21300064
+    second: ExtraObjectsColor3@64x64_32
+  - first:
+      213: 21300066
+    second: ExtraObjectsColor3@64x64_33
+  - first:
+      213: 21300068
+    second: ExtraObjectsColor3@64x64_34
+  - first:
+      213: 21300070
+    second: ExtraObjectsColor3@64x64_35
+  - first:
+      213: 21300072
+    second: ExtraObjectsColor3@64x64_36
+  - first:
+      213: 21300074
+    second: ExtraObjectsColor3@64x64_37
+  - first:
+      213: 21300076
+    second: ExtraObjectsColor3@64x64_38
+  - first:
+      213: 21300078
+    second: ExtraObjectsColor3@64x64_39
+  - first:
+      213: 21300080
+    second: ExtraObjectsColor3@64x64_40
+  - first:
+      213: 21300082
+    second: ExtraObjectsColor3@64x64_41
+  - first:
+      213: 21300084
+    second: ExtraObjectsColor3@64x64_42
+  - first:
+      213: 21300086
+    second: ExtraObjectsColor3@64x64_43
+  - first:
+      213: 21300088
+    second: ExtraObjectsColor3@64x64_44
+  - first:
+      213: 21300090
+    second: ExtraObjectsColor3@64x64_45
+  - first:
+      213: 21300092
+    second: ExtraObjectsColor3@64x64_46
+  - first:
+      213: 21300094
+    second: ExtraObjectsColor3@64x64_47
+  - first:
+      213: 21300096
+    second: ExtraObjectsColor3@64x64_48
+  - first:
+      213: 21300098
+    second: ExtraObjectsColor3@64x64_49
+  - first:
+      213: 21300100
+    second: ExtraObjectsColor3@64x64_50
+  - first:
+      213: 21300102
+    second: ExtraObjectsColor3@64x64_51
+  - first:
+      213: 21300104
+    second: ExtraObjectsColor3@64x64_52
+  - first:
+      213: 21300106
+    second: ExtraObjectsColor3@64x64_53
+  - first:
+      213: 21300108
+    second: ExtraObjectsColor3@64x64_54
+  - first:
+      213: 21300110
+    second: ExtraObjectsColor3@64x64_55
+  - first:
+      213: 21300112
+    second: ExtraObjectsColor3@64x64_56
+  - first:
+      213: 21300114
+    second: ExtraObjectsColor3@64x64_57
+  - first:
+      213: 21300116
+    second: ExtraObjectsColor3@64x64_58
+  - first:
+      213: 21300118
+    second: ExtraObjectsColor3@64x64_59
+  - first:
+      213: 21300120
+    second: ExtraObjectsColor3@64x64_60
+  - first:
+      213: 21300122
+    second: ExtraObjectsColor3@64x64_61
+  - first:
+      213: 21300124
+    second: ExtraObjectsColor3@64x64_62
+  - first:
+      213: 21300126
+    second: ExtraObjectsColor3@64x64_63
+  - first:
+      213: 21300128
+    second: ExtraObjectsColor3@64x64_64
+  - first:
+      213: 21300130
+    second: ExtraObjectsColor3@64x64_65
+  - first:
+      213: 21300132
+    second: ExtraObjectsColor3@64x64_66
+  - first:
+      213: 21300134
+    second: ExtraObjectsColor3@64x64_67
+  - first:
+      213: 21300136
+    second: ExtraObjectsColor3@64x64_68
+  - first:
+      213: 21300138
+    second: ExtraObjectsColor3@64x64_69
+  - first:
+      213: 21300140
+    second: ExtraObjectsColor3@64x64_70
+  - first:
+      213: 21300142
+    second: ExtraObjectsColor3@64x64_71
+  - first:
+      213: 21300144
+    second: ExtraObjectsColor3@64x64_72
+  - first:
+      213: 21300146
+    second: ExtraObjectsColor3@64x64_73
+  - first:
+      213: 21300148
+    second: ExtraObjectsColor3@64x64_74
+  - first:
+      213: 21300150
+    second: ExtraObjectsColor3@64x64_75
+  - first:
+      213: 21300152
+    second: ExtraObjectsColor3@64x64_76
+  - first:
+      213: 21300154
+    second: ExtraObjectsColor3@64x64_77
+  - first:
+      213: 21300156
+    second: ExtraObjectsColor3@64x64_78
+  - first:
+      213: 21300158
+    second: ExtraObjectsColor3@64x64_79
+  - first:
+      213: 21300160
+    second: ExtraObjectsColor3@64x64_80
+  - first:
+      213: 21300162
+    second: ExtraObjectsColor3@64x64_81
+  - first:
+      213: 21300164
+    second: ExtraObjectsColor3@64x64_82
+  - first:
+      213: 21300166
+    second: ExtraObjectsColor3@64x64_83
+  - first:
+      213: 21300168
+    second: ExtraObjectsColor3@64x64_84
+  - first:
+      213: 21300170
+    second: ExtraObjectsColor3@64x64_85
+  - first:
+      213: 21300172
+    second: ExtraObjectsColor3@64x64_86
+  - first:
+      213: 21300174
+    second: ExtraObjectsColor3@64x64_87
+  - first:
+      213: 21300176
+    second: ExtraObjectsColor3@64x64_88
+  - first:
+      213: 21300178
+    second: ExtraObjectsColor3@64x64_89
+  - first:
+      213: 21300180
+    second: ExtraObjectsColor3@64x64_90
+  - first:
+      213: 21300182
+    second: ExtraObjectsColor3@64x64_91
+  - first:
+      213: 21300184
+    second: ExtraObjectsColor3@64x64_92
+  - first:
+      213: 21300186
+    second: ExtraObjectsColor3@64x64_93
+  - first:
+      213: 21300188
+    second: ExtraObjectsColor3@64x64_94
+  - first:
+      213: 21300190
+    second: ExtraObjectsColor3@64x64_95
+  - first:
+      213: 21300192
+    second: ExtraObjectsColor3@64x64_96
+  - first:
+      213: 21300194
+    second: ExtraObjectsColor3@64x64_97
+  - first:
+      213: 21300196
+    second: ExtraObjectsColor3@64x64_98
+  - first:
+      213: 21300198
+    second: ExtraObjectsColor3@64x64_99
+  - first:
+      213: 21300200
+    second: ExtraObjectsColor3@64x64_100
+  - first:
+      213: 21300202
+    second: ExtraObjectsColor3@64x64_101
+  - first:
+      213: 21300204
+    second: ExtraObjectsColor3@64x64_102
+  - first:
+      213: 21300206
+    second: ExtraObjectsColor3@64x64_103
+  - first:
+      213: 21300208
+    second: ExtraObjectsColor3@64x64_104
+  - first:
+      213: 21300210
+    second: ExtraObjectsColor3@64x64_105
+  - first:
+      213: 21300212
+    second: ExtraObjectsColor3@64x64_106
+  - first:
+      213: 21300214
+    second: ExtraObjectsColor3@64x64_107
+  - first:
+      213: 21300216
+    second: ExtraObjectsColor3@64x64_108
+  - first:
+      213: 21300218
+    second: ExtraObjectsColor3@64x64_109
+  - first:
+      213: 21300220
+    second: ExtraObjectsColor3@64x64_110
+  - first:
+      213: 21300222
+    second: ExtraObjectsColor3@64x64_111
+  - first:
+      213: 21300224
+    second: ExtraObjectsColor3@64x64_112
+  - first:
+      213: 21300226
+    second: ExtraObjectsColor3@64x64_113
+  - first:
+      213: 21300228
+    second: ExtraObjectsColor3@64x64_114
+  - first:
+      213: 21300230
+    second: ExtraObjectsColor3@64x64_115
+  - first:
+      213: 21300232
+    second: ExtraObjectsColor3@64x64_116
+  - first:
+      213: 21300234
+    second: ExtraObjectsColor3@64x64_117
+  - first:
+      213: 21300236
+    second: ExtraObjectsColor3@64x64_118
+  - first:
+      213: 21300238
+    second: ExtraObjectsColor3@64x64_119
+  - first:
+      213: 21300240
+    second: ExtraObjectsColor3@64x64_120
+  - first:
+      213: 21300242
+    second: ExtraObjectsColor3@64x64_121
+  - first:
+      213: 21300244
+    second: ExtraObjectsColor3@64x64_122
+  - first:
+      213: 21300246
+    second: ExtraObjectsColor3@64x64_123
+  - first:
+      213: 21300248
+    second: ExtraObjectsColor3@64x64_124
+  - first:
+      213: 21300250
+    second: ExtraObjectsColor3@64x64_125
+  - first:
+      213: 21300252
+    second: ExtraObjectsColor3@64x64_126
+  - first:
+      213: 21300254
+    second: ExtraObjectsColor3@64x64_127
+  - first:
+      213: 21300256
+    second: ExtraObjectsColor3@64x64_128
+  - first:
+      213: 21300258
+    second: ExtraObjectsColor3@64x64_129
+  - first:
+      213: 21300260
+    second: ExtraObjectsColor3@64x64_130
+  - first:
+      213: 21300262
+    second: ExtraObjectsColor3@64x64_131
+  - first:
+      213: 21300264
+    second: ExtraObjectsColor3@64x64_132
+  - first:
+      213: 21300266
+    second: ExtraObjectsColor3@64x64_133
+  - first:
+      213: 21300268
+    second: ExtraObjectsColor3@64x64_134
+  - first:
+      213: 21300270
+    second: ExtraObjectsColor3@64x64_135
+  - first:
+      213: 21300272
+    second: ExtraObjectsColor3@64x64_136
+  - first:
+      213: 21300274
+    second: ExtraObjectsColor3@64x64_137
+  - first:
+      213: 21300276
+    second: ExtraObjectsColor3@64x64_138
+  - first:
+      213: 21300278
+    second: ExtraObjectsColor3@64x64_139
+  - first:
+      213: 21300280
+    second: ExtraObjectsColor3@64x64_140
+  - first:
+      213: 21300282
+    second: ExtraObjectsColor3@64x64_141
+  - first:
+      213: 21300284
+    second: ExtraObjectsColor3@64x64_142
+  - first:
+      213: 21300286
+    second: ExtraObjectsColor3@64x64_143
+  - first:
+      213: 21300288
+    second: ExtraObjectsColor3@64x64_144
+  - first:
+      213: 21300290
+    second: ExtraObjectsColor3@64x64_145
+  - first:
+      213: 21300292
+    second: ExtraObjectsColor3@64x64_146
+  - first:
+      213: 21300294
+    second: ExtraObjectsColor3@64x64_147
+  - first:
+      213: 21300296
+    second: ExtraObjectsColor3@64x64_148
+  - first:
+      213: 21300298
+    second: ExtraObjectsColor3@64x64_149
+  - first:
+      213: 21300300
+    second: ExtraObjectsColor3@64x64_150
+  - first:
+      213: 21300302
+    second: ExtraObjectsColor3@64x64_151
+  - first:
+      213: 21300304
+    second: ExtraObjectsColor3@64x64_152
+  - first:
+      213: 21300306
+    second: ExtraObjectsColor3@64x64_153
+  - first:
+      213: 21300308
+    second: ExtraObjectsColor3@64x64_154
+  - first:
+      213: 21300310
+    second: ExtraObjectsColor3@64x64_155
+  - first:
+      213: 21300312
+    second: ExtraObjectsColor3@64x64_156
+  - first:
+      213: 21300314
+    second: ExtraObjectsColor3@64x64_157
+  - first:
+      213: 21300316
+    second: ExtraObjectsColor3@64x64_158
+  - first:
+      213: 21300318
+    second: ExtraObjectsColor3@64x64_159
+  - first:
+      213: 21300320
+    second: ExtraObjectsColor3@64x64_160
+  - first:
+      213: 21300322
+    second: ExtraObjectsColor3@64x64_161
+  - first:
+      213: 21300324
+    second: ExtraObjectsColor3@64x64_162
+  - first:
+      213: 21300326
+    second: ExtraObjectsColor3@64x64_163
+  - first:
+      213: 21300328
+    second: ExtraObjectsColor3@64x64_164
+  - first:
+      213: 21300330
+    second: ExtraObjectsColor3@64x64_165
+  - first:
+      213: 21300332
+    second: ExtraObjectsColor3@64x64_166
+  - first:
+      213: 21300334
+    second: ExtraObjectsColor3@64x64_167
+  - first:
+      213: 21300336
+    second: ExtraObjectsColor3@64x64_168
+  - first:
+      213: 21300338
+    second: ExtraObjectsColor3@64x64_169
+  - first:
+      213: 21300340
+    second: ExtraObjectsColor3@64x64_170
+  - first:
+      213: 21300342
+    second: ExtraObjectsColor3@64x64_171
+  - first:
+      213: 21300344
+    second: ExtraObjectsColor3@64x64_172
+  - first:
+      213: 21300346
+    second: ExtraObjectsColor3@64x64_173
+  - first:
+      213: 21300348
+    second: ExtraObjectsColor3@64x64_174
+  - first:
+      213: 21300350
+    second: ExtraObjectsColor3@64x64_175
+  - first:
+      213: 21300352
+    second: ExtraObjectsColor3@64x64_176
+  - first:
+      213: 21300354
+    second: ExtraObjectsColor3@64x64_177
+  - first:
+      213: 21300356
+    second: ExtraObjectsColor3@64x64_178
+  - first:
+      213: 21300358
+    second: ExtraObjectsColor3@64x64_179
+  - first:
+      213: 21300360
+    second: ExtraObjectsColor3@64x64_180
+  - first:
+      213: 21300362
+    second: ExtraObjectsColor3@64x64_181
+  - first:
+      213: 21300364
+    second: ExtraObjectsColor3@64x64_182
+  - first:
+      213: 21300366
+    second: ExtraObjectsColor3@64x64_183
+  - first:
+      213: 21300368
+    second: ExtraObjectsColor3@64x64_184
+  - first:
+      213: 21300370
+    second: ExtraObjectsColor3@64x64_185
+  - first:
+      213: 21300372
+    second: ExtraObjectsColor3@64x64_186
+  - first:
+      213: 21300374
+    second: ExtraObjectsColor3@64x64_187
+  - first:
+      213: 21300376
+    second: ExtraObjectsColor3@64x64_188
+  - first:
+      213: 21300378
+    second: ExtraObjectsColor3@64x64_189
+  - first:
+      213: 21300380
+    second: ExtraObjectsColor3@64x64_190
+  - first:
+      213: 21300382
+    second: ExtraObjectsColor3@64x64_191
+  - first:
+      213: 21300384
+    second: ExtraObjectsColor3@64x64_192
+  - first:
+      213: 21300386
+    second: ExtraObjectsColor3@64x64_193
+  - first:
+      213: 21300388
+    second: ExtraObjectsColor3@64x64_194
+  - first:
+      213: 21300390
+    second: ExtraObjectsColor3@64x64_195
+  - first:
+      213: 21300392
+    second: ExtraObjectsColor3@64x64_196
+  - first:
+      213: 21300394
+    second: ExtraObjectsColor3@64x64_197
+  - first:
+      213: 21300396
+    second: ExtraObjectsColor3@64x64_198
+  - first:
+      213: 21300398
+    second: ExtraObjectsColor3@64x64_199
+  - first:
+      213: 21300400
+    second: ExtraObjectsColor3@64x64_200
+  - first:
+      213: 21300402
+    second: ExtraObjectsColor3@64x64_201
+  - first:
+      213: 21300404
+    second: ExtraObjectsColor3@64x64_202
+  - first:
+      213: 21300406
+    second: ExtraObjectsColor3@64x64_203
+  - first:
+      213: 21300408
+    second: ExtraObjectsColor3@64x64_204
+  - first:
+      213: 21300410
+    second: ExtraObjectsColor3@64x64_205
+  - first:
+      213: 21300412
+    second: ExtraObjectsColor3@64x64_206
+  - first:
+      213: 21300414
+    second: ExtraObjectsColor3@64x64_207
+  - first:
+      213: 21300416
+    second: ExtraObjectsColor3@64x64_208
+  - first:
+      213: 21300418
+    second: ExtraObjectsColor3@64x64_209
+  - first:
+      213: 21300420
+    second: ExtraObjectsColor3@64x64_210
+  - first:
+      213: 21300422
+    second: ExtraObjectsColor3@64x64_211
+  - first:
+      213: 21300424
+    second: ExtraObjectsColor3@64x64_212
+  - first:
+      213: 21300426
+    second: ExtraObjectsColor3@64x64_213
+  - first:
+      213: 21300428
+    second: ExtraObjectsColor3@64x64_214
+  - first:
+      213: 21300430
+    second: ExtraObjectsColor3@64x64_215
+  - first:
+      213: 21300432
+    second: ExtraObjectsColor3@64x64_216
+  - first:
+      213: 21300434
+    second: ExtraObjectsColor3@64x64_217
+  - first:
+      213: 21300436
+    second: ExtraObjectsColor3@64x64_218
+  - first:
+      213: 21300438
+    second: ExtraObjectsColor3@64x64_219
+  - first:
+      213: 21300440
+    second: ExtraObjectsColor3@64x64_220
+  - first:
+      213: 21300442
+    second: ExtraObjectsColor3@64x64_221
+  - first:
+      213: 21300444
+    second: ExtraObjectsColor3@64x64_222
+  - first:
+      213: 21300446
+    second: ExtraObjectsColor3@64x64_223
+  - first:
+      213: 21300448
+    second: ExtraObjectsColor3@64x64_224
+  - first:
+      213: 21300450
+    second: ExtraObjectsColor3@64x64_225
+  - first:
+      213: 21300452
+    second: ExtraObjectsColor3@64x64_226
+  - first:
+      213: 21300454
+    second: ExtraObjectsColor3@64x64_227
+  - first:
+      213: 21300456
+    second: ExtraObjectsColor3@64x64_228
+  - first:
+      213: 21300458
+    second: ExtraObjectsColor3@64x64_229
+  - first:
+      213: 21300460
+    second: ExtraObjectsColor3@64x64_230
+  - first:
+      213: 21300462
+    second: ExtraObjectsColor3@64x64_231
+  - first:
+      213: 21300464
+    second: ExtraObjectsColor3@64x64_232
+  - first:
+      213: 21300466
+    second: ExtraObjectsColor3@64x64_233
+  - first:
+      213: 21300468
+    second: ExtraObjectsColor3@64x64_234
+  - first:
+      213: 21300470
+    second: ExtraObjectsColor3@64x64_235
+  - first:
+      213: 21300472
+    second: ExtraObjectsColor3@64x64_236
+  - first:
+      213: 21300474
+    second: ExtraObjectsColor3@64x64_237
+  - first:
+      213: 21300476
+    second: ExtraObjectsColor3@64x64_238
+  - first:
+      213: 21300478
+    second: ExtraObjectsColor3@64x64_239
+  - first:
+      213: 21300480
+    second: ExtraObjectsColor3@64x64_240
+  - first:
+      213: 21300482
+    second: ExtraObjectsColor3@64x64_241
+  - first:
+      213: 21300484
+    second: ExtraObjectsColor3@64x64_242
+  - first:
+      213: 21300486
+    second: ExtraObjectsColor3@64x64_243
+  - first:
+      213: 21300488
+    second: ExtraObjectsColor3@64x64_244
+  - first:
+      213: 21300490
+    second: ExtraObjectsColor3@64x64_245
+  - first:
+      213: 21300492
+    second: ExtraObjectsColor3@64x64_246
+  - first:
+      213: 21300494
+    second: ExtraObjectsColor3@64x64_247
+  - first:
+      213: 21300496
+    second: ExtraObjectsColor3@64x64_248
+  - first:
+      213: 21300498
+    second: ExtraObjectsColor3@64x64_249
+  - first:
+      213: 21300500
+    second: ExtraObjectsColor3@64x64_250
+  - first:
+      213: 21300502
+    second: ExtraObjectsColor3@64x64_251
+  - first:
+      213: 21300504
+    second: ExtraObjectsColor3@64x64_252
+  - first:
+      213: 21300506
+    second: ExtraObjectsColor3@64x64_253
+  - first:
+      213: 728528325952492481
+    second: ExtraObjectsColor3@64x64_0
+  - first:
+      213: -2779708211566289993
+    second: ExtraObjectsColor3@64x64_1
+  - first:
+      213: -2994648205468765568
+    second: ExtraObjectsColor3@64x64_2
+  - first:
+      213: 6335260606640901275
+    second: ExtraObjectsColor3@64x64_3
+  - first:
+      213: 6234971099663759510
+    second: ExtraObjectsColor3@64x64_4
+  - first:
+      213: -2776570269203647479
+    second: ExtraObjectsColor3@64x64_5
+  - first:
+      213: 4444447792494194879
+    second: ExtraObjectsColor3@64x64_6
+  - first:
+      213: 3593770081911087159
+    second: ExtraObjectsColor3@64x64_7
+  - first:
+      213: 6252476429334564867
+    second: ExtraObjectsColor3@64x64_8
+  - first:
+      213: -3258032059222238865
+    second: ExtraObjectsColor3@64x64_9
+  - first:
+      213: 152589003134349732
+    second: ExtraObjectsColor3@64x64_10
+  - first:
+      213: 3588592200080576042
+    second: ExtraObjectsColor3@64x64_11
+  - first:
+      213: 8981127752043902053
+    second: ExtraObjectsColor3@64x64_12
+  - first:
+      213: 4154629741393889485
+    second: ExtraObjectsColor3@64x64_13
+  - first:
+      213: -5552428982588722365
+    second: ExtraObjectsColor3@64x64_14
+  - first:
+      213: 2097088855210924350
+    second: ExtraObjectsColor3@64x64_15
+  - first:
+      213: 4122171220748189204
+    second: ExtraObjectsColor3@64x64_16
+  - first:
+      213: -3636620427167988306
+    second: ExtraObjectsColor3@64x64_17
+  - first:
+      213: -3283495474309207938
+    second: ExtraObjectsColor3@64x64_18
+  - first:
+      213: 1535873192308137800
+    second: ExtraObjectsColor3@64x64_19
+  - first:
+      213: -3601397236552009817
+    second: ExtraObjectsColor3@64x64_20
+  - first:
+      213: -6602232170476775901
+    second: ExtraObjectsColor3@64x64_21
+  - first:
+      213: 4559130557918569531
+    second: ExtraObjectsColor3@64x64_22
+  - first:
+      213: 3678880131146016496
+    second: ExtraObjectsColor3@64x64_23
+  - first:
+      213: -2199242636731085526
+    second: ExtraObjectsColor3@64x64_24
+  - first:
+      213: -2365671915114013064
+    second: ExtraObjectsColor3@64x64_25
+  - first:
+      213: 8138293306281231816
+    second: ExtraObjectsColor3@64x64_26
+  - first:
+      213: 3266087546611430814
+    second: ExtraObjectsColor3@64x64_27
+  - first:
+      213: -3950011349429847195
+    second: ExtraObjectsColor3@64x64_28
+  - first:
+      213: 8286768521294859075
+    second: ExtraObjectsColor3@64x64_29
+  - first:
+      213: 5926371532630224894
+    second: ExtraObjectsColor3@64x64_30
+  - first:
+      213: -8013772658056653115
+    second: ExtraObjectsColor3@64x64_31
+  - first:
+      213: 5872623232155774068
+    second: ExtraObjectsColor3@64x64_32
+  - first:
+      213: 6841479581626638583
+    second: ExtraObjectsColor3@64x64_33
+  - first:
+      213: 94229004867920545
+    second: ExtraObjectsColor3@64x64_34
+  - first:
+      213: 2079060020467372108
+    second: ExtraObjectsColor3@64x64_35
+  - first:
+      213: 391564283108553359
+    second: ExtraObjectsColor3@64x64_36
+  - first:
+      213: 7181950939805649479
+    second: ExtraObjectsColor3@64x64_37
+  - first:
+      213: 2158522275997263663
+    second: ExtraObjectsColor3@64x64_38
+  - first:
+      213: -2274753720648121116
+    second: ExtraObjectsColor3@64x64_39
+  - first:
+      213: -5044472041755588574
+    second: ExtraObjectsColor3@64x64_40
+  - first:
+      213: -4648896952784305319
+    second: ExtraObjectsColor3@64x64_41
+  - first:
+      213: -261693250043915104
+    second: ExtraObjectsColor3@64x64_42
+  - first:
+      213: -8262658786177509374
+    second: ExtraObjectsColor3@64x64_43
+  - first:
+      213: 500619550704912440
+    second: ExtraObjectsColor3@64x64_44
+  - first:
+      213: 3530527955763077573
+    second: ExtraObjectsColor3@64x64_45
+  - first:
+      213: -5747723931550084510
+    second: ExtraObjectsColor3@64x64_46
+  - first:
+      213: -4166617706874410237
+    second: ExtraObjectsColor3@64x64_47
+  - first:
+      213: -3540538529877792588
+    second: ExtraObjectsColor3@64x64_48
+  - first:
+      213: -2315470790457842241
+    second: ExtraObjectsColor3@64x64_49
+  - first:
+      213: 852264257339389549
+    second: ExtraObjectsColor3@64x64_50
+  - first:
+      213: -6923440856990631088
+    second: ExtraObjectsColor3@64x64_51
+  - first:
+      213: 7112585584523251269
+    second: ExtraObjectsColor3@64x64_52
+  - first:
+      213: 185809906449543336
+    second: ExtraObjectsColor3@64x64_53
+  - first:
+      213: 4211903651606154068
+    second: ExtraObjectsColor3@64x64_54
+  - first:
+      213: 9149623360852777969
+    second: ExtraObjectsColor3@64x64_55
+  - first:
+      213: -99733722393837483
+    second: ExtraObjectsColor3@64x64_56
+  - first:
+      213: 3369710484824825863
+    second: ExtraObjectsColor3@64x64_57
+  - first:
+      213: 3501261582518542515
+    second: ExtraObjectsColor3@64x64_58
+  - first:
+      213: 5924661661579311568
+    second: ExtraObjectsColor3@64x64_59
+  - first:
+      213: -5438958331045189041
+    second: ExtraObjectsColor3@64x64_60
+  - first:
+      213: -5779186284294062821
+    second: ExtraObjectsColor3@64x64_61
+  - first:
+      213: -4478016116047825592
+    second: ExtraObjectsColor3@64x64_62
+  - first:
+      213: -672156202922647231
+    second: ExtraObjectsColor3@64x64_63
+  - first:
+      213: -246041278226036048
+    second: ExtraObjectsColor3@64x64_64
+  - first:
+      213: -6925307402608706720
+    second: ExtraObjectsColor3@64x64_65
+  - first:
+      213: 3509240335522272790
+    second: ExtraObjectsColor3@64x64_66
+  - first:
+      213: -1189398959198355278
+    second: ExtraObjectsColor3@64x64_67
+  - first:
+      213: -4767605002448008240
+    second: ExtraObjectsColor3@64x64_68
+  - first:
+      213: 7823493426137883687
+    second: ExtraObjectsColor3@64x64_69
+  - first:
+      213: 588938411516306225
+    second: ExtraObjectsColor3@64x64_70
+  - first:
+      213: 5067988524792679961
+    second: ExtraObjectsColor3@64x64_71
+  - first:
+      213: -4154736907077324680
+    second: ExtraObjectsColor3@64x64_72
+  - first:
+      213: 644228037215347774
+    second: ExtraObjectsColor3@64x64_73
+  - first:
+      213: 1446601445159042283
+    second: ExtraObjectsColor3@64x64_74
+  - first:
+      213: -4488967650398373979
+    second: ExtraObjectsColor3@64x64_75
+  - first:
+      213: 8912701700031939617
+    second: ExtraObjectsColor3@64x64_76
+  - first:
+      213: -3160894788108660871
+    second: ExtraObjectsColor3@64x64_77
+  - first:
+      213: 7921437360300789339
+    second: ExtraObjectsColor3@64x64_78
+  - first:
+      213: 5561262718511170573
+    second: ExtraObjectsColor3@64x64_79
+  - first:
+      213: 4784343307435409876
+    second: ExtraObjectsColor3@64x64_80
+  - first:
+      213: 4850190616265327807
+    second: ExtraObjectsColor3@64x64_81
+  - first:
+      213: 7364970322419976009
+    second: ExtraObjectsColor3@64x64_82
+  - first:
+      213: -8244875983193586681
+    second: ExtraObjectsColor3@64x64_83
+  - first:
+      213: -847535452806618039
+    second: ExtraObjectsColor3@64x64_84
+  - first:
+      213: -3743967060559046928
+    second: ExtraObjectsColor3@64x64_85
+  - first:
+      213: -4732682634279158341
+    second: ExtraObjectsColor3@64x64_86
+  - first:
+      213: -6733033192162346470
+    second: ExtraObjectsColor3@64x64_87
+  - first:
+      213: -7054324178047576122
+    second: ExtraObjectsColor3@64x64_88
+  - first:
+      213: -8840078075076672633
+    second: ExtraObjectsColor3@64x64_89
+  - first:
+      213: 966215433209975928
+    second: ExtraObjectsColor3@64x64_90
+  - first:
+      213: -8994610397598085218
+    second: ExtraObjectsColor3@64x64_91
+  - first:
+      213: 8699980907534167290
+    second: ExtraObjectsColor3@64x64_92
+  - first:
+      213: -4958218508498074584
+    second: ExtraObjectsColor3@64x64_93
+  - first:
+      213: 2465258119040262455
+    second: ExtraObjectsColor3@64x64_94
+  - first:
+      213: 7870560850080580265
+    second: ExtraObjectsColor3@64x64_95
+  - first:
+      213: -6196381171156497426
+    second: ExtraObjectsColor3@64x64_96
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 901
+        width: 55
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c3553d07a04c1a00800000000000000
+      internalID: 728528325952492481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 900
+        width: 55
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bbda5eeb1e7c69d0800000000000000
+      internalID: -2779708211566289993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 897
+        width: 115
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 082f5cdc25fd076d0800000000000000
+      internalID: -2994648205468765568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_3
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 965
+        width: 56
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c4b52c4fd5be750800000000000000
+      internalID: 6335260606640901275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_4
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 977
+        width: 36
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 698f84c4e21178650800000000000000
+      internalID: 6234971099663759510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_5
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 898
+        width: 61
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 904b4321d04a779d0800000000000000
+      internalID: -2776570269203647479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_6
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 961
+        width: 64
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb0b26638b9ddad30800000000000000
+      internalID: 4444447792494194879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_7
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 902
+        width: 126
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 730acb059d2afd130800000000000000
+      internalID: 3593770081911087159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_8
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 906
+        width: 123
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3005df87f2245c650800000000000000
+      internalID: 6252476429334564867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_9
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 906
+        width: 127
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f69593b9a1529c2d0800000000000000
+      internalID: -3258032059222238865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_10
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 901
+        width: 124
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a13470d3ea1e1200800000000000000
+      internalID: 152589003134349732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_11
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 965
+        width: 18
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e4a81c79d3dc130800000000000000
+      internalID: 3588592200080576042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_12
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 965
+        width: 7
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 564bafe3b1063ac70800000000000000
+      internalID: 8981127752043902053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_13
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 902
+        width: 54
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc84e05dcb538a930800000000000000
+      internalID: 4154629741393889485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_14
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 836
+        width: 33
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3433734224fc1f2b0800000000000000
+      internalID: -5552428982588722365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_15
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 896
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e391745f33b5a1d10800000000000000
+      internalID: 2097088855210924350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 782
+        width: 64
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41eb80492e4e43930800000000000000
+      internalID: 4122171220748189204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_17
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 774
+        width: 53
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea509b73df0288dc0800000000000000
+      internalID: -3636620427167988306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_18
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 808
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e786238434eae62d0800000000000000
+      internalID: -3283495474309207938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_19
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 770
+        width: 51
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84f529fe784805510800000000000000
+      internalID: 1535873192308137800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_20
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 777
+        width: 62
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a77e3c5b44450ec0800000000000000
+      internalID: -3601397236552009817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_21
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 833
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 326531232d82064a0800000000000000
+      internalID: -6602232170476775901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_22
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 776
+        width: 100
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b346d5d4619454f30800000000000000
+      internalID: 4559130557918569531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_23
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 511
+        width: 322
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f6633cdcf10e0330800000000000000
+      internalID: 3678880131146016496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_24
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 709
+        width: 149
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2d00c65978ba71e0800000000000000
+      internalID: -2199242636731085526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_25
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 652
+        width: 102
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ed2845de17b2fd0800000000000000
+      internalID: -2365671915114013064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_26
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 776
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c505deb4a601f070800000000000000
+      internalID: 8138293306281231816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_27
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 653
+        width: 123
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e95f915b159735d20800000000000000
+      internalID: 3266087546611430814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_28
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 696
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56bf8721b9dbe29c0800000000000000
+      internalID: -3950011349429847195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_29
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 696
+        width: 33
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34b4baf9014800370800000000000000
+      internalID: 8286768521294859075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_30
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 715
+        width: 46
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff69697283be3250800000000000000
+      internalID: 5926371532630224894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_31
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 712
+        width: 31
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c69bcde93c59c090800000000000000
+      internalID: -8013772658056653115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_32
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 648
+        width: 42
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ce95417bfbf7150800000000000000
+      internalID: 5872623232155774068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_33
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 651
+        width: 37
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f0a1f88e61d1fe50800000000000000
+      internalID: 6841479581626638583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_34
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 651
+        width: 50
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a2e0bad7c4ce4100800000000000000
+      internalID: 94229004867920545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_35
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 516
+        width: 187
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c409ca2c21e4adc10800000000000000
+      internalID: 2079060020467372108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_36
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 575
+        width: 57
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f827a6114ad1f6500800000000000000
+      internalID: 391564283108553359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_37
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 579
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74a0661045a6ba360800000000000000
+      internalID: 7181950939805649479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_38
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 636
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f27a59cd29c94fd10800000000000000
+      internalID: 2158522275997263663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_39
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 635
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e445411b837e60e0800000000000000
+      internalID: -2274753720648121116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_40
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 625
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 228c4cf976f6ef9b0800000000000000
+      internalID: -5044472041755588574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_41
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 520
+        width: 186
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95345e33adccb7fb0800000000000000
+      internalID: -4648896952784305319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_42
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 590
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a4d30720674e5cf0800000000000000
+      internalID: -261693250043915104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_43
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 522
+        width: 54
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20811a58c93255d80800000000000000
+      internalID: -8262658786177509374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 452
+        width: 130
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 838c16734de82f600800000000000000
+      internalID: 500619550704912440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_45
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 450
+        width: 125
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c128d06874fef030800000000000000
+      internalID: 3530527955763077573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_46
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 518
+        width: 38
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26212f8798bfb30b0800000000000000
+      internalID: -5747723931550084510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_47
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 511
+        width: 52
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30be5e275433d26c0800000000000000
+      internalID: -4166617706874410237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_48
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 451
+        width: 60
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b8ec0537fa7ddec0800000000000000
+      internalID: -3540538529877792588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_49
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 451
+        width: 61
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb5a7fe759bcddfd0800000000000000
+      internalID: -2315470790457842241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_50
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 454
+        width: 62
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d66f97993d9d3db00800000000000000
+      internalID: 852264257339389549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_51
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 450
+        width: 126
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05bb5a7f83ffaef90800000000000000
+      internalID: -6923440856990631088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_52
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 385
+        width: 67
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54e8210b7eaf4b260800000000000000
+      internalID: 7112585584523251269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_53
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 383
+        width: 34
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a07cad1021249200800000000000000
+      internalID: 185809906449543336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_54
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 387
+        width: 61
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45bc7263e00b37a30800000000000000
+      internalID: 4211903651606154068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_55
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 389
+        width: 65
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fbde3c48fdf9fe70800000000000000
+      internalID: 9149623360852777969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_56
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 388
+        width: 59
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 550869835bcad9ef0800000000000000
+      internalID: -99733722393837483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_57
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 389
+        width: 96
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 700a4eb15dd93ce20800000000000000
+      internalID: 3369710484824825863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_58
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 443
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b06dbbdbdaf69030800000000000000
+      internalID: 3501261582518542515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_59
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 328
+        width: 110
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d97fc81460a83250800000000000000
+      internalID: 5924661661579311568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 330
+        width: 64
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4a66e9f630f484b0800000000000000
+      internalID: -5438958331045189041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_61
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 323
+        width: 59
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1db7d1a1b43ccfa0800000000000000
+      internalID: -5779186284294062821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_62
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 330
+        width: 60
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 845be786114ead1c0800000000000000
+      internalID: -4478016116047825592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_63
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 326
+        width: 60
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1416833ae750ca6f0800000000000000
+      internalID: -672156202922647231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_64
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 324
+        width: 61
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ba0143d2c2e59cf0800000000000000
+      internalID: -246041278226036048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_65
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 328
+        width: 53
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06bff13fb9d54ef90800000000000000
+      internalID: -6925307402608706720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_66
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 324
+        width: 62
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 616174e0e7353b030800000000000000
+      internalID: 3509240335522272790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_67
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 322
+        width: 61
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b043c4c2f76e7fe0800000000000000
+      internalID: -1189398959198355278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_68
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 383
+        width: 10
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0db06b7928016ddb0800000000000000
+      internalID: -4767605002448008240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_69
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 265
+        width: 117
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7246d8702d1a29c60800000000000000
+      internalID: 7823493426137883687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_70
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 263
+        width: 92
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 133230d6d545c2800800000000000000
+      internalID: 588938411516306225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_71
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 325
+        width: 62
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91e060246bc155640800000000000000
+      internalID: 5067988524792679961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_72
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 267
+        width: 58
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8707376bbc86756c0800000000000000
+      internalID: -4154736907077324680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_73
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 348
+        width: 11
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3461909cf1c0f800800000000000000
+      internalID: 644228037215347774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_74
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 14
+        width: 117
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bec7546995c531410800000000000000
+      internalID: 1446601445159042283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_75
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 10
+        width: 190
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a7f8cd94bbf3b1c0800000000000000
+      internalID: -4488967650398373979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_76
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 9
+        width: 186
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1248c6389f640bb70800000000000000
+      internalID: 8912701700031939617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_77
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 139
+        width: 57
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97f4666ffee3224d0800000000000000
+      internalID: -3160894788108660871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_78
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 259
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5e8c334f499eed60800000000000000
+      internalID: 7921437360300789339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_79
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 276
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d044b774af29d2d40800000000000000
+      internalID: 5561262718511170573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_80
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 262
+        width: 60
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d1843bb3e6656240800000000000000
+      internalID: 4784343307435409876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_81
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 193
+        width: 57
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb48d670ba65f4340800000000000000
+      internalID: 4850190616265327807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_82
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 203
+        width: 51
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9470329ac71a53660800000000000000
+      internalID: 7364970322419976009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_83
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 192
+        width: 60
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 704c89cf9f0549d80800000000000000
+      internalID: -8244875983193586681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_84
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 131
+        width: 125
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94469e00ff2fc34f0800000000000000
+      internalID: -847535452806618039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_85
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 196
+        width: 52
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f65d987bc1ca0cc0800000000000000
+      internalID: -3743967060559046928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_86
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 132
+        width: 61
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd712d0832225eb0800000000000000
+      internalID: -4732682634279158341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_87
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 177
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1abf302cf57f82a0800000000000000
+      internalID: -6733033192162346470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_88
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 129
+        width: 176
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c7560519810a1e90800000000000000
+      internalID: -7054324178047576122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_89
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 129
+        width: 63
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7830654d3dbb15580800000000000000
+      internalID: -8840078075076672633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_90
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 10
+        width: 47
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8741bf831dfa86d00800000000000000
+      internalID: 966215433209975928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_91
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 18
+        width: 123
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9f8126bf79bc2380800000000000000
+      internalID: -8994610397598085218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_92
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 11
+        width: 118
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afc214a7a8a8cb870800000000000000
+      internalID: 8699980907534167290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_93
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 64
+        width: 120
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 824843a498ed03bb0800000000000000
+      internalID: -4958218508498074584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_94
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 66
+        width: 59
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 731ea01a23b563220800000000000000
+      internalID: 2465258119040262455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_95
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 4
+        width: 62
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a24624a469d93d60800000000000000
+      internalID: 7870560850080580265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraObjectsColor3@64x64_96
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 1
+        width: 100
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeb4c489728020aa0800000000000000
+      internalID: -6196381171156497426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 63ab034ea51e3cf46b665d8e131ac882
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

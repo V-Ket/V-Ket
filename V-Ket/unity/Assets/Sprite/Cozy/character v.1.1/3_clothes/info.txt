@@ -1,0 +1,27 @@
+
+Each cell is 256x992 px
+
+Colors are sorted alphabetically:
+
+SHOES: black, blue, blue_light, brown, green, grey, orange, pink, purple, red, white
+
+SHIRTS
+BASIC: black, blue, blue_light, brown, green, green_light, pink, purple, red, white
+DRESS: "
+FLORAL: "
+OVERALLS: black, blue, blue_light, brown, green, grey, orange, pink, purple, red
+SAILOR BASE: black, blue, blue_light, brown, green, green_light, pink, purple, red, white
+SAILOR BOW: black, blue, blue_light, brown, green, green_light, pink, purple
+SPORTY: black, blue, blue_light, brown, green, green_light, pink, purple, red
+SUIT: black, blue, blue_light, brown, green, green_light, pink, purple, red, white
+SUIT TIE: black, blue, blue_light, brown, green, green_light, pink, purple, red
+
+LEGS
+PANTS: black, blue, blue_light, brown, green, green_light, grey, orange, pink, purple, red, white
+SKIRTY: black, blue, blue_light, brown, green, grey, orange, pink, purple, red, white
+SUIT PANTS: black, blue, blue_light, brown, green, green_light, pink, purple, red, white
+
+
+
+
+

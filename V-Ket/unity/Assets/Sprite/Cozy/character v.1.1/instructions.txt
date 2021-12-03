@@ -1,0 +1,41 @@
+
+GRID SIZE: 32x32
+CELL SIZE: animations: 256x992
+	    fishing: 160x128
+
+LAYERS
+
+1. Characters
+2. Eyes -> Blush/Lipstick
+3. Clothes: 
+	1. Shoes
+	2. Shirt
+	3. Pants/Skirt (you want pants on top because skirts are higher than the bottom of the shirts)
+4. Hair
+5. Accessories 
+	1. Beard
+	2. Glasses
+	3. Hat
+
+
+ANIMATIONS
+
+Movements have anticipation, for example right before a jump your character will anticipate for the jump, 
+and also spend a little bit more time at the highest point of the jump. You might want to adjust the frame rate based on 
+how fast your character moves/ how far jumps etc. The included gifs have the following frame rates:
+
+Carry 	FR:100
+Block	FR: 200,400
+Die 	FR:500
+Fish(d/u)	FR:100, 250, 60, 100, 100
+Fish(l/r)	FR:100; 100; 250; 60; 100
+Jump 	FR:100, 200,100, 120, 100
+Pickaxe 	FR:100, 100, 250, 60, 100
+Sword	FR:100, 200, 80, 100
+Walk       	FR:100
+Water 	FR:300, 600
+
+
+
+
+
